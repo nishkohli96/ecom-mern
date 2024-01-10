@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src", "src/**/*.json"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "rootDir": "src",
+    "resolveJsonModule": true
+  },
+  "exclude": ["src/shared/components/display/ErrorBoundary.jsx"]
+}

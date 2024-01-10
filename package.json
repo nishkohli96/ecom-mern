@@ -1,0 +1,27 @@
+{
+  "name": "e-commerce",
+  "author": "Nishant Kohli",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "ecom-client": "yarn workspace ecom-mern-client start",
+    "ecom-server": "yarn workspace ecom-mern-server start",
+    "ecom-shared": "yarn workspace @ecom/mern-shared build",
+    "prettier": "prettier --write * --ignore-unknown",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx,html,scss,css}": [
+      "yarn run prettier"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
+}
