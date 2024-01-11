@@ -7,7 +7,7 @@ import {
   phoneValidation,
   passwordValidation,
   passwordOptionalValidation,
-} from '@ecom/mern-shared/build/form-validations';
+} from '@ecom/mern-shared';
 import { UserRole } from 'models/User';
 import * as UserTypes from './types';
 

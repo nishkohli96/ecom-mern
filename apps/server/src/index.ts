@@ -35,16 +35,16 @@ const db_pswd = ENV_VARS.mongo.cluster_pswd;
 const db_connection_string = `mongodb+srv://${db_user}:${db_pswd}@${db_url}/${db_name}?retryWrites=true&w=majority`;
 
 async function bootstrap() {
-  try {
-    if (!client.isOpen) {
-      await client.connect();
-    }
-    console_log('Connected to Redis', `${redis_host}:${redis_port}`);
-  } catch (err) {
-    console.log(chalk.red('⚠ Redis Connection Error ⚠'));
-    console.log(err);
-    process.exit(1);
-  }
+  // try {
+  //   if (!client.isOpen) {
+  //     await client.connect();
+  //   }
+  //   console_log('Connected to Redis', `${redis_host}:${redis_port}`);
+  // } catch (err) {
+  //   console.log(chalk.red('⚠ Redis Connection Error ⚠'));
+  //   console.log(err);
+  //   process.exit(1);
+  // }
 
   try {
     await mongoose.connect(db_connection_string, {

@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -r tsconfig-paths/register src/index.ts",
-    "build": "rimraf build & tsc",
-    "build:run": "ts-node build/index.js"
+    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
+    "build": "rimraf dist & tsc",
+    "build:run": "ts-node dist/index.js"
   },
   "dependencies": {
     "@ecom/mern-shared": "*",
@@ -38,7 +38,11 @@
     "@types/jsonwebtoken": "^9.0.3",
     "@types/pdfkit": "^0.13.3",
     "@types/node": "^20.2.1",
+    "nodemon": "^3.0.2",
+    "rimraf": "^5.0.5",
+    "tsc": "^2.0.4",    
     "tsconfig-paths": "^4.2.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.0.4"
   }
 }
