@@ -4,14 +4,14 @@
 node_modules
 .pnp
 .pnp.js
+.turbo
 
 # testing
 /coverage
 
 # production
-build
-builds
-dist
+build/**
+dist/**
 
 # misc
 **/.DS_Store
