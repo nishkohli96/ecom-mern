@@ -40,9 +40,7 @@
     "@types/node": "^20.2.1",
     "nodemon": "^3.0.2",
     "rimraf": "^5.0.5",
-    "tsc": "^2.0.4",    
     "tsconfig-paths": "^4.2.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.0.4"
   }
 }

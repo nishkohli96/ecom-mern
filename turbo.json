@@ -1,14 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build-lib": {},
+    "build:lib": {},
     "dev": {
-      "dependsOn": ["^build-lib"],
+      "dependsOn": ["^build:lib"],
       "cache": false,
       "persistent": true
     },
     "build": {
-      "dependsOn": ["^build-lib"],
+      "dependsOn": ["^build:lib"],
       "outputs": ["dist/**", "build/**"]
     },
     "test": {

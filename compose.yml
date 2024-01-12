@@ -1,27 +1,42 @@
 services:
-  # run frontend-prod build on Port 5000
-  frontend:
-    image: docker_username/fs-docker-fe
+  # run frontend-prod build
+  client:
+    image: nish1896/ecom-mern-client
     build:
       context: .
-      dockerfile: ./apps/frontend/Dockerfile
+      dockerfile: ./apps/client/Dockerfile
     ports:
-      - '6000:80'
+      - '3000:80'
 
-  # run frontend in dev mode on Port 3000, with hot reloading
-  frontend-dev:
-    image: docker_username/fs-docker-fe-dev
+  # run client in dev mode with hot reloading
+  client-dev:
+    image: nish1896/ecom-mern-client-dev
     build:
       context: .
-      dockerfile: ./apps/frontend/Dockerfile.dev
+      dockerfile: ./apps/client/Dockerfile.dev
     ports:
-      - '3000:3000'
+      - '3001:3000'
     volumes:
       - '/app/node_modules'
-      - './apps/frontend:/app/apps/frontend'
+      - './apps/client:/app/apps/client'
 
-  # runs on port 5000
+  # runs server build
   server:
-    extends:
-      file: ./apps/server/compose.yml
-      service: server
+    image: nish1896/ecom-mern-server
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile
+    ports:
+      - '5000:5000'
+  
+  # server in dev-mode
+  server-dev:
+    image: nish1896/ecom-mern-server-dev
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile.dev
+    ports:
+      - '8080:5000'
+    volumes:
+      - '/app/node_modules'
+      - './apps/server:/app/apps/server'
