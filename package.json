@@ -15,6 +15,7 @@
     "prepare": "husky install",
     "build:lib": "turbo build:lib",
     "build-apps": "turbo build",
+    "run-apps": "turbo dev",
     "build:client": "yarn workspace ecom-mern-client build",
     "build:server": "yarn workspace ecom-mern-server build"
   },
