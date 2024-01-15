@@ -2,7 +2,7 @@ import { Response } from 'express';
 import bcrypt from 'bcrypt';
 import { ValidationError } from 'yup';
 import { ENV_VARS } from 'app-constants';
-import { UserModel, TokenModel } from 'models';
+import { AddressModel, UserModel, TokenModel } from 'models';
 import {
   printFormValidationErrors,
   UserPasswordChange,
@@ -248,17 +248,23 @@ class UserService {
     addressDetails: UserAddress
   ) {
     try {
-      const addressList = await UserModel.findOne({ _id: user_id }).select(
-        'addresses'
-      );
+      const userInfo = await UserModel.findOne({ _id: user_id }).select([
+        '_id',
+        'addresses',
+      ]);
+
+      const newAddress = new AddressModel({
+        ...addressDetails,
+        user_id: userInfo._id,
+        isDefault: userInfo?.addresses.length === 0 ? true : false,
+      });
+      const savedNewAddress = await newAddress.save();
+
       await UserModel.updateOne(
         { _id: user_id },
         {
           $push: {
-            addresses: {
-              ...addressDetails,
-              isDefault: addressList?.addresses.length === 0 ? true : false,
-            },
+            addresses: savedNewAddress._id,
           },
         }
       );
@@ -359,26 +365,25 @@ class UserService {
     delete_addressId: string
   ) {
     try {
-      const userAddresses = await UserModel.findOne({
-        _id: user_id,
-        'addresses._id': delete_addressId,
-      }).select('addresses');
-
-      const defaultAddr = userAddresses?.addresses?.find(
-        (addr) => addr.isDefault === true
-      );
-      if (defaultAddr?._id.toString() === delete_addressId) {
-        return res
-          .status(400)
-          .send(
-            'Cannot delete default address. Change your default address and then delete this address'
-          );
-      }
-      await UserModel.updateOne(
-        { _id: user_id, 'addresses._id': delete_addressId },
-        { $pop: { addresses: 1 } }
-      );
-      res.status(200).send('Address Deleted');
+      //   const userAddresses = await UserModel.findOne({
+      //     _id: user_id,
+      //     'addresses._id': delete_addressId,
+      //   }).select('addresses');
+      //   const defaultAddr = userAddresses?.addresses?.find(
+      //     (addr) => addr.isDefault === true
+      //   );
+      //   if (defaultAddr?._id.toString() === delete_addressId) {
+      //     return res
+      //       .status(400)
+      //       .send(
+      //         'Cannot delete default address. Change your default address and then delete this address'
+      //       );
+      //   }
+      //   await UserModel.updateOne(
+      //     { _id: user_id, 'addresses._id': delete_addressId },
+      //     { $pop: { addresses: 1 } }
+      //   );
+      //   res.status(200).send('Address Deleted');
     } catch (err: any) {
       errorLogger(res, err);
     }

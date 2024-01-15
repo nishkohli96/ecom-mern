@@ -1,12 +1,8 @@
-import { Schema, model } from 'mongoose';
-import {
-  emailRegex,
-  pswdRegex,
-  nameRegex,
-  UserAddress,
-} from '@ecom/mern-shared';
+import { Schema, Types, model } from 'mongoose';
+import { emailRegex, pswdRegex, nameRegex } from '@ecom/mern-shared';
 import { UserInfo } from 'routes/user/types';
 import { hashPassword } from 'utils';
+import AddressModel from './Address';
 
 export enum UserRole {
   Admin = 'ADMIN',
@@ -26,30 +22,6 @@ const PersonName = new Schema(
     last: nameValidation,
   },
   { _id: false }
-);
-
-const Address_Country_State = new Schema(
-  {
-    name: { type: String, required: true, min: 2 },
-    iso2: { type: String, required: true, min: 2 },
-  },
-  { _id: false }
-);
-
-const AddressSchema = new Schema<UserAddress>(
-  {
-    recipientName: { type: String, required: true, minLength: 2 },
-    recipientPhone: { type: String, required: true, minLength: 5 },
-    houseNo: { type: String, required: true },
-    street: { type: String, required: true },
-    landmark: { type: String, required: false, default: null },
-    city: { type: String, required: true, minLength: 2 },
-    state: { type: Address_Country_State, required: true },
-    country: { type: Address_Country_State, required: true },
-    zipCode: { type: String, required: true, minLength: 5 },
-    isDefault: { type: Boolean, default: false },
-  },
-  { timestamps: true }
 );
 
 const UserSchema = new Schema<UserInfo>(
@@ -90,7 +62,12 @@ const UserSchema = new Schema<UserInfo>(
       default: UserRole.Customer,
     },
     addresses: {
-      type: [AddressSchema],
+      type: [
+        {
+          type: Types.ObjectId,
+          ref: AddressModel,
+        },
+      ],
       default: [],
     },
     razorpay_customer_id: {
