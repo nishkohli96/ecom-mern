@@ -1,7 +1,7 @@
 
 #  e-commerce
 
-**Sample e-commerce app** that uses [big-basket](https://www.bigbasket.com/) dataset as products inventory. The search is powered by [Algolia](https://www.algolia.com/) and checkout process is managed by [Razorpay](https://razorpay.com/).
+**Sample e-commerce app** that uses [big-basket](https://www.bigbasket.com/) dataset as products inventory. The search is powered by [Algolia](https://www.algolia.com/) and checkout process is managed by [Razorpay](https://razorpay.com/). To view the complete list of libraries used, check [PackagesUsed.md](/PackagesUsed.md).
 
 - Project uses monorepo style powered by [Turborepo](https://turbo.build/).
 - Replace environment variables by your own set of values to get started.

@@ -28,4 +28,4 @@ RUN yarn build:lib
 RUN yarn build-apps
 
 # run server in dev env
-CMD ["yarn", "workspace ecom-mern-server build:run"]
+CMD ["yarn", "workspace ecom-mern-server", "build:run"]
