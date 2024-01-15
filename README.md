@@ -1,40 +1,28 @@
-# e-commerce
 
-**Sample e-commerce app**
+#  e-commerce
 
-## Features
+**Sample e-commerce app** that uses [big-basket](https://www.bigbasket.com/) dataset as products inventory. The search is powered by [Algolia](https://www.algolia.com/) and checkout process is managed by [Razorpay](https://razorpay.com/). To view the complete list of libraries used, check [PackagesUsed.md](/PackagesUsed.md).
 
-- [React](https://reactjs.org/) v18, [NestJs](https://nestjs.com/) v8.0.0
-- Monorepo
-- [Typescript](https://www.typescriptlang.org/)
-- [Prettier](https://prettier.io/) setup
-- Use `@shared/ui` as a shared package 
-- [Mui](https://mui.com/), [Redux](https://redux.js.org/) and [Mobx](https://mobx.js.org/README.html) preconfigured.
-- [Dockerize](https://docs.docker.com/) images
-- Easy to customise
-- Github Actions to test app & docker image builds
+- Project uses monorepo style powered by [Turborepo](https://turbo.build/).
+- Replace environment variables by your own set of values to get started.
+- Dev and prod [Docker](https://hub.docker.com/) images configured alongside github actions.
 
-## Get Started
+###  Get Started
 
-Install `node_modules`
-
+- Install `node_modules`
 ```
-yarn
+	yarn
 ```
 
-Build the libs in `packages` folder.
-
+- Build the common folder shared across client & server.
 ```
-yarn packages:build
-```
-
-Now start the `frontend` and `server` 
-
-```
-yarn frontend
-yarn server
+	yarn build:lib
 ```
 
-## Support Me
+- Now run the `client` and `server` apps.
+```
+	yarn run-apps
+```
 
+###  Support Me
 If you found this template helpful and saved your valuable time, consider [buying me a coffee](https://www.buymeacoffee.com/nish1896)

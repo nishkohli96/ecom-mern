@@ -4,29 +4,28 @@ FROM node:20-alpine3.18 as phase1
 WORKDIR /app
 
 # Run yarn only if package.json changes
-# copied tsconfig as shared's tsconfig extends rootDir's tsconfig
+# copied tsconfig as shared-ui's tsconfig extends rootDir's tsconfig
 COPY turbo.json .
 COPY tsconfig.json .
 COPY package.json .
 
 # first create these directories, else the copying won't work.
 RUN mkdir -p packages/shared
-RUN mkdir -p apps/client
+RUN mkdir -p apps/server
 
-# copying the contents of the shared package
+# copying only the required packages
 COPY ./packages/shared/package.json packages/shared
 COPY ./packages/shared packages/shared
 
-COPY ./apps/client/package.json apps/client
-COPY ./apps/client apps/client
+COPY ./apps/server/package.json apps/server
+COPY ./apps/server apps/server
 
 # install node_modules
 RUN yarn
 RUN yarn build:lib
 
-# build frontend
+# build server
 RUN yarn build-apps
 
-# Phase-2 -> Get the Build and host on nginx
-FROM nginx:1.25.3-alpine
-COPY --from=phase1 /app/apps/client/build /usr/share/nginx/html
+# run server in dev env
+CMD ["yarn", "workspace ecom-mern-server", "build:run"]

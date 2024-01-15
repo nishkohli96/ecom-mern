@@ -3,16 +3,24 @@
   "author": "Nishant Kohli",
   "version": "1.0.0",
   "private": true,
+  "engines" : { 
+    "node" : ">=20.10.0" 
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "ecom-client": "yarn workspace ecom-mern-client start",
-    "ecom-server": "yarn workspace ecom-mern-server start",
-    "ecom-shared": "yarn workspace @ecom/mern-shared build",
+    "ecom-client": "yarn workspace ecom-mern-client dev",
+    "ecom-server": "yarn workspace ecom-mern-server dev",
+    "ecom-shared": "yarn workspace @ecom/mern-shared build:lib",
     "prettier": "prettier --write * --ignore-unknown",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:lib": "turbo build:lib",
+    "build-apps": "turbo build",
+    "run-apps": "turbo dev",
+    "build:client": "yarn workspace ecom-mern-client build",
+    "build:server": "yarn workspace ecom-mern-server build"
   },
   "lint-staged": {
     "*.{ts,js,tsx,jsx,html,scss,css}": [
@@ -22,6 +30,8 @@
   "devDependencies": {
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
-  }
+    "prettier": "^2.7.1",
+    "turbo": "^1.11.3"
+  },
+  "packageManager": "yarn@1.22.19"
 }

@@ -1,30 +1,28 @@
 # Base Image
-FROM node:17-alpine3.14 as phase1
+FROM node:20-alpine3.18
 
 WORKDIR /app
 
-# To prevent the "command tsc not found" issue
-# RUN npm i -g typescript
-
 # Run yarn only if package.json changes
-# copied tsconfig as shared-ui's tsconfig extends rootDir's tsconfig
-COPY package.json .
+# copied tsconfig as shared's tsconfig extends rootDir's tsconfig
+COPY turbo.json .
 COPY tsconfig.json .
+COPY package.json .
 
 # first create these directories, else the copying won't work.
-RUN mkdir -p packages/shared-ui
-RUN mkdir -p apps/frontend
+RUN mkdir -p packages/shared
+RUN mkdir -p apps/client
 
-# copying only the required packages
-COPY ./packages/shared-ui/package.json packages/shared-ui
-COPY ./packages/shared-ui packages/shared-ui
+# copying the contents of the shared package
+COPY ./packages/shared/package.json packages/shared
+COPY ./packages/shared packages/shared
 
-COPY ./apps/frontend/package.json apps/frontend
-COPY ./apps/frontend apps/frontend
+COPY ./apps/client/package.json apps/client
+COPY ./apps/client apps/client
 
 # install node_modules
-RUN npm install
-RUN yarn shared-ui:build
-RUN npm install
+RUN yarn
+RUN yarn build:lib
 
-CMD [ "yarn", "frontend" ]
+# run client in dev env
+CMD ["yarn", "ecom-client"]

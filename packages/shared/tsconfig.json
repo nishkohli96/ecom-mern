@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": "src",
     "rootDir": "src",
-    "outDir": "build",
+    "outDir": "dist",
     "resolveJsonModule": false,
     "incremental": false
   },
-  "include": ["src", "src/constants"],
-  "exclude": ["node_modules", "**/__tests__/*", "build"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", "dist"]
 }
