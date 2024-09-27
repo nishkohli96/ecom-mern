@@ -29,7 +29,7 @@ export const OrderCard = (props: OrderCardProps) => {
         mb: '2rem',
         width: '100%',
         borderRadius: cardRadius,
-        border: (theme) => `1px solid ${theme.palette.divider}`,
+        border: theme => `1px solid ${theme.palette.divider}`,
       }}
     >
       <Grid
@@ -40,16 +40,21 @@ export const OrderCard = (props: OrderCardProps) => {
           padding: '1rem',
           borderTopRightRadius: cardRadius,
           borderTopLeftRadius: cardRadius,
-          background: (theme) => theme.palette.background.paper,
+          background: theme => theme.palette.background.paper,
         }}
       >
         <Grid item xs={12} md={6}>
-          Order #<Typography variant="h6">{props._id}</Typography>
+          Order #
+          <Typography variant="h6">
+            {props._id}
+          </Typography>
         </Grid>
         <Grid item xs={5} md={2}>
           Total
           <Typography variant="h6">
-            ₹ {(props.payment.amount / 100).toFixed(2)}
+            ₹
+            {' '}
+            {(props.payment.amount / 100).toFixed(2)}
           </Typography>
         </Grid>
         <Grid item xs={7} md={4}>

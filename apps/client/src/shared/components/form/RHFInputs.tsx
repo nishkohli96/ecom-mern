@@ -39,7 +39,7 @@ export function RHFPasswordField<T extends FieldValues>(
   const fieldLabel = name.charAt(0).toUpperCase() + name.slice(1, name.length);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = () => setShowPassword(show => !show);
   const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };

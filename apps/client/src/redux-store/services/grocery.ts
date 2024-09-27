@@ -12,20 +12,20 @@ export const groceryApi = createApi({
     baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.grocery.pathName}`,
   }),
   tagTypes: ['GroceryList', 'GroceryItem'],
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     /* Fetch random records to show in homepage carousel */
     getGroceries: builder.query<GroceryItem[], void>({
       query: () => `/${ApiRoutesConfig.grocery.subRoutes.randomRecords}`,
     }),
     /* Get product detail by objectId */
     getGroceryItem: builder.query<GroceryItem, string>({
-      query: (itemId) =>
+      query: itemId =>
         `/${ApiRoutesConfig.grocery.subRoutes.productById}/${itemId}`,
       providesTags: ['GroceryItem'],
     }),
     /* Get product details by sku */
     getGroceryItemBySku: builder.query<GroceryItem, number>({
-      query: (itemId) =>
+      query: itemId =>
         `/${ApiRoutesConfig.grocery.subRoutes.productInfo}/${itemId}`,
       providesTags: ['GroceryItem'],
     }),

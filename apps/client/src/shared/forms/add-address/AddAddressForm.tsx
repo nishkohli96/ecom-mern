@@ -77,13 +77,13 @@ const AddAddressForm = ({
   }
 
   const countryOptions = countriesList?.length
-    ? countriesList.map((country) => ({
-        name: country.name,
-        iso2: country.iso2,
-      }))
+    ? countriesList.map(country => ({
+      name: country.name,
+      iso2: country.iso2,
+    }))
     : countriesFetchSuccess
-    ? [fallbackCountryState]
-    : [defaultCountryState];
+      ? [fallbackCountryState]
+      : [defaultCountryState];
 
   const [
     fetchStates,
@@ -105,13 +105,13 @@ const AddAddressForm = ({
   }
 
   const statesOptions = statesList?.length
-    ? statesList.map((state) => ({
-        name: state.name,
-        iso2: state.iso2,
-      }))
+    ? statesList.map(state => ({
+      name: state.name,
+      iso2: state.iso2,
+    }))
     : statesFetchSuccess
-    ? [fallbackCountryState]
-    : [defaultCountryState];
+      ? [fallbackCountryState]
+      : [defaultCountryState];
 
   const [
     fetchCities,
@@ -125,10 +125,10 @@ const AddAddressForm = ({
   ] = useLazyGetCitiesByStatesOfCountryQuery();
 
   const cityOptions = citiesList?.length
-    ? citiesList.map((city) => city.name)
+    ? citiesList.map(city => city.name)
     : citiesFetchSuccess
-    ? ['N/A']
-    : [];
+      ? ['N/A']
+      : [];
 
   if (citiesFetchError) {
     batch(() => {

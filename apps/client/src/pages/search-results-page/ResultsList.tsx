@@ -26,7 +26,7 @@ const ResultsList = (props: UseHitsProps<GroceryItemHit>) => {
     <Box>
       {hits.length > 0 ? (
         <Grid container>
-          {hits.map((hit) => (
+          {hits.map(hit => (
             <Grid
               item
               xs={12}
@@ -36,7 +36,7 @@ const ResultsList = (props: UseHitsProps<GroceryItemHit>) => {
               sx={{
                 padding: '1rem',
                 cursor: 'pointer',
-                border: (theme) => `1px solid ${theme.palette.divider}`,
+                border: theme => `1px solid ${theme.palette.divider}`,
               }}
               onClick={() => handleClickOnHit(hit)}
             >

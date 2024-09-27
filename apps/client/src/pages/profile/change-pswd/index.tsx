@@ -36,7 +36,7 @@ const ChangePswdPage = () => {
   const onFormSubmit = (formData: UserPasswordChange) => {
     changeUserPassword(formData)
       .unwrap()
-      .then((response) => {
+      .then(response => {
         batch(() => {
           dispatch(setToastMessage(response));
           dispatch(setToastStatus('success'));
@@ -44,7 +44,7 @@ const ChangePswdPage = () => {
         });
         navigate('/profile');
       })
-      .catch((error) => {
+      .catch(error => {
         batch(() => {
           dispatch(setToastMessage(error));
           dispatch(setToastStatus('error'));

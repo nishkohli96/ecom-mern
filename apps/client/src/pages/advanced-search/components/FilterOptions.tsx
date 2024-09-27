@@ -20,7 +20,7 @@ export const FilterOptions = ({
       setFacetFilters([...facetFilters, `${attribute}:${filterVal}`]);
     } else {
       setFacetFilters(
-        facetFilters.filter((el) => el !== `${attribute}:${filterVal}`)
+        facetFilters.filter(el => el !== `${attribute}:${filterVal}`)
       );
     }
   };
@@ -28,9 +28,8 @@ export const FilterOptions = ({
   return (
     <FormGroup>
       {Object.keys(filterValues).map((filterVal, index) => {
-        const isSelected = facetFilters.some((filters) =>
-          filters.includes(filterVal)
-        );
+        const isSelected = facetFilters.some(filters =>
+          filters.includes(filterVal));
         return (
           <FormControlLabel
             key={index}
@@ -49,7 +48,9 @@ export const FilterOptions = ({
                   {filterVal}
                 </span>
                 <span className="ais-RefinementList-count">
-                  <b>{` (${filterValues[filterVal]})`}</b>
+                  <b>
+                    {` (${filterValues[filterVal]})`}
+                  </b>
                 </span>
               </>
             }

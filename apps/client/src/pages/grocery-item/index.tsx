@@ -136,7 +136,9 @@ const GroceryItemPage = () => {
               {data?.sub_category}
             </Link>
           )}
-          <Typography color="text.primary">{data?.product_name}</Typography>
+          <Typography color="text.primary">
+            {data?.product_name}
+          </Typography>
         </Breadcrumbs>
       </Grid>
       <Grid item xs={12} md={6}>
@@ -150,21 +152,28 @@ const GroceryItemPage = () => {
       </Grid>
       <Grid item xs={12} md={6}>
         <Box sx={{ padding: '2rem 0rem 1rem 1rem' }}>
-          <Header2Text>{data?.product_name}</Header2Text>
-          <Header3Text>{data?.brand}</Header3Text>
+          <Header2Text>
+            {data?.product_name}
+          </Header2Text>
+          <Header3Text>
+            {data?.brand}
+          </Header3Text>
           <Header5Text>
             {isDiscounted && (
               <Typography
                 sx={{
                   fontSize: '1.5rem',
-                  color: (theme) => theme.palette.success.main,
+                  color: theme => theme.palette.success.main,
                 }}
-              >{`₹${data?.discount_price?.toFixed(2)}   `}</Typography>
+              >
+                {`₹${data?.discount_price?.toFixed(2)}   `}
+              </Typography>
             )}
             <span
               style={{ textDecoration: isDiscounted ? 'line-through' : 'none' }}
             >
-              ₹{data?.price?.toFixed(2)}
+              ₹
+              {data?.price?.toFixed(2)}
             </span>
           </Header5Text>
           {data?.inStock && data.inStock > 0 ? (
@@ -201,7 +210,7 @@ const GroceryItemPage = () => {
             <Box sx={{ marginTop: '3rem', marginBottom: '1rem' }}>
               <Typography
                 variant="h5"
-                sx={{ color: (theme) => theme.palette.warning.main }}
+                sx={{ color: theme => theme.palette.warning.main }}
               >
                 Oops!! This product is out of stock...
               </Typography>

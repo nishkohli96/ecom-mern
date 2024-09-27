@@ -78,7 +78,7 @@ export const Navbar = () => {
     handleCloseUserMenu();
     userLogout()
       .unwrap()
-      .then((payload) => {
+      .then(payload => {
         batch(() => {
           dispatch(setUser(null));
           dispatch(setUserCartInfo(defaultUserCartValue));
@@ -87,13 +87,12 @@ export const Navbar = () => {
           dispatch(openToast());
         });
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   const ToggleThemeButton = () => (
@@ -133,7 +132,7 @@ export const Navbar = () => {
   return (
     <AppBar
       position="static"
-      sx={(theme) => ({
+      sx={theme => ({
         background: theme.palette.primary.main,
         /**
          * Override the default borderRadius of paper
@@ -194,9 +193,11 @@ export const Navbar = () => {
           <Box sx={{ fontWeight: 500, minWidth: 150, padding: '6px 16px' }}>
             {userText}
           </Box>
-          {menuOptions.map((op) => (
+          {menuOptions.map(op => (
             <MenuItem key={op.text} onClick={() => handleNavigation(op.to)}>
-              <Typography textAlign="center">{op.text}</Typography>
+              <Typography textAlign="center">
+                {op.text}
+              </Typography>
             </MenuItem>
           ))}
           {user && <MenuItem onClick={handleLogout}>Logout</MenuItem>}

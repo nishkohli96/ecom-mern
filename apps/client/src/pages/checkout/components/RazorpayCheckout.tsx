@@ -70,12 +70,12 @@ export const RazorpayCheckout = ({
       handler: (response: RazorPayOrderSuccess) => {
         updateOrderStatus(response)
           .unwrap()
-          .then((res) => {
+          .then(res => {
             navigate(
               `${RouteList.checkout.rootPath}/${RouteList.checkout.subPaths.success}`
             );
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
           });
       },
@@ -101,7 +101,7 @@ export const RazorpayCheckout = ({
     displayRazorpay();
   }, []);
 
-  return <Fragment></Fragment>;
+  return <Fragment />;
 };
 
 /**

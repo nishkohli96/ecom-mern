@@ -26,7 +26,7 @@ export const AppliedFilters = ({
   const appliedFilters = categorizeFacets(filters);
 
   const removeFilter = (filterName: string) => {
-    setNewFilters(filters.filter((el) => !el.includes(filterName)));
+    setNewFilters(filters.filter(el => !el.includes(filterName)));
   };
 
   return (
@@ -37,7 +37,9 @@ export const AppliedFilters = ({
           <Fragment key={idx}>
             {appliedFilters[filter].length > 0 ? (
               <Box sx={{ marginBottom: '0.5rem' }}>
-                <Typography color="primary">{filter.toUpperCase()}</Typography>
+                <Typography color="primary">
+                  {filter.toUpperCase()}
+                </Typography>
                 {appliedFilters[filter].map((filterName, idx2) => (
                   <Pill
                     key={idx2}
@@ -63,9 +65,8 @@ export const AppliedFilters = ({
                 text={`Price ${isMin ? '>=' : '<'} ${priceValue}`}
                 onClick={() =>
                   setNumericFilters(
-                    numericFilters.filter((filter) => filter !== num)
-                  )
-                }
+                    numericFilters.filter(filter => filter !== num)
+                  )}
               />
             );
           })}

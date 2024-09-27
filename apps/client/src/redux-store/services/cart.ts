@@ -24,13 +24,13 @@ export const cartApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.cart.pathName}`,
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     /**
      * Get user cart_id and product ids alongwith quantities
      * when they login.
      */
     getUserCartInfo: builder.query<GuestUserCart, string>({
-      query: (payload) => `?user_id=${payload}`,
+      query: payload => `?user_id=${payload}`,
       providesTags: ['CartProductsUser'],
       /** Refetch if args change */
       forceRefetch() {
@@ -50,16 +50,16 @@ export const cartApi = createApi({
           });
         }
       },
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     /** Get full info of cart products when on cart page */
     getCartProducts: builder.query<GroceryItem[], string>({
-      query: (payload) =>
+      query: payload =>
         `/${ApiRoutesConfig.cart.subRoutes.products}?productids=${payload}`,
       providesTags: ['CartDetailsUser'],
     }),
     upsertProductsToCart: builder.mutation<GuestUserCart, AddUserCartProduct>({
-      query: (payload) => {
+      query: payload => {
         const { user_id, cart_id, product } = payload;
         let queryURL = `/${ApiRoutesConfig.cart.subRoutes.add}?user_id=${user_id}`;
         if (cart_id) {
@@ -76,7 +76,7 @@ export const cartApi = createApi({
        * user cart details again.
        */
       invalidatesTags: ['CartProductsUser'],
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     updateOrRemoveProduct: builder.mutation<GuestUserCart, AddUserCartProduct>({
       query: ({ user_id, cart_id, product }) => ({
@@ -85,7 +85,7 @@ export const cartApi = createApi({
         body: product,
       }),
       invalidatesTags: ['CartProductsUser', 'CartDetailsUser'],
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
   }),
 });

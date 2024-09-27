@@ -12,7 +12,7 @@ export const geoApi = createApi({
   reducerPath: 'geoApi',
   baseQuery: fetchBaseQuery({
     baseUrl: AppConfig.geo_api,
-    prepareHeaders: (headers) => {
+    prepareHeaders: headers => {
       headers.set(
         'X-CSCAPI-KEY',
         process.env.REACT_APP_CSC_API_KEY ?? 'API_KEY'
@@ -21,7 +21,7 @@ export const geoApi = createApi({
     },
   }),
   tagTypes: ['CountryList', 'StateList', 'CityList'],
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getAllCountries: builder.query<CSC_Country_State[], void>({
       query: () => '/',
       providesTags: ['CountryList'],

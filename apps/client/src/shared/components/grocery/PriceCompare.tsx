@@ -19,8 +19,10 @@ const PriceCompare = ({ price, discount_price }: PriceCompareProps) => {
         <Grid item sx={{ marginRight: '1rem' }}>
           <Typography
             variant="h6"
-            sx={{ color: (theme) => theme.palette.success.main }}
-          >{`₹${discount_price?.toFixed(2)}`}</Typography>
+            sx={{ color: theme => theme.palette.success.main }}
+          >
+            {`₹${discount_price?.toFixed(2)}`}
+          </Typography>
         </Grid>
       )}
       <Grid item>
@@ -29,7 +31,8 @@ const PriceCompare = ({ price, discount_price }: PriceCompareProps) => {
             textDecoration: isDiscounted ? 'line-through' : 'none',
           }}
         >
-          ₹{price?.toFixed(2)}
+          ₹
+          {price?.toFixed(2)}
         </span>
       </Grid>
     </Grid>

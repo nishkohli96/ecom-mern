@@ -23,7 +23,7 @@ const AdvancedSearchPage = () => {
   const [inputValue, setInputValue] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [facetFilters, setFacetFilters] = useState<string[]>(
-    Boolean(location.state) ? [location.state] : []
+    location.state ? [location.state] : []
   );
   const [numericFilters, setNumericFilters] = useState<string[]>([]);
 
@@ -71,7 +71,7 @@ const AdvancedSearchPage = () => {
                   sx={{
                     marginRight: '0.5rem',
                     borderRadius: '50%',
-                    background: (theme) => theme.palette.error.main,
+                    background: theme => theme.palette.error.main,
                   }}
                 >
                   <IconButton>
@@ -90,11 +90,15 @@ const AdvancedSearchPage = () => {
           <Typography
             variant="h6"
             sx={{
-              color: (theme) => theme.palette.success.main,
+              color: theme => theme.palette.success.main,
               margin: '1rem 0',
             }}
           >
-            Showing {searchResult.nbHits} products for your search...
+            Showing
+            {' '}
+            {searchResult.nbHits}
+            {' '}
+            products for your search...
           </Typography>
           <GroceryListView hits={searchResult.hits} />
           <PaginationWidget

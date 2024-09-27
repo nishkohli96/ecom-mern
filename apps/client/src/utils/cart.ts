@@ -27,14 +27,14 @@ export function addProductToCart(
 ): CartProduct[] {
   let newCart = exisitingCart;
   const isAlreadyAdded = newCart.find(
-    (prod) => prod.product_id === newProduct.product_id
+    prod => prod.product_id === newProduct.product_id
   );
 
   if (!isAlreadyAdded) {
     newCart = [newProduct, ...newCart];
     return newCart;
   }
-  newCart = newCart.map((prod) => {
+  newCart = newCart.map(prod => {
     if (prod.product_id === newProduct.product_id) {
       prod = {
         ...prod,
@@ -52,6 +52,6 @@ export function removeProductFromCart(
   exisitingCart: CartProduct[],
   productId: string
 ): CartProduct[] {
-  let newCart = exisitingCart;
-  return newCart.filter((prod) => prod.product_id !== productId);
+  const newCart = exisitingCart;
+  return newCart.filter(prod => prod.product_id !== productId);
 }

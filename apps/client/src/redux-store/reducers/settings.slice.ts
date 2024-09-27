@@ -15,9 +15,9 @@ export const settingsSlice = createSlice({
   name: 'settings',
   initialState,
   reducers: {
-    toggleTheme: (state) => {
-      state.mode =
-        state.mode === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT;
+    toggleTheme: state => {
+      state.mode
+        = state.mode === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT;
     },
   },
 });

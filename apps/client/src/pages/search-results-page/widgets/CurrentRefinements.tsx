@@ -25,13 +25,13 @@ const CurrentRefinementsWidget = (): ReactElement => {
   return (
     <Paper sx={{ padding: '1.5rem 1rem', marginBottom: '1rem ' }}>
       <Header5Text>Filters Applied</Header5Text>
-      {items.map((refinementItem) => {
+      {items.map(refinementItem => {
         return (
           <Box key={refinementItem.attribute} sx={{ marginBottom: '0.5rem' }}>
             <Typography color="secondary">
               {refinementItem.attribute.toUpperCase()}
             </Typography>
-            {refinementItem.refinements.map((ri) => (
+            {refinementItem.refinements.map(ri => (
               <Pill
                 key={ri.label}
                 text={ri.label}

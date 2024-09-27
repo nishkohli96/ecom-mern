@@ -22,10 +22,10 @@ const AddAddressDialog = ({ open, handleClose }: AddAddressDialogProps) => {
   const [addUserAddress] = useAddUserAddressMutation();
 
   const initialValues: UserAddress = {
-    recipientName: Boolean(user)
+    recipientName: user
       ? `${user?.name.first} ${user?.name.last}`
       : '',
-    recipientPhone: Boolean(user) ? `${user?.phone}` : '',
+    recipientPhone: user ? `${user?.phone}` : '',
     houseNo: '',
     street: '',
     landmark: '',
@@ -42,7 +42,7 @@ const AddAddressDialog = ({ open, handleClose }: AddAddressDialogProps) => {
       id: user?._id ?? '',
     })
       .unwrap()
-      .then((resp) => {
+      .then(resp => {
         handleClose();
         batch(() => {
           dispatch(setToastMessage(resp));
@@ -50,13 +50,12 @@ const AddAddressDialog = ({ open, handleClose }: AddAddressDialogProps) => {
           dispatch(openToast());
         });
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   return (

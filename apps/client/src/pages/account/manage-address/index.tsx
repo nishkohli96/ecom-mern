@@ -51,7 +51,7 @@ const AddressList = () => {
         {isLoading || isFetching ? (
           <Loading />
         ) : addressList && addressList?.length > 0 ? (
-          addressList?.map((address) => (
+          addressList?.map(address => (
             <Grid item xs={12} sm={6} key={address._id}>
               <AddressCard address={address} user_id={user?._id ?? ''} />
             </Grid>

@@ -26,10 +26,15 @@ export const CategoryAccordions = ({
               onClick={() =>
                 navigate(`${RouteList.advancedSearch}`, {
                   state: `${AlgoliaConfig.FACET_ATTRIBUTES.category}:${category.name}`,
-                })
-              }
+                })}
             >
-              {category.name} <b>({category.num_products})</b>
+              {category.name}
+              {' '}
+              <b>
+                (
+                {category.num_products}
+                )
+              </b>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -39,15 +44,20 @@ export const CategoryAccordions = ({
                 onClick={() =>
                   navigate(`${RouteList.advancedSearch}`, {
                     state: `${AlgoliaConfig.FACET_ATTRIBUTES.sub_category}:${subCategory.name}`,
-                  })
-                }
+                  })}
                 sx={{
                   marginLeft: '1rem',
                   marginBottom: '0.75rem',
                   '&:hover': { cursor: 'pointer', textDecoration: 'underline' },
                 }}
               >
-                {subCategory.name} <b>({subCategory.num_products})</b>
+                {subCategory.name}
+                {' '}
+                <b>
+                  (
+                  {subCategory.num_products}
+                  )
+                </b>
               </Typography>
             ))}
           </AccordionDetails>

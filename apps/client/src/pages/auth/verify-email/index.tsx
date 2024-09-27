@@ -35,7 +35,7 @@ const VerifyEmailPage = () => {
   const onFormSubmit = (formData: VerifyUserEmail) => {
     initiatePasswordReset(formData)
       .unwrap()
-      .then((response) => {
+      .then(response => {
         batch(() => {
           dispatch(setToastMessage(response));
           dispatch(setToastStatus('success'));
@@ -43,7 +43,7 @@ const VerifyEmailPage = () => {
         });
         navigate(RouteList.auth.subPaths.login);
       })
-      .catch((error) => {
+      .catch(error => {
         batch(() => {
           dispatch(setToastMessage(error));
           dispatch(setToastStatus('error'));

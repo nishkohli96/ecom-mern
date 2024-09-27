@@ -42,7 +42,7 @@ const AddressSelectionPage = () => {
   const [addrId, setAddrId] = useState<string>('');
 
   useEffect(() => {
-    const defaultAddress = addressList?.find((addr) => addr.isDefault);
+    const defaultAddress = addressList?.find(addr => addr.isDefault);
     const defaultAddressId = defaultAddress?._id ?? '';
     setAddrId(defaultAddressId);
   }, [addressList]);
@@ -62,12 +62,12 @@ const AddressSelectionPage = () => {
       fromCart: Boolean(purchaseInfo.fromCart),
     })
       .unwrap()
-      .then((response) => {
+      .then(response => {
         setShowRzp(true);
         setRzpOrderId(response.orderId);
         setRzpCustomerId(response.razorpay_customer_id);
       })
-      .catch((error) => {
+      .catch(error => {
         batch(() => {
           dispatch(setToastMessage(error));
           dispatch(setToastStatus('error'));
@@ -96,7 +96,7 @@ const AddressSelectionPage = () => {
                 aria-labelledby="delivery-address-selection"
                 name="delivery-address-selection"
               >
-                {addressList?.map((address) => (
+                {addressList?.map(address => (
                   <AddressCard
                     address={address}
                     selectedAddress={addrId}

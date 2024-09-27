@@ -5,12 +5,12 @@ export function categorizeFacets(
   filters: string[],
   concatFacet?: boolean
 ): FilterCategories {
-  let result: FilterCategories = {
+  const result: FilterCategories = {
     brand: [],
     category: [],
     sub_category: [],
   };
-  filters.map((el) => {
+  filters.map(el => {
     const facet = el.split(':');
     if (facet[0] === AlgoliaConfig.FACET_ATTRIBUTES.brand) {
       result.brand.push(concatFacet ? el : facet[1]);
@@ -25,5 +25,5 @@ export function categorizeFacets(
 
 export function generateFacetFilters(obj: FilterCategories): Array<string[]> {
   const filtersArray = Object.values(obj);
-  return filtersArray; //.filter(arr => arr.length > 0);
+  return filtersArray; // .filter(arr => arr.length > 0);
 }

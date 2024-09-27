@@ -18,7 +18,7 @@ export const AccountOption = (props: AccountOptionObject) => {
           container
           sx={{
             borderRadius: '8px',
-            border: (theme) => `1px solid ${theme.palette.divider}`,
+            border: theme => `1px solid ${theme.palette.divider}`,
             padding: '0.5rem 0.25rem',
           }}
         >

@@ -23,10 +23,12 @@ const SearchResultsPage = () => (
         <Typography
           sx={{
             marginBottom: '1rem',
-            color: (theme) => theme.palette.warning.main,
+            color: theme => theme.palette.warning.main,
           }}
         >
-          <sup>*</sup> This page uses algolia widgets that are controlled by
+          <sup>*</sup>
+          {' '}
+          This page uses algolia widgets that are controlled by
           instantsearch.
         </Typography>
         <ResultsList />

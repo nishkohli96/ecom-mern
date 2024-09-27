@@ -13,7 +13,7 @@ export function readCookie(name: string): string | null {
   return (
     document.cookie
       .split(';')
-      .find((row) => row.trim().startsWith(nameEQ))
+      .find(row => row.trim().startsWith(nameEQ))
       ?.split('=')[1] ?? null
   );
 }

@@ -21,15 +21,15 @@ const OrdersDetailPage = () => {
   }
 
   const orderStatus = orderData?.order_status;
-  const isProcessing =
-    orderStatus === OrderStatus.Processing ||
-    orderStatus === OrderStatus.InTransit;
+  const isProcessing
+    = orderStatus === OrderStatus.Processing
+    || orderStatus === OrderStatus.InTransit;
   const isDelivered = orderStatus === OrderStatus.Delivered;
 
   const HeadingText = ({ text }: { text: string }) => (
     <Typography
       variant="h6"
-      sx={{ fontWeight: 'bold', color: (theme) => theme.palette.primary.main }}
+      sx={{ fontWeight: 'bold', color: theme => theme.palette.primary.main }}
     >
       {text}
     </Typography>
@@ -60,12 +60,22 @@ const OrdersDetailPage = () => {
                     aria-label={prod.product_name}
                   >
                     {prod.product_name}
-                  </Link>{' '}
-                  ({prod.quantity})
+                  </Link>
+                  {' '}
+                  (
+                  {prod.quantity}
+                  )
                 </Typography>
-                <Typography>{prod.brand}</Typography>
                 <Typography>
-                  ₹{prod.discount_price.toFixed(2)} x {prod.num_items}
+                  {prod.brand}
+                </Typography>
+                <Typography>
+                  ₹
+                  {prod.discount_price.toFixed(2)}
+                  {' '}
+                  x
+                  {' '}
+                  {prod.num_items}
                 </Typography>
               </Grid>
             </Grid>
@@ -83,7 +93,9 @@ const OrdersDetailPage = () => {
               {orderData?._id}
             </Grid>
             <Grid item xs={12}>
-              <b>Amount: </b>₹{' '}
+              <b>Amount: </b>
+              ₹
+              {' '}
               {((orderData?.payment?.amount ?? 0) / 100).toFixed(2)}
             </Grid>
             <Grid item xs={12}>
@@ -95,15 +107,17 @@ const OrdersDetailPage = () => {
             </Grid>
             <Grid item xs={12}>
               <Typography>
-                <b>{orderData?.deliveryAddress?.recipientName}</b>
+                <b>
+                  {orderData?.deliveryAddress?.recipientName}
+                </b>
                 {` ( ${orderData?.deliveryAddress?.recipientPhone} )`}
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography>
                 {`${orderData?.deliveryAddress?.houseNo}, ${orderData?.deliveryAddress?.street}, `}
-                {Boolean(orderData?.deliveryAddress?.landmark) &&
-                  `${orderData?.deliveryAddress?.landmark}, `}
+                {Boolean(orderData?.deliveryAddress?.landmark)
+                && `${orderData?.deliveryAddress?.landmark}, `}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -124,15 +138,17 @@ const OrdersDetailPage = () => {
               <Typography
                 sx={{
                   fontWeight: 'bold',
-                  color: (theme) =>
+                  color: theme =>
                     isProcessing
                       ? theme.palette.warning.main
                       : isDelivered
-                      ? theme.palette.success.main
-                      : theme.palette.text.primary,
+                        ? theme.palette.success.main
+                        : theme.palette.text.primary,
                 }}
               >
-                Your order is {orderData?.order_status?.toUpperCase()}
+                Your order is
+                {' '}
+                {orderData?.order_status?.toUpperCase()}
               </Typography>
             </Grid>
             <Grid item xs={12}>

@@ -49,7 +49,7 @@ const QuantitySelector = ({
           }}
           onChange={(event: SelectChangeEvent) => onQuantityChanged(event)}
         >
-          {quantityArray.map((item) => (
+          {quantityArray.map(item => (
             <MenuItem value={item} key={item}>
               {item}
             </MenuItem>

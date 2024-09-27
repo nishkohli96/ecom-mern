@@ -21,7 +21,7 @@ const OrdersList = () => {
       ) : (
         <Grid container sx={{ mt: '1.5rem' }}>
           {ordersList && ordersList.length > 0 ? (
-            ordersList?.map((order) => <OrderCard key={order._id} {...order} />)
+            ordersList?.map(order => <OrderCard key={order._id} {...order} />)
           ) : (
             <StatusMessage text="No orders placed..." />
           )}

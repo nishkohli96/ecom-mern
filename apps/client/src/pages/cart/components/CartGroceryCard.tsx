@@ -101,9 +101,15 @@ const CartGroceryCard = ({
         </Grid>
         <Grid container item xs={12} lg={7}>
           <Grid item xs={12}>
-            <Header5Text>{grocery.product_name}</Header5Text>
-            <Header6Text>{grocery.brand}</Header6Text>
-            <PrimaryText>{grocery.quantity}</PrimaryText>
+            <Header5Text>
+              {grocery.product_name}
+            </Header5Text>
+            <Header6Text>
+              {grocery.brand}
+            </Header6Text>
+            <PrimaryText>
+              {grocery.quantity}
+            </PrimaryText>
           </Grid>
           <PriceCompare
             discount_price={grocery?.discount_price}

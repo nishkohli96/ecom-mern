@@ -23,8 +23,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<number>(0);
   const { data, isLoading } = useGetGroceriesQuery();
-  const { data: categoryData, isLoading: groceryCategoriesLoading } =
-    useGetGroceryCategorizationQuery();
+  const { data: categoryData, isLoading: groceryCategoriesLoading }
+    = useGetGroceryCategorizationQuery();
 
   if (isLoading || groceryCategoriesLoading) {
     return <Loading />;
@@ -34,7 +34,7 @@ const HomePage = () => {
     return <StatusMessage text="no data" />;
   }
 
-  const images: ReactImageGalleryItem[] = data?.map((item) => ({
+  const images: ReactImageGalleryItem[] = data?.map(item => ({
     original: item.image_url,
     originalAlt: item.product_name,
     originalTitle: item.handle,
@@ -45,7 +45,9 @@ const HomePage = () => {
     return (
       <div>
         <div style={{ marginTop: 10, textAlign: 'center' }}>
-          <PrimaryText>{imageItem.originalAlt}</PrimaryText>
+          <PrimaryText>
+            {imageItem.originalAlt}
+          </PrimaryText>
         </div>
         <img
           src={imageItem.original}
@@ -70,11 +72,11 @@ const HomePage = () => {
         showBullets
         autoPlay
         slideDuration={3000}
-        onClick={(e) => {
+        onClick={e => {
           const target = e.target as HTMLImageElement;
           navigate(`grocery/${target.title}`);
         }}
-        renderItem={(item) => <RenderImageItem {...item} />}
+        renderItem={item => <RenderImageItem {...item} />}
       />
       <Box sx={{ marginTop: '2rem' }}>
         <Header3Text> Shop by Brands or Categories</Header3Text>

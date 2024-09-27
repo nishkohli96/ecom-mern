@@ -25,13 +25,13 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   errorMsg,
 }) => {
   const isError = Boolean(errorMsg);
-  const { inputValue, handlePhoneValueChange, inputRef, country, setCountry } =
-    usePhoneInput({
+  const { inputValue, handlePhoneValueChange, inputRef, country, setCountry }
+    = usePhoneInput({
       defaultCountry: 'in',
       value,
       countries: defaultCountries,
       forceDialCode: true,
-      onChange: (data) => {
+      onChange: data => {
         onChange(data.inputValue);
       },
     });
@@ -89,12 +89,12 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
                 },
               }}
               value={country.iso2}
-              onChange={(e) => setCountry(e.target.value as CountryIso2)}
-              renderValue={(value) => (
+              onChange={e => setCountry(e.target.value as CountryIso2)}
+              renderValue={value => (
                 <FlagImage iso2={value} style={{ display: 'flex' }} />
               )}
             >
-              {defaultCountries.map((c) => {
+              {defaultCountries.map(c => {
                 const country = parseCountry(c);
                 return (
                   <MenuItem key={country.iso2} value={country.iso2}>
@@ -102,8 +102,13 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
                       iso2={country.iso2}
                       style={{ marginRight: '8px' }}
                     />
-                    <Typography marginRight="8px">{country.name}</Typography>
-                    <Typography color="gray">+{country.dialCode}</Typography>
+                    <Typography marginRight="8px">
+                      {country.name}
+                    </Typography>
+                    <Typography color="gray">
+                      +
+                      {country.dialCode}
+                    </Typography>
                   </MenuItem>
                 );
               })}

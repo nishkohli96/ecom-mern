@@ -36,8 +36,8 @@ export const useGrocerySearch = (
   numericFilters?: string[]
 ): UseGroceryResponse => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
-  const [searchResult, setSearchResult] =
-    useState<SearchResponse<GroceryItemHit>>(defaultSearchResult);
+  const [searchResult, setSearchResult]
+    = useState<SearchResponse<GroceryItemHit>>(defaultSearchResult);
 
   useEffect(() => {
     const getSearchResult = async () => {

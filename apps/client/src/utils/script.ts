@@ -1,6 +1,6 @@
 /* Function to load script and append in DOM tree. */
 export function loadScript(src: string) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const script = document.createElement('script');
     script.src = src;
     script.onload = () => {

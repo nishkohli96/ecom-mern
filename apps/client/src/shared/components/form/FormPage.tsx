@@ -10,8 +10,14 @@ export const FormPage = ({ children, formTitle }: FormPageProps) => {
   return (
     <CenterContent>
       <FormContainer>
-        {formTitle && <Header4Text>{formTitle}</Header4Text>}
-        <Box sx={{ mt: '3rem' }}>{children}</Box>
+        {formTitle && (
+          <Header4Text>
+            {formTitle}
+          </Header4Text>
+        )}
+        <Box sx={{ mt: '3rem' }}>
+          {children}
+        </Box>
       </FormContainer>
     </CenterContent>
   );

@@ -28,10 +28,10 @@ export function CityAutocomplete({
       value={!isLoading ? value : ''}
       loading={isLoading}
       disableClearable={isLoading}
-      getOptionLabel={(option) => option}
+      getOptionLabel={option => option}
       isOptionEqualToValue={(option, value) => option === value}
       onChange={(e, val) => handleOptionSelection(val ?? '')}
-      renderInput={(params) => (
+      renderInput={params => (
         <TextField
           {...params}
           label={`Select ${name}`}

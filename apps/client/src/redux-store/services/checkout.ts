@@ -12,26 +12,26 @@ export const checkoutApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.checkout.pathName}`,
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     createOrder: builder.mutation<CreateOrderResponse, CreateRazorpayOrder>({
-      query: (payload) => ({
+      query: payload => ({
         url: `/${ApiRoutesConfig.checkout.subRoutes.order}`,
         method: 'POST',
         body: payload,
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     updateOrderStatus: builder.mutation<string, RazorPayOrderSuccess>({
-      query: (payload) => ({
+      query: payload => ({
         url: `/${ApiRoutesConfig.checkout.subRoutes.order}`,
         method: 'PUT',
         body: payload,
-        responseHandler: (response) => response.text(),
+        responseHandler: response => response.text(),
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
   }),
 });
 
-export const { useCreateOrderMutation, useUpdateOrderStatusMutation } =
-  checkoutApi;
+export const { useCreateOrderMutation, useUpdateOrderStatusMutation }
+  = checkoutApi;

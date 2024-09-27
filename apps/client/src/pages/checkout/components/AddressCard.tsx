@@ -15,9 +15,9 @@ export const AddressCard = ({
   selectedAddress,
   onAddressChange,
 }: AddressCardProps) => {
-  const { _id, recipientName, recipientPhone, isDefault, ...addressDetails } =
-    address;
-  const isSelected = Boolean(selectedAddress)
+  const { _id, recipientName, recipientPhone, isDefault, ...addressDetails }
+    = address;
+  const isSelected = selectedAddress
     ? _id == selectedAddress
     : isDefault;
 
@@ -32,7 +32,7 @@ export const AddressCard = ({
         marginBottom: '1rem',
         padding: '1rem',
         ...(isSelected && {
-          backgroundColor: (theme) => `${theme.palette.warning.main}BF`,
+          backgroundColor: theme => `${theme.palette.warning.main}BF`,
         }),
       }}
     >
@@ -41,25 +41,29 @@ export const AddressCard = ({
         control={
           <Radio
             checked={isSelected}
-            onChange={(e) => onAddressChange(e.target.value)}
+            onChange={e => onAddressChange(e.target.value)}
           />
         }
         label={
           <Grid container spacing={1} sx={{ paddingLeft: '1rem' }}>
             <Grid item xs={12}>
-              <b>{recipientName}</b>
+              <b>
+                {recipientName}
+              </b>
             </Grid>
             <Grid item xs={12}>
               {`${addressDetails.houseNo}, ${addressDetails.street}, `}
-              {Boolean(addressDetails.landmark) &&
-                `${addressDetails.landmark}, `}
+              {Boolean(addressDetails.landmark)
+              && `${addressDetails.landmark}, `}
               {`${
                 addressDetails.city
               }, ${addressDetails.state.name.toUpperCase()}, `}
               {`${addressDetails.zipCode}, ${addressDetails.country.name}`}
             </Grid>
             <Grid item xs={12}>
-              Phone number: {recipientPhone}
+              Phone number:
+              {' '}
+              {recipientPhone}
             </Grid>
           </Grid>
         }

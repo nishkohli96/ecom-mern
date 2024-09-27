@@ -18,10 +18,10 @@ export const toastSlice = createSlice({
   name: 'toastSlice',
   initialState,
   reducers: {
-    openToast: (state) => {
+    openToast: state => {
       state.open = true;
     },
-    closeToast: (state) => {
+    closeToast: state => {
       state.open = false;
     },
     setToastStatus: (state, action: PayloadAction<AlertColor>) => {
@@ -34,8 +34,8 @@ export const toastSlice = createSlice({
 });
 
 /* Actions */
-export const { openToast, closeToast, setToastStatus, setToastMessage } =
-  toastSlice.actions;
+export const { openToast, closeToast, setToastStatus, setToastMessage }
+  = toastSlice.actions;
 
 /* Selectors */
 export const ToastSelector = (state: RootState) => state.appData.toast;

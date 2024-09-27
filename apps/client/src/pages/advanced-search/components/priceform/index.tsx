@@ -26,7 +26,7 @@ export const PriceForm = ({ setNumericFilters }: PriceFormProps) => {
 
   const onFormSubmit = (formValues: PriceFormSchema) => {
     let numericFilters: string[] = [];
-    if (Boolean(formValues.min)) {
+    if (formValues.min) {
       numericFilters = [
         ...numericFilters,
         `${AlgoliaConfig.FACET_ATTRIBUTES.defaultPrice}>=${Number(
@@ -34,7 +34,7 @@ export const PriceForm = ({ setNumericFilters }: PriceFormProps) => {
         )}`,
       ];
     }
-    if (Boolean(formValues.max)) {
+    if (formValues.max) {
       numericFilters = [
         ...numericFilters,
         `${AlgoliaConfig.FACET_ATTRIBUTES.defaultPrice}<${Number(

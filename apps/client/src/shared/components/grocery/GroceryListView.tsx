@@ -27,7 +27,7 @@ const GroceryListView = ({ hits }: GroceryListViewProps) => {
     <Box>
       {hits.length > 0 ? (
         <Grid container>
-          {hits.map((hit) => (
+          {hits.map(hit => (
             <Grid
               item
               xs={12}
@@ -37,7 +37,7 @@ const GroceryListView = ({ hits }: GroceryListViewProps) => {
               sx={{
                 padding: '1rem',
                 cursor: 'pointer',
-                border: (theme) => `1px solid ${theme.palette.divider}`,
+                border: theme => `1px solid ${theme.palette.divider}`,
               }}
               onClick={() => handleClickOnHit(hit)}
             >
@@ -51,9 +51,16 @@ const GroceryListView = ({ hits }: GroceryListViewProps) => {
                   }}
                 />
               </div>
-              <Header5Text>{hit.product_name}</Header5Text>
-              <Header6Text>{hit.brand}</Header6Text>
-              <Typography>₹ {hit.discount_price.toFixed(2)}</Typography>
+              <Header5Text>
+                {hit.product_name}
+              </Header5Text>
+              <Header6Text>
+                {hit.brand}
+              </Header6Text>
+              <Typography>
+                ₹
+                {hit.discount_price.toFixed(2)}
+              </Typography>
             </Grid>
           ))}
         </Grid>

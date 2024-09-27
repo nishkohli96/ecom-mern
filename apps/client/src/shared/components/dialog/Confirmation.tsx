@@ -36,10 +36,16 @@ export const ConfirmationDialog = ({
       aria-labelledby="confirmation-dialog-title"
       aria-describedby="confirmation-dialog-description"
     >
-      <DialogTitle id="confirmation-dialog-title">{title}</DialogTitle>
-      <DialogContent>{dialogContent}</DialogContent>
+      <DialogTitle id="confirmation-dialog-title">
+        {title}
+      </DialogTitle>
+      <DialogContent>
+        {dialogContent}
+      </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{cancelBtnText}</Button>
+        <Button onClick={handleClose}>
+          {cancelBtnText}
+        </Button>
         <Button onClick={handleConfirm} autoFocus>
           {confirmBtnText}
         </Button>

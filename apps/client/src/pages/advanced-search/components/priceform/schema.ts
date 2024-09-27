@@ -6,7 +6,7 @@ export interface PriceFormSchema {
 }
 
 function checkNumberValidation(numVal?: string): boolean {
-  if (!Boolean(numVal)) {
+  if (!numVal) {
     return true;
   }
   if (isNaN(Number(numVal))) {
@@ -27,17 +27,14 @@ function compareMinMax(min?: string, max?: string): boolean {
 export const LoginFormSchema: ObjectSchema<PriceFormSchema> = object()
   .shape({
     min: string()
-      .test('valid', 'Value must be a number', (val) =>
-        checkNumberValidation(val)
-      )
+      .test('valid', 'Value must be a number', val =>
+        checkNumberValidation(val))
       .default(''),
     max: string()
-      .test('valid', 'Value must be a number', (val) =>
-        checkNumberValidation(val)
-      )
+      .test('valid', 'Value must be a number', val =>
+        checkNumberValidation(val))
       .test('valid', 'Value should be greater than min', (value, context) =>
-        compareMinMax(context.parent.min, value)
-      )
+        compareMinMax(context.parent.min, value))
       .default(''),
   })
   .required();

@@ -43,20 +43,19 @@ const LoginForm = () => {
     resolver: yupResolver(LoginFormSchema),
   });
 
-  const onSubmit: SubmitHandler<UserLogin> = async (formData) => {
+  const onSubmit: SubmitHandler<UserLogin> = async formData => {
     userLogin(formData)
       .unwrap()
-      .then((payload) => {
+      .then(payload => {
         dispatch(setUser(payload));
-        Boolean(redirectUrl) ? navigate(redirectUrl) : navigate(-1);
+        redirectUrl ? navigate(redirectUrl) : navigate(-1);
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   return (

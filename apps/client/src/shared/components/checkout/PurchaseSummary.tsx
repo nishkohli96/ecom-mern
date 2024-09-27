@@ -53,8 +53,16 @@ export const PurchaseSummary = ({
 
   return (
     <Paper sx={{ padding: { xs: '1rem', lg: '2rem' } }}>
-      <Header5Text>SubTotal ({num_items_in_cart} items)</Header5Text>
-      <Header4Text>₹{cart_total}</Header4Text>
+      <Header5Text>
+        SubTotal (
+        {num_items_in_cart}
+        {' '}
+        items)
+      </Header5Text>
+      <Header4Text>
+        ₹
+        {cart_total}
+      </Header4Text>
       <Button
         sx={{ margin: '1rem 0' }}
         fullWidth

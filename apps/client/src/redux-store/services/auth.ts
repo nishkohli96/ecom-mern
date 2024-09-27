@@ -18,9 +18,9 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.auth.pathName}`,
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     userLogin: builder.mutation<UserLoginInfo, UserLogin>({
-      query: (payload) => ({
+      query: payload => ({
         url: `/${ApiRoutesConfig.auth.subRoutes.login}`,
         method: 'POST',
         body: payload,
@@ -41,7 +41,7 @@ export const authApi = createApi({
           });
         }
       },
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     checkLogin: builder.query<string, void>({
       query: () => `/${ApiRoutesConfig.auth.subRoutes.checkLogin}`,
@@ -75,18 +75,18 @@ export const authApi = createApi({
          * text.
          * https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery#parsing-a-response
          */
-        responseHandler: (response) => response.text(),
+        responseHandler: response => response.text(),
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     initiatePasswordReset: builder.mutation<string, VerifyUserEmail>({
-      query: (payload) => ({
+      query: payload => ({
         url: `/${ApiRoutesConfig.auth.subRoutes.findAccount}`,
         method: 'POST',
         body: payload,
-        responseHandler: (response) => response.text(),
+        responseHandler: response => response.text(),
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
   }),
 });

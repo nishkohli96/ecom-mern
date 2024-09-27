@@ -24,7 +24,13 @@ const PaginationWidget = () => {
             />
           </div>
           <div className="text-center mt-3">
-            Page {currentRefinement + 1} of {nbPages}
+            Page
+            {' '}
+            {currentRefinement + 1}
+            {' '}
+            of
+            {' '}
+            {nbPages}
           </div>
         </Fragment>
       )}

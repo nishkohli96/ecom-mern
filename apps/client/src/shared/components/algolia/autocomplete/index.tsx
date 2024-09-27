@@ -59,9 +59,9 @@ export const GroceryAutocomplete = () => {
         setOpen(false);
       }}
       value={value}
-      filterOptions={(x) => x}
+      filterOptions={x => x}
       noOptionsText={
-        Boolean(inputValue)
+        inputValue
           ? 'No Results Found'
           : 'Type something to fetch results...'
       }
@@ -73,10 +73,9 @@ export const GroceryAutocomplete = () => {
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue);
       }}
-      getOptionLabel={(option) => option.product_name}
+      getOptionLabel={option => option.product_name}
       isOptionEqualToValue={(option, value) =>
-        option.product_name === value.product_name
-      }
+        option.product_name === value.product_name}
       options={options}
       loading={loading}
       sx={{
@@ -90,7 +89,7 @@ export const GroceryAutocomplete = () => {
           component="li"
           sx={{
             ':not(:last-child)': {
-              borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
+              borderBottom: theme => `1px solid ${theme.palette.divider}`,
             },
           }}
           {...props}
@@ -98,7 +97,7 @@ export const GroceryAutocomplete = () => {
           {option.product_name}
         </Box>
       )}
-      renderInput={(params) => (
+      renderInput={params => (
         <StyledTextField
           {...params}
           value={inputValue}

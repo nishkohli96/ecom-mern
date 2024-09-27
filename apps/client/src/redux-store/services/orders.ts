@@ -11,18 +11,18 @@ export const ordersApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.orders.pathName}`,
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getOrdersList: builder.query<OrdersListItem[], string>({
-      query: (payload) => ({
+      query: payload => ({
         url: `?customer_id=${payload}`,
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
     getOrderDetails: builder.query<CompleteOrdersDetail, string>({
-      query: (payload) => ({
+      query: payload => ({
         url: `/${payload}`,
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: response => response.data,
     }),
   }),
 });

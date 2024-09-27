@@ -13,10 +13,10 @@ const SearchFilters = () => {
   const [expandBrand, setExpandBrand] = useState(true);
 
   const handleCategoryCollapse = () =>
-    setExpandCategory((expanded) => !expanded);
+    setExpandCategory(expanded => !expanded);
   const handleSubCategoryCollapse = () =>
-    setExpandSubCategory((expanded) => !expanded);
-  const handleBrandCollapse = () => setExpandBrand((expanded) => !expanded);
+    setExpandSubCategory(expanded => !expanded);
+  const handleBrandCollapse = () => setExpandBrand(expanded => !expanded);
 
   return (
     <Fragment>

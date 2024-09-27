@@ -39,7 +39,7 @@ const ResetPswdPage = () => {
   const onFormSubmit = (formData: ConfirmPasswordType) => {
     resetUserPassword({ id, token, ...formData })
       .unwrap()
-      .then((response) => {
+      .then(response => {
         batch(() => {
           dispatch(setToastMessage(response));
           dispatch(setToastStatus('success'));
@@ -47,7 +47,7 @@ const ResetPswdPage = () => {
         });
         navigate(RouteList.auth.subPaths.login);
       })
-      .catch((error) => {
+      .catch(error => {
         batch(() => {
           dispatch(setToastMessage(error));
           dispatch(setToastStatus('error'));

@@ -54,12 +54,12 @@ export const RefinementList = ({
             ),
           }),
         }}
-        onChange={(e) => handleInputChange(e.currentTarget.value)}
+        onChange={e => handleInputChange(e.currentTarget.value)}
       />
       <Box sx={{ marginTop: '1rem' }}>
         {items.length > 0 ? (
           <FormGroup>
-            {items.map((item) => (
+            {items.map(item => (
               <FormControlLabel
                 key={item.value}
                 control={
@@ -75,7 +75,9 @@ export const RefinementList = ({
                       {item.label}
                     </span>
                     <span className="ais-RefinementList-count">
-                      <b>{` (${item.count})`}</b>
+                      <b>
+                        {` (${item.count})`}
+                      </b>
                     </span>
                   </>
                 }
@@ -83,7 +85,13 @@ export const RefinementList = ({
             ))}
           </FormGroup>
         ) : (
-          <PrimaryText>No {attribute} found for current search... </PrimaryText>
+          <PrimaryText>
+            No
+            {attribute}
+            {' '}
+            found for current search...
+            {' '}
+          </PrimaryText>
         )}
       </Box>
     </div>

@@ -29,10 +29,10 @@ export function CountryStateAutocomplete({
       value={!isLoading ? value : defaultCountryState}
       loading={isLoading}
       disableClearable={isLoading}
-      getOptionLabel={(option) => option.name}
+      getOptionLabel={option => option.name}
       onChange={(e, val) => handleOptionSelection(val ?? defaultCountryState)}
       isOptionEqualToValue={(option, value) => option.iso2 === value.iso2}
-      renderInput={(params) => (
+      renderInput={params => (
         <TextField
           {...params}
           label={`Select ${name}`}

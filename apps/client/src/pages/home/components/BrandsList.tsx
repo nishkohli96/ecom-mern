@@ -47,7 +47,7 @@ export const BrandsList = () => {
             ),
           }),
         }}
-        onChange={(e) => handleInputChange(e.currentTarget.value)}
+        onChange={e => handleInputChange(e.currentTarget.value)}
       />
       <Box sx={{ marginTop: '1rem' }}>
         {items.length > 0 ? (
@@ -59,8 +59,7 @@ export const BrandsList = () => {
               onClick={() =>
                 navigate(`${RouteList.advancedSearch}`, {
                   state: `${AlgoliaConfig.FACET_ATTRIBUTES.brand}:${brand.label}`,
-                })
-              }
+                })}
               hideCloseIcon
             />
           ))

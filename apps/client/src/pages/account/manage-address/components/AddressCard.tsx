@@ -31,16 +31,16 @@ type AddressCardProps = {
 export const AddressCard = ({ address, user_id }: AddressCardProps) => {
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [openDefAddrConfirm, setOpenDefAddrConfirm] = useState<boolean>(false);
-  const [openDeleteAddrConfirm, setOpenDeleteAddrConfirm] =
-    useState<boolean>(false);
+  const [openDeleteAddrConfirm, setOpenDeleteAddrConfirm]
+    = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const [updateAddress] = useUpdateUserAddressMutation();
   const [deleteAddress] = useDeleteAddressMutation();
   const [setDefaultAddress] = useSetDefaultAddressMutation();
 
-  const { _id, recipientName, recipientPhone, isDefault, ...addressDetails } =
-    address;
+  const { _id, recipientName, recipientPhone, isDefault, ...addressDetails }
+    = address;
 
   const onAddressEdit = (formValues: UserAddress) => {
     updateAddress({
@@ -49,7 +49,7 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
       ...formValues,
     })
       .unwrap()
-      .then((resp) => {
+      .then(resp => {
         batch(() => {
           dispatch(setToastMessage(resp));
           dispatch(setToastStatus('success'));
@@ -57,64 +57,65 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
         });
         setOpenForm(false);
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   const handleDefaultAddressChange = () => {
     setDefaultAddress({ id: user_id, address_id: address._id })
       .unwrap()
-      .then((resp) => {
+      .then(resp => {
         batch(() => {
           dispatch(setToastMessage(resp));
           dispatch(setToastStatus('success'));
           dispatch(openToast());
         });
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   const handleAddressDeletion = () => {
     deleteAddress({ id: user_id, address_id: address._id })
       .unwrap()
-      .then((resp) => {
+      .then(resp => {
         batch(() => {
           dispatch(setToastMessage(resp));
           dispatch(setToastStatus('success'));
           dispatch(openToast());
         });
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   return (
     <MuiPaper>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <b>{recipientName}</b>
+          <b>
+            {recipientName}
+          </b>
         </Grid>
         <Grid item xs={12}>
           <AddressText addressDetails={addressDetails} />
         </Grid>
         <Grid item xs={12}>
-          Phone number: {recipientPhone}
+          Phone number:
+          {' '}
+          {recipientPhone}
         </Grid>
         <Grid container item xs={12} spacing={1} sx={{ mt: { md: '0.5rem' } }}>
           <Grid item xs={12} lg={6}>
@@ -124,7 +125,7 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
                   sx={{
                     fontWeight: 500,
                     textTransform: 'uppercase',
-                    color: (theme) => theme.palette.warning.main,
+                    color: theme => theme.palette.warning.main,
                   }}
                 >
                   Default Delivery Address

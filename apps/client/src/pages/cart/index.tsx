@@ -14,7 +14,7 @@ const CartPage = () => {
   const user = useAppSelector(UserSelector);
   const userCart = useAppSelector(user ? UserCartSelector : GuestCartSelector);
   const cartProductIds = userCart.products
-    .map((prod) => prod.product_id)
+    .map(prod => prod.product_id)
     .join(',');
 
   const {
@@ -34,7 +34,9 @@ const CartPage = () => {
   return (
     <Box>
       <Header3Text>
-        {user ? `${user.name.first}'s` : 'Your'} Shopping Cart
+        {user ? `${user.name.first}'s` : 'Your'}
+        {' '}
+        Shopping Cart
       </Header3Text>
       <Grid
         container

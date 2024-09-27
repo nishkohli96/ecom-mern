@@ -5,5 +5,7 @@ interface StatusMessageProps {
 }
 
 export const StatusMessage = ({ text }: StatusMessageProps) => (
-  <Header1Text>{text}</Header1Text>
+  <Header1Text>
+    {text}
+  </Header1Text>
 );

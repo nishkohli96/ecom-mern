@@ -39,7 +39,7 @@ const UserProfilePage = () => {
       ...formData,
     })
       .unwrap()
-      .then((payload) => {
+      .then(payload => {
         batch(() => {
           dispatch(setUser({ _id, ...payload }));
           dispatch(setToastMessage('User Details Updated'));
@@ -48,13 +48,12 @@ const UserProfilePage = () => {
         });
         navigate('/');
       })
-      .catch((err) =>
+      .catch(err =>
         batch(() => {
           dispatch(setToastMessage(err));
           dispatch(setToastStatus('error'));
           dispatch(openToast());
-        })
-      );
+        }));
   };
 
   return (
