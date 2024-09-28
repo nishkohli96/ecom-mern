@@ -10,6 +10,7 @@ export const ENV_VARS = Object.freeze({
     refresh_token_secret: env.JWT_REFRESH_SECRET ?? 'jwt_refresh_secret_key',
   },
   client_url: env.CLIENT_URL ?? 'http://localhost:3000/',
+  swagger_url: env.SWAGGER_URL ?? 'http://localhost:3000/',
   mongo: {
     cluster_url: env.CLUSTER_URL ?? 'mongodb://localhost:27017',
     cluster_user: env.CLUSTER_UNAME ?? 'root',

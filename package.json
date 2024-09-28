@@ -11,16 +11,15 @@
     "packages/*"
   ],
   "scripts": {
-    "ecom-client": "yarn workspace ecom-mern-client dev",
-    "ecom-server": "yarn workspace ecom-mern-server dev",
-    "ecom-shared": "yarn workspace @ecom/mern-shared build:lib",
-    "prettier": "prettier --write * --ignore-unknown",
+    "shared": "yarn workspace @ecom/mern-shared lib:build",
+    "server": "yarn workspace ecom-mern-server dev",
+    "server:build": "yarn workspace ecom-mern-server build",
+    "client": "yarn workspace ecom-mern-client dev",
+    "client:build": "yarn workspace ecom-mern-client build",
     "prepare": "husky install",
-    "build:lib": "turbo build:lib",
     "build-apps": "turbo build",
     "run-apps": "turbo dev",
-    "build:client": "yarn workspace ecom-mern-client build",
-    "build:server": "yarn workspace ecom-mern-server build"
+    "prettier": "prettier --write * --ignore-unknown"
   },
   "lint-staged": {
     "*.{ts,js,tsx,jsx,html,scss,css}": [

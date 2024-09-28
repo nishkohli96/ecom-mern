@@ -22,7 +22,7 @@ COPY ./apps/client apps/client
 
 # install node_modules
 RUN yarn
-RUN yarn build:lib
+RUN yarn lib:build
 
 # build frontend
 RUN yarn build-apps

@@ -16,7 +16,7 @@
 
 - Build the common folder shared across client & server.
 ```
-	yarn build:lib
+	yarn lib:build
 ```
 
 - Now run the `client` and `server` apps.

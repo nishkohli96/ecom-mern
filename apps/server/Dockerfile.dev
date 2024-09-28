@@ -22,7 +22,7 @@ COPY ./apps/server apps/server
 
 # install node_modules
 RUN yarn
-RUN yarn build:lib
+RUN yarn lib:build
 
 # run server in dev env
 CMD ["yarn", "ecom-server"]

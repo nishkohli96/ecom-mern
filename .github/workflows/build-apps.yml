@@ -23,11 +23,11 @@ jobs:
               run: yarn install
 
             - name: Build @ecom-mern/shared
-              run: yarn build:lib
+              run: yarn lib:build
 
             - name: Build server
-              run: yarn build:server
+              run: yarn server:build
 
             - name: Build frontend
-              run: yarn build:client
+              run: yarn client:build
 
