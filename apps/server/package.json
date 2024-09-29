@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
-    "build": "rimraf dist & tsc",
+    "build": "rimraf dist & tsc && cp -r src/docs/* ./dist/docs",
     "build:run": "ts-node dist/index.js"
   },
   "dependencies": {

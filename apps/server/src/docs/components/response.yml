@@ -1,0 +1,9 @@
+SUCCESS:
+  description: A JSON array of user names
+  content:
+    application/json:
+      schema:
+        type: array
+        items:
+          type: string
+        example: [harry, jason]
