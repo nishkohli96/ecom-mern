@@ -4,5 +4,5 @@
     tags:
       - Users
     responses:
-      "200": 
-        $ref: "#/components/responses/SUCCESS"
+      '200':
+        $ref: '#/components/responses/SUCCESS'
