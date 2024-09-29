@@ -3,8 +3,8 @@
   "author": "Nishant Kohli",
   "version": "1.0.0",
   "private": true,
-  "engines" : { 
-    "node" : ">=20.10.0" 
+  "engines": {
+    "node": ">=20.10.0"
   },
   "workspaces": [
     "apps/*",

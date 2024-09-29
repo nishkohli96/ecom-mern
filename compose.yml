@@ -28,7 +28,7 @@ services:
       dockerfile: ./apps/server/Dockerfile
     ports:
       - '5000:5000'
-  
+
   # server in dev-mode
   server-dev:
     image: nish1896/ecom-mern-server-dev

@@ -41,20 +41,7 @@ app.use(
 const swaggerOptions: SwaggerUiOptions = {
   explorer: true,
   customCss: '.swagger-ui .topbar { background-color: #000000 }',
-  // swaggerOptions: {
-  //   urls: [
-  //     {
-  //       url: 'http://petstore.swagger.io/v2/swagger.json',
-  //       name: 'Spec1'
-  //     },
-  //     {
-  //       url: 'http://petstore.swagger.io/v2/swagger.json',
-  //       name: 'Spec2'
-  //     }
-  //   ]
-  // }
 };
-
 app.get('/api-docs/swagger.json', (req, res) => res.json(swaggerConfig));
 app.use(
   '/api-docs',
