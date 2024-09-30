@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
     "build": "rimraf dist & tsc && cp -r src/docs/* ./dist/docs",
-    "build:run": "ts-node dist/index.js"
+    "start": "yarn build && TS_NODE_BASEURL=./dist node -r tsconfig-paths/register dist/index.js"
   },
   "dependencies": {
     "@ecom/mern-shared": "*",
