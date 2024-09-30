@@ -1,0 +1,32 @@
+/api/user/update/{id}:
+  put:
+    summary: Update User Details
+    tags:
+      - User
+    parameters:
+      - in: path
+        name: id
+        schema:
+          $ref: '#/components/schemas/UserId'
+        required: true
+        description: _id of the user
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                $ref: '#/components/schemas/UserEmail'
+              name:
+                $ref: '#/components/schemas/UserName'
+              phone:
+                $ref: '#/components/schemas/UserPhone'
+              avatar:
+                $ref: '#/components/schemas/UserAvatar'
+              role:
+                $ref: '#/components/schemas/UserRole'
+    responses:
+      '200':
+        description: User details updated
