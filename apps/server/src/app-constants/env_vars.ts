@@ -17,7 +17,7 @@ export const ENV_VARS = Object.freeze({
     cluster_pswd: env.CLUSTER_PSWD ?? 'password',
     db_name: env.DB_NAME ?? 'default_db',
   },
-  port: env.port ?? 5000,
+  port: env.port ?? 8000,
   razorpay: {
     key_id: env.RAZORPAY_KEY_ID ?? '',
     secret: env.RAZORPAY_SECRET ?? '',

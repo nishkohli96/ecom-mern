@@ -9,19 +9,21 @@ let schemas = {};
 let securitySchemes = {};
 
 async function readYMLFiles() {
-  /* Responses */
+  /* Security & Responses */
   const responseData = fs.readFileSync(
     path.join(__dirname + '/components/response.yml'),
     'utf-8'
   );
-  responses = YAML.parse(responseData);
+  const { apiResponse, security } = YAML.parse(responseData);
+  securitySchemes = security;
+  responses = apiResponse;
 
-  /* Security Schema */
-  const securitySchemaData = fs.readFileSync(
-    path.join(__dirname + '/components/security-scheme.yml'),
+  /* Schemas */
+  const schemaData = fs.readFileSync(
+    path.join(__dirname + '/components/schema.yml'),
     'utf-8'
   );
-  securitySchemes = YAML.parse(securitySchemaData);
+  schemas = YAML.parse(schemaData);
 
   /* API Paths */
   const files = fs.readdirSync(path.join(__dirname + '/paths'));
@@ -49,7 +51,6 @@ export default {
   servers: [
     {
       url: ENV_VARS.swagger_url,
-      description: 'Same host which the serves the backend.',
     },
   ],
   paths: swaggerPaths,

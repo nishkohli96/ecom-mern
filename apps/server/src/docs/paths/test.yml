@@ -1,8 +1,0 @@
-/users:
-  get:
-    summary: Get all users
-    tags:
-      - Users
-    responses:
-      '200':
-        $ref: '#/components/responses/SUCCESS'

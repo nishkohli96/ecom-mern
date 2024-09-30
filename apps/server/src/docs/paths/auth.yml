@@ -1,0 +1,32 @@
+/api/auth/login:
+  post:
+    summary: User Login
+    tags:
+      - Auth
+    requestBody:
+      required: true
+      content: 
+        application/json:
+          schema:
+            type: object
+            required: 
+              - email
+              - password
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+          example:
+            email: nish@gmail.com
+            password: Nish1234@
+    responses:
+      '200':
+        description: User logged in sucessfully
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/User'
+      '401':
+        $ref: '#/components/responses/UNAUTHORIZED'
+                

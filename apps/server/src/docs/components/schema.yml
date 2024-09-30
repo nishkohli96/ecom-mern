@@ -1,0 +1,27 @@
+User:
+  type: object
+  properties:
+    _id:
+      type: string
+    avatar:
+      type: string
+    email:
+      type: string
+    name:
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+    phone:
+      type: string
+  example:
+    _id: 6533ac7e027fa855f6dc28e3
+    avatar: https://randomuser.me/api/portraits/thumb/men/1.jpg
+    email: nish@gmail.com
+    name:
+      first: Nishant
+      last: Kohli
+    phone: "+91 98888-1111"
+
