@@ -5,11 +5,11 @@
       - Auth
     requestBody:
       required: true
-      content: 
+      content:
         application/json:
           schema:
             type: object
-            required: 
+            required:
               - email
               - password
             properties:
@@ -25,8 +25,7 @@
         description: User logged in sucessfully
         content:
           application/json:
-            schema: 
+            schema:
               $ref: '#/components/schemas/User'
       '401':
         $ref: '#/components/responses/UNAUTHORIZED'
-                
