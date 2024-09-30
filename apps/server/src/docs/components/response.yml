@@ -6,4 +6,4 @@ SUCCESS:
         type: array
         items:
           type: string
-        example: [harry, jason]
+        example: [harry, jason, terry]
