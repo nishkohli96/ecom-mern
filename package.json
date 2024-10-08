@@ -24,7 +24,7 @@
     "prettier": "prettier --write * --ignore-unknown"
   },
   "lint-staged": {
-    "*.{ts,js,tsx,jsx,html,scss,css}": [
+    "*.{ts,js,tsx,jsx,html,scss,css,yml,yaml}": [
       "yarn run prettier"
     ]
   },

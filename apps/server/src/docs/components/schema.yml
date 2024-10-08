@@ -9,7 +9,7 @@ UserName:
       type: string
     last:
       type: string
-  example: 
+  example:
     first: Nish
     last: Kohli
 
@@ -27,7 +27,7 @@ UserPhone:
 
 UserRole:
   type: string
-  enum: 
+  enum:
     - ADMIN
     - CUSTOMER
   default: CUSTOMER
