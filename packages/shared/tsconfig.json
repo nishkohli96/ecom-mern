@@ -4,8 +4,8 @@
     "baseUrl": "src",
     "rootDir": "src",
     "outDir": "dist",
-    "resolveJsonModule": false,
-    "incremental": false
+    "composite": true,
+    "resolveJsonModule": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*", "dist"]
