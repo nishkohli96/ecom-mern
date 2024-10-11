@@ -5,11 +5,11 @@ import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';
 import swaggerUI, { SwaggerUiOptions } from 'swagger-ui-express';
 import { ApiRoutesConfig } from '@ecom/mern-shared';
-import { requestLogger } from 'utils';
-import { ENV_VARS } from 'app-constants';
-import winstonLogger from 'winston-logger';
-import * as Routes from 'routes';
-import swaggerConfig from 'docs/swagger';
+import { requestLogger } from '@/utils';
+import { ENV_VARS } from '@/app-constants';
+import winstonLogger from '@/winston-logger';
+import * as Routes from '@/routes';
+import swaggerConfig from '@/docs/swagger';
 
 const app: Express = express();
 

@@ -6,10 +6,10 @@ import {
   PaymentStatus,
   RazorPayOrderSuccess,
 } from '@ecom/mern-shared';
-import { OrderModel, UserModel } from 'models';
-import { errorLogger } from 'utils';
-import cartService from 'routes/cart/service';
-import groceryService from 'routes/grocery/service';
+import { OrderModel, UserModel } from '@/models';
+import { errorLogger } from '@/utils';
+import cartService from '@/routes/cart/service';
+import groceryService from '@/routes/grocery/service';
 import razorpayService from '../razorpay/service';
 
 class CheckoutService {

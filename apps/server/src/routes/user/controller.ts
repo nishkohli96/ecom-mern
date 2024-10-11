@@ -3,7 +3,7 @@ import {
   authenticateAdmin,
   validateAuthHeader,
   checkTokenMismatchInReqParams,
-} from 'utils';
+} from '@/utils';
 import {
   ApiRoutesConfig,
   ConfirmPasswordType,

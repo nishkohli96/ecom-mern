@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     "rootDir": "src",
     "module": "commonjs",
     "resolveJsonModule": false,
@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "incremental": false,
     "paths": {
+      "@/*": ["src/*"],
       "@shared/*": ["../../packages/shared/*"]
     }
   },

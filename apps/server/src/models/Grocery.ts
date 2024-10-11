@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { slugifyGroceryName } from 'utils';
+import { slugifyGroceryName } from '@/utils';
 
 const GrocerySchema = new Schema(
   {

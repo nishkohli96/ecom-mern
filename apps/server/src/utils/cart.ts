@@ -1,5 +1,5 @@
 import { CartProduct } from '@ecom/mern-shared';
-import { Grocery } from 'routes/grocery/types';
+import { Grocery } from '@/routes/grocery/types';
 
 /**
  * Mongo search was returning records on random order, hence

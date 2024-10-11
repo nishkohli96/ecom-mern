@@ -3,8 +3,8 @@ import os from 'os';
 import chalk from 'chalk';
 import { createClient } from 'redis';
 import mongoose from 'mongoose';
-import { ENV_VARS } from 'app-constants';
-import { console_log } from 'utils';
+import { ENV_VARS } from '@/app-constants';
+import { console_log } from '@/utils';
 import app from './app';
 
 const hostName = os.hostname();

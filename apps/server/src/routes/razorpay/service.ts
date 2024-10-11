@@ -6,8 +6,8 @@ import {
   RazorpayCustomer,
   RazorPayOrder,
 } from '@ecom/mern-shared';
-import { ENV_VARS } from 'app-constants/env_vars';
-import { errorLogger } from 'utils';
+import { ENV_VARS } from '@/app-constants/env_vars';
+import { errorLogger } from '@/utils';
 import * as RazorpayTypes from './types';
 
 class RazorpayService {

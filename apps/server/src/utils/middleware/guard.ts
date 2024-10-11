@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserRole } from 'models/User';
-import { AuthConfig, ENV_VARS } from 'app-constants';
-import { DecodedTokenInfo } from 'routes/auth/types';
-import winstonLogger from 'winston-logger';
+import { UserRole } from '@/models/User';
+import { AuthConfig, ENV_VARS } from '@/app-constants';
+import { DecodedTokenInfo } from '@/routes/auth/types';
+import winstonLogger from '@/winston-logger';
 import { generateJWT } from '../auth';
 
 export function validateAuthHeader(

@@ -5,8 +5,8 @@ import {
   nameRegex,
   UserAddress,
 } from '@ecom/mern-shared';
-import { UserInfo } from 'routes/user/types';
-import { hashPassword } from 'utils';
+import { UserInfo } from '@/routes/user/types';
+import { hashPassword } from '@/utils';
 
 export enum UserRole {
   Admin = 'ADMIN',

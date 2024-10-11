@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { UserRole } from 'models/User';
-import { AuthConfig, ENV_VARS } from 'app-constants';
-import { printError } from 'utils';
+import { UserRole } from '@/models/User';
+import { AuthConfig, ENV_VARS } from '@/app-constants';
+import { printError } from '@/utils';
 
 export interface GenerateTokenPayload {
   _id: string;

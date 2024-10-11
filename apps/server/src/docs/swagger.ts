@@ -1,7 +1,7 @@
-import { ENV_VARS } from 'app-constants';
 import fs from 'fs';
 import path from 'path';
 import YAML from 'yaml';
+import { ENV_VARS } from '@/app-constants';
 
 let swaggerPaths = {};
 let responses = {};

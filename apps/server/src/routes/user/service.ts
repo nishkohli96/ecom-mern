@@ -1,8 +1,8 @@
 import { Response } from 'express';
 import bcrypt from 'bcrypt';
 import { ValidationError } from 'yup';
-import { ENV_VARS } from 'app-constants';
-import { UserModel, TokenModel } from 'models';
+import { ENV_VARS } from '@/app-constants';
+import { UserModel, TokenModel } from '@/models';
 import {
   printFormValidationErrors,
   UserPasswordChange,
@@ -12,7 +12,7 @@ import {
   PasswordResetSchema,
   UserAddress,
 } from '@ecom/mern-shared';
-import { hashPassword, errorLogger } from 'utils';
+import { hashPassword, errorLogger } from '@/utils';
 import { AddUserSchema, UpdateUserSchema } from './validation';
 import * as UserTypes from './types';
 import razorpayService from '../razorpay/service';

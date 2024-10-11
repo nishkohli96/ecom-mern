@@ -6,7 +6,7 @@ import {
   GuestUserCart,
   UserCartInfo,
 } from '@ecom/mern-shared';
-import { validateAuthHeader, checkTokenMismatchInReqParams } from 'utils';
+import { validateAuthHeader, checkTokenMismatchInReqParams } from '@/utils';
 import cartService from './service';
 import * as CartTypes from './types';
 

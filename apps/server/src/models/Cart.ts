@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { GroceryCartProduct } from 'routes/cart/types';
+import { GroceryCartProduct } from '@/routes/cart/types';
 
 /**
  * Check out this cart helper library.

@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { GroceryPurchase } from './Cart';
 import { OrderStatus, PaymentStatus } from '@ecom/mern-shared';
-import { PurchaseDetails } from 'routes/checkout/types';
+import { PurchaseDetails } from '@/routes/checkout/types';
 
 const PaymentSchema = new Schema(
   {

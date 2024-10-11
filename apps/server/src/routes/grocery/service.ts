@@ -2,9 +2,9 @@ import { Response } from 'express';
 import fs from 'fs';
 import { parse } from 'csv-parse';
 import { GroceryInventory, GroceryItem, CartProduct } from '@ecom/mern-shared';
-import { GroceryModel } from 'models';
-import { algoliaIndex } from 'algolia/client';
-import { slugifyGroceryName, printSuccessMsg, errorLogger } from 'utils';
+import { GroceryModel } from '@/models';
+import { algoliaIndex } from '@/algolia/client';
+import { slugifyGroceryName, printSuccessMsg, errorLogger } from '@/utils';
 import * as GroceryTypes from './types';
 import { Types } from 'mongoose';
 

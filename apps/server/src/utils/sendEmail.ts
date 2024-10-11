@@ -1,5 +1,5 @@
 import sgMail from '@sendgrid/mail';
-import { ENV_VARS } from 'app-constants/env_vars';
+import { ENV_VARS } from '@/app-constants/env_vars';
 
 sgMail.setApiKey(ENV_VARS.sendgrid.apikey);
 

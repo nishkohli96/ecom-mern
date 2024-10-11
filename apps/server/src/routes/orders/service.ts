@@ -9,8 +9,8 @@ import {
   OrdersListItem,
   CompleteOrdersDetail,
 } from '@ecom/mern-shared';
-import { OrderModel } from 'models';
-import { errorLogger } from 'utils';
+import { OrderModel } from '@/models';
+import { errorLogger } from '@/utils';
 import { UUID } from 'bson';
 
 class OrderService {

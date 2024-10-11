@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
-import ALGOLIA_CONFIG from 'algolia/constants';
-import { validateAuthHeader, authenticateAdmin } from 'utils';
+import ALGOLIA_CONFIG from '@/algolia/constants';
+import { validateAuthHeader, authenticateAdmin } from '@/utils';
 import {
   ApiRoutesConfig,
   GroceryInventory,
