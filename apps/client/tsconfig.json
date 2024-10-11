@@ -5,6 +5,5 @@
     "baseUrl": "src",
     "rootDir": "src",
     "resolveJsonModule": true
-  },
-  "exclude": ["src/shared/components/display/ErrorBoundary.jsx"]
+  }
 }

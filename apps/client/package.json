@@ -11,7 +11,6 @@
   },
   "proxy": "http://localhost:8000",
   "dependencies": {
-    "@ecom/mern-shared": "*",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.2",

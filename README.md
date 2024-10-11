@@ -9,19 +9,15 @@
 
 ###  Get Started
 
-- Install `node_modules`
-```
-	yarn
-```
+Run the `setup.sh` script to install `node_modules`, build the common folder shared across client & server and link it them.
 
-- Build the common folder shared across client & server.
 ```
-	yarn lib:build
+  sh setup.sh
 ```
 
 - Now run the `client` and `server` apps.
 ```
-	yarn run-apps
+  yarn run-apps
 ```
 
 ###  Support Me

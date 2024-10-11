@@ -11,7 +11,7 @@ import {
   PasswordResetQueryParams,
   PasswordResetSchema,
   UserAddress,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import { hashPassword, errorLogger } from '@/utils';
 import { AddUserSchema, UpdateUserSchema } from './validation';
 import * as UserTypes from './types';

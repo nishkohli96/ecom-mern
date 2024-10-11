@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid';
-import { UserProfileDetails } from '@ecom/mern-shared';
+import { UserProfileDetails } from '@ecom-mern/shared';
 import { Header5Text, CenterContent, FormContainer, ProfileForm } from 'shared';
 
 const SignUpForm = () => {

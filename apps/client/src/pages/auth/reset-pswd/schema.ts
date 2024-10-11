@@ -3,7 +3,7 @@ import {
   emailValidation,
   passwordValidation,
   VerifyUserEmail,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 export const EmailSchema: ObjectSchema<VerifyUserEmail> = object().shape({
   ...emailValidation,

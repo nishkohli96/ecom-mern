@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { batch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import { PasswordResetSchema, ConfirmPasswordType } from '@ecom/mern-shared';
+import { PasswordResetSchema, ConfirmPasswordType } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   openToast,

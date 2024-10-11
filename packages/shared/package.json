@@ -1,5 +1,5 @@
 {
-  "name": "@ecom/mern-shared",
+  "name": "@ecom-mern/shared",
   "version": "1.0.0",
   "author": "Nishant Kohli",
   "main": "./dist/index.js",

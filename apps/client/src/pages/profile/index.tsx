@@ -1,7 +1,7 @@
 import { batch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-import { UserProfileDetails } from '@ecom/mern-shared';
+import { UserProfileDetails } from '@ecom-mern/shared';
 import {
   useAppSelector,
   useAppDispatch,

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { batch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { VerifyUserEmail } from '@ecom/mern-shared';
+import { VerifyUserEmail } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   useInitiatePasswordResetMutation,

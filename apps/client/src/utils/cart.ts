@@ -1,4 +1,4 @@
-import { CartProduct, GroceryItem } from '@ecom/mern-shared';
+import { CartProduct, GroceryItem } from '@ecom-mern/shared';
 
 /* Sum of quantities of all products in cart */
 export function getTotalCartProducts(exisitingCart: CartProduct[]): number {

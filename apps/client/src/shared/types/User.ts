@@ -1,4 +1,4 @@
-import { UserProfileDetails, UserAddress } from '@ecom/mern-shared';
+import { UserProfileDetails, UserAddress } from '@ecom-mern/shared';
 
 export interface UserLoginInfo extends UserProfileDetails {
   _id: string;

@@ -11,7 +11,7 @@ import {
   SetDefaultAddress,
   UserPasswordChange,
   UserAddress,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import UserService from './service';
 import * as UserTypes from './types';
 

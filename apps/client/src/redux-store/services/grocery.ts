@@ -4,7 +4,7 @@ import {
   ApiRoutesConfig,
   GroceryItem,
   GroceryCategorization,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 export const groceryApi = createApi({
   reducerPath: 'groceryApi',

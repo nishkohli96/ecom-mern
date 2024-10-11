@@ -4,7 +4,7 @@ import {
   pswdRegex,
   nameRegex,
   UserAddress,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import { UserInfo } from '@/routes/user/types';
 import { hashPassword } from '@/utils';
 

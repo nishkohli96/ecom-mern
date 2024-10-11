@@ -5,7 +5,7 @@ import {
   ApiRoutesConfig,
   GroceryInventory,
   CartProduct,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import groceryService from './service';
 import * as GroceryTypes from './types';
 

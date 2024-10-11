@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { batch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import { PasswordChangeSchema, UserPasswordChange } from '@ecom/mern-shared';
+import { PasswordChangeSchema, UserPasswordChange } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   useChangePasswordMutation,

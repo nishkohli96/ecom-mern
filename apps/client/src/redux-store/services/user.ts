@@ -9,7 +9,7 @@ import {
   PasswordResetQueryParams,
   ConfirmPasswordType,
   SetDefaultAddress,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import { UserLoginInfo, UserAddressInfo } from 'shared/types';
 
 type UserResetPassword = PasswordResetQueryParams & ConfirmPasswordType;

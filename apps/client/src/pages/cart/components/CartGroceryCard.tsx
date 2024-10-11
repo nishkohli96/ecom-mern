@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { GroceryItem } from '@ecom/mern-shared';
+import { GroceryItem } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   openToast,

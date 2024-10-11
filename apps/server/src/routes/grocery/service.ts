@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import fs from 'fs';
 import { parse } from 'csv-parse';
-import { GroceryInventory, GroceryItem, CartProduct } from '@ecom/mern-shared';
+import { GroceryInventory, GroceryItem, CartProduct } from '@ecom-mern/shared';
 import { GroceryModel } from '@/models';
 import { algoliaIndex } from '@/algolia/client';
 import { slugifyGroceryName, printSuccessMsg, errorLogger } from '@/utils';

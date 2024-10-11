@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { GetCustomerQuery } from '@ecom/mern-shared';
+import { GetCustomerQuery } from '@ecom-mern/shared';
 import { validateAuthHeader, checkTokenMismatchInReqQuery } from '@/utils';
 import orderService from './service';
 import * as OrderTypes from './types';

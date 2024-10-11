@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "shared": "yarn workspace @ecom/mern-shared lib:build",
+    "shared": "yarn workspace @ecom-mern/shared lib:build",
     "server": "yarn workspace ecom-mern-server dev",
     "server:build": "yarn workspace ecom-mern-server build",
     "server:start": "yarn workspace ecom-mern-server start",

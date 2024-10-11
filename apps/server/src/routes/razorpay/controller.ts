@@ -3,7 +3,7 @@ import {
   ApiRoutesConfig,
   CreateRazorpayOrder,
   UserProfileDetails,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import { validateAuthHeader, authenticateAdmin } from '@/utils';
 import razorpayService from './service';
 import * as RazorpayTypes from './types';

@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { UserAddress } from '@ecom/mern-shared';
+import { UserAddress } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   useUpdateUserAddressMutation,

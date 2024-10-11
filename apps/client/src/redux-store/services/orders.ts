@@ -4,7 +4,7 @@ import {
   ApiRoutesConfig,
   OrdersListItem,
   CompleteOrdersDetail,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 export const ordersApi = createApi({
   reducerPath: 'ordersApi',

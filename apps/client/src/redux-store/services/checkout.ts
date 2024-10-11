@@ -5,7 +5,7 @@ import {
   CreateRazorpayOrder,
   RazorPayOrderSuccess,
   CreateOrderResponse,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 export const checkoutApi = createApi({
   reducerPath: 'checkoutApi',

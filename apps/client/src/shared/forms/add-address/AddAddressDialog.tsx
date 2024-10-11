@@ -1,5 +1,5 @@
 import { batch } from 'react-redux';
-import { UserAddress, defaultCountryState } from '@ecom/mern-shared';
+import { UserAddress, defaultCountryState } from '@ecom-mern/shared';
 import {
   useAppSelector,
   useAppDispatch,

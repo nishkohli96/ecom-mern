@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { Types } from 'mongoose';
 import { CartModel, GroceryModel } from '@/models';
-import { AddToUserCart, CartProduct, UserCartInfo } from '@ecom/mern-shared';
+import { AddToUserCart, CartProduct, UserCartInfo } from '@ecom-mern/shared';
 import {
   errorLogger,
   rearrangeCartProducts,

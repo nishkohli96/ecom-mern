@@ -1,4 +1,4 @@
-import { ApiRoutesConfig } from '@ecom/mern-shared';
+import { ApiRoutesConfig } from '@ecom-mern/shared';
 
 const AppConfig = Object.freeze({
   api_endpoint: `http://localhost:3000${ApiRoutesConfig.apiPrefix}`,

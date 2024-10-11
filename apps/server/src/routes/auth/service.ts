@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
-import { ApiRoutesConfig } from '@ecom/mern-shared';
+import { ApiRoutesConfig } from '@ecom-mern/shared';
 import { UserModel, TokenModel } from '@/models';
 import { generateJWT, printError, errorLogger } from '@/utils';
 import { AuthConfig, ENV_VARS } from '@/app-constants';

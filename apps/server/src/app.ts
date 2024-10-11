@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';
 import swaggerUI, { SwaggerUiOptions } from 'swagger-ui-express';
-import { ApiRoutesConfig } from '@ecom/mern-shared';
+import { ApiRoutesConfig } from '@ecom-mern/shared';
 import { requestLogger } from '@/utils';
 import { ENV_VARS } from '@/app-constants';
 import winstonLogger from '@/winston-logger';
@@ -42,7 +42,9 @@ const swaggerOptions: SwaggerUiOptions = {
   explorer: true,
   customCss: '.swagger-ui .topbar { background-color: #000000 }',
 };
-app.get('/api-docs/swagger.json', (req, res) => res.json(swaggerConfig));
+app.get('/api-docs/swagger.json', (_, res: Response) =>
+  res.json(swaggerConfig)
+);
 app.use(
   '/api-docs',
   swaggerUI.serve,

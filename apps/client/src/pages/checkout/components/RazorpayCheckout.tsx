@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material';
 import {
   RazorPayOrderSuccess,
   RazorpayModalDismissReason,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import AppConfig from 'constants/app-config';
 import { useUpdateOrderStatusMutation } from 'redux-store';
 import { loadScript } from 'utils';

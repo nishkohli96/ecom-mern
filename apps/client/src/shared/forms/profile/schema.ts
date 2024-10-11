@@ -5,7 +5,7 @@ import {
   nameValidation,
   phoneValidation,
   UserProfileDetails,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 const ProfileFormSchema: ObjectSchema<UserProfileDetails> = object()
   .shape({

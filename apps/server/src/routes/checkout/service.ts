@@ -5,7 +5,7 @@ import {
   OrderStatus,
   PaymentStatus,
   RazorPayOrderSuccess,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import { OrderModel, UserModel } from '@/models';
 import { errorLogger } from '@/utils';
 import cartService from '@/routes/cart/service';

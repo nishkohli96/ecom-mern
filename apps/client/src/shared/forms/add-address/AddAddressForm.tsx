@@ -7,7 +7,7 @@ import {
   CountryStateInfo,
   defaultCountryState,
   fallbackCountryState,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import {
   useAppDispatch,
   useGetAllCountriesQuery,

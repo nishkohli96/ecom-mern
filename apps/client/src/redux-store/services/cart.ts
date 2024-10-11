@@ -6,7 +6,7 @@ import {
   CartProduct,
   GroceryItem,
   GuestUserCart,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 import {
   setUserCartInfo,
   setToastMessage,

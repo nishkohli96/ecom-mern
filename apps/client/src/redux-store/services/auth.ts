@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { batch } from 'react-redux';
 import AppConfig from 'constants/app-config';
-import { ApiRoutesConfig, UserLogin, VerifyUserEmail } from '@ecom/mern-shared';
+import { ApiRoutesConfig, UserLogin, VerifyUserEmail } from '@ecom-mern/shared';
 import { UserLoginInfo } from 'shared/types';
 import {
   openToast,

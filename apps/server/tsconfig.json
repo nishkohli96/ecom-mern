@@ -9,8 +9,7 @@
     "esModuleInterop": true,
     "incremental": false,
     "paths": {
-      "@/*": ["src/*"],
-      "@shared/*": ["../../packages/shared/*"]
+      "@/*": ["src/*"]
     }
   },
   "ts-node": {

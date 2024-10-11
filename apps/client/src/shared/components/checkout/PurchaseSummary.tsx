@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import { CartProduct } from '@ecom/mern-shared';
+import { CartProduct } from '@ecom-mern/shared';
 import { useAppSelector, UserSelector } from 'redux-store';
 import { Header4Text, Header5Text } from 'shared';
 import RouteList from 'routes/route-list';

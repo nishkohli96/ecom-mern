@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { OrderStatus } from '@ecom/mern-shared';
+import { OrderStatus } from '@ecom-mern/shared';
 import { useGetOrderDetailsQuery } from 'redux-store';
 import { Loading } from 'shared';
 import RouteList from 'routes/route-list';

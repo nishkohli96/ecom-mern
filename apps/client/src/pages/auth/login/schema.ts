@@ -3,7 +3,7 @@ import {
   emailValidation,
   passwordValidation,
   UserLogin,
-} from '@ecom/mern-shared';
+} from '@ecom-mern/shared';
 
 const LoginFormSchema: ObjectSchema<UserLogin> = object()
   .shape({

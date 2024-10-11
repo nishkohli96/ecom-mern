@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DownloadIcon from '@mui/icons-material/Download';
-import { OrdersListItem } from '@ecom/mern-shared';
+import { OrdersListItem } from '@ecom-mern/shared';
 import RouteList from 'routes/route-list';
 
 type OrderCardProps = { key: string } & OrdersListItem;

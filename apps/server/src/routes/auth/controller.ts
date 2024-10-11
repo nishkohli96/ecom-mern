@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { AuthConfig } from '@/app-constants';
-import { ApiRoutesConfig, VerifyUserEmail } from '@ecom/mern-shared';
+import { ApiRoutesConfig, VerifyUserEmail } from '@ecom-mern/shared';
 import { validateAuthHeader } from '@/utils';
 import AuthService from './service';
 import * as AuthTypes from './types';

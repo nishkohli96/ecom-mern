@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from 'redux-store';
 import { UserLoginInfo } from 'shared/types';
-import { CartProduct, GuestUserCart } from '@ecom/mern-shared';
+import { CartProduct, GuestUserCart } from '@ecom-mern/shared';
 import { addProductToCart, removeProductFromCart } from 'utils';
 
 interface UserIntialState {

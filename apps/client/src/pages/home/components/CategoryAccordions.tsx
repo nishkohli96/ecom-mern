@@ -5,7 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { GroceryCategorization } from '@ecom/mern-shared';
+import { GroceryCategorization } from '@ecom-mern/shared';
 import AlgoliaConfig from 'constants/algolia-config';
 import RouteList from 'routes/route-list';
 

@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import { UserLogin } from '@ecom/mern-shared';
+import { UserLogin } from '@ecom-mern/shared';
 import {
   useAppDispatch,
   useUserLoginMutation,

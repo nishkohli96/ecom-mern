@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
-import { CountryStateInfo, defaultCountryState } from '@ecom/mern-shared';
+import { CountryStateInfo, defaultCountryState } from '@ecom-mern/shared';
 
 type CountryStateAutocompleteProps = {
   name: string;

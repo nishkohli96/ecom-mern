@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import { UserProfileDetails } from '@ecom/mern-shared';
+import { UserProfileDetails } from '@ecom-mern/shared';
 import { RHFTextField, MuiButton, PhoneInput } from 'shared';
 import ProfileFormSchema from './schema';
 

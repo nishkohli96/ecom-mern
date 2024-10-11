@@ -1,4 +1,4 @@
-import { CartProduct } from '@ecom/mern-shared';
+import { CartProduct } from '@ecom-mern/shared';
 import { Grocery } from '@/routes/grocery/types';
 
 /**
