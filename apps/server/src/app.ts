@@ -29,13 +29,13 @@ app.use(requestLogger);
 app.use(helmet());
 
 /* https://www.npmjs.com/package/express-mongo-sanitize#what-is-this-module-for */
-app.use(
-  mongoSanitize({
-    onSanitize: ({ req, key }) => {
-      winstonLogger.warn(`This request[${key}] is sanitized`, req);
-    },
-  })
-);
+// app.use(
+//   mongoSanitize({
+//     onSanitize: ({ req, key }) => {
+//       winstonLogger.warn(`This request[${key}] is sanitized`, req);
+//     },
+//   })
+// );
 
 /* Serve swagger docs on "/api-docs" endpoint */
 const swaggerOptions: SwaggerUiOptions = {

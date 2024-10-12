@@ -15,6 +15,7 @@
     "server": "yarn workspace ecom-mern-server dev",
     "server:build": "yarn workspace ecom-mern-server build",
     "server:start": "yarn workspace ecom-mern-server start",
+    "server:test": "yarn workspace ecom-mern-server test",
     "client": "yarn workspace ecom-mern-client dev",
     "client:build": "yarn workspace ecom-mern-client build",
     "client:start": "yarn workspace ecom-mern-client start",

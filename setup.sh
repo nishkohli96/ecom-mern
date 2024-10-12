@@ -1,20 +1,42 @@
+#!/bin/bash
+
+# Check for Yarn installation
+if ! command -v yarn &> /dev/null; then
+  echo "Yarn is not installed. Please install it first."
+  exit 1
+fi
+
 # Install Dependencies & Build Package
 echo "🏁 Initiating Setup..."
 echo "Installing Dependencies & Building Shared Package 🛠️"
-yarn
-yarn shared
+yarn install --frozen-lockfile
+
+if ! yarn shared; then
+  echo "Shared package build failed. Exiting setup."
+  exit 1
+fi
 
 # Link the package
 echo "Linking Package... 🔗"
-cd packages/shared/dist
-yarn link
+cd packages/shared/dist || exit
+if ! yarn link; then
+  echo "Linking shared package failed. Exiting setup."
+  exit 1
+fi
 
 echo "Linking with Server... 🖥️"
-cd ../../../apps/server
-yarn link @ecom-mern/shared
+cd ../../../apps/server || exit
+if ! yarn link @ecom-mern/shared; then
+  echo "Linking with server failed. Exiting setup."
+  exit 1
+fi
 
-echo "Linking with Client.. .💻"
-cd ../client
-yarn link @ecom-mern/shared
+echo "Linking with Client... 💻"
+cd ../client || exit
+if ! yarn link @ecom-mern/shared; then
+  echo "Linking with client failed. Exiting setup."
+  exit 1
+fi
 
-echo " ✅ Setup Complete! 🎉🎉🎉"
+echo "✅ Setup Complete! 🎉🎉🎉"
+
