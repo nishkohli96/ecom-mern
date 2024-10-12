@@ -13,3 +13,6 @@ Create Redis roles and user on [https://app.redislabs.com/#/data-access-control/
 ### Dataset Limitations
 
 Since the **BigBasket.csv** dataset has some missing fields, I've added the `sku`, `product-handle` and `inStock` fields while syncing this data in the database, for easier identification and querying of data. 
+
+
+`@types/express-serve-static-core` & `@types/express` v5.0.0 is being installed with express v4, which breaks, hence specified the exact versions to install in package.json.
