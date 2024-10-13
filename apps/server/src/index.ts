@@ -67,4 +67,14 @@ async function bootstrap() {
   });
 }
 
+/* Gracefully handle SIGTERM or SIGINT */
+async function handleExit(signal: string) {
+  console.log(`Received ${signal}. Closing MongoDB connection.`);
+  await mongoose.disconnect();
+  console_log('Database', 'Disconnected 🔌');
+}
+
+process.on('SIGTERM', () => handleExit('SIGTERM'));
+process.on('SIGINT', () => handleExit('SIGINT'));
+
 bootstrap();
