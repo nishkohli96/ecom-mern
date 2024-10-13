@@ -1,4 +1,3 @@
-#!/bin/bash
 
 # Check for Yarn installation
 if ! command -v yarn &> /dev/null; then
