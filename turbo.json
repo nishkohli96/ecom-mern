@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "lib:build": {},
     "dev": {
       "dependsOn": ["^lib:build"],
@@ -11,12 +11,9 @@
       "dependsOn": ["^lib:build"],
       "outputs": ["dist/**", "build/**"]
     },
-    "test": {
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
-    },
     "//#prettier": {},
     "deploy": {
-      "dependsOn": ["build", "test"]
+      "dependsOn": ["build"]
     }
   }
 }

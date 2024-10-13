@@ -69,9 +69,13 @@ async function bootstrap() {
 
 /* Gracefully handle SIGTERM or SIGINT */
 async function handleExit(signal: string) {
-  console.log(`Received ${signal}. Closing MongoDB connection.`);
-  await mongoose.disconnect();
-  console_log('Database', 'Disconnected 🔌');
+  console.log(`Received ${signal}`);
+  console_log('Database', 'Disconnecting... 🔌');
+  try {
+    await mongoose.disconnect();
+  } catch (error) {
+    console.error('Error while disconnecting from the database:', error);
+  }
   process.exit(0);
 }
 

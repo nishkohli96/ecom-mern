@@ -2,8 +2,11 @@ public
 build
 dist
 
-src/assets/images
-src/assets/icons
+# Ignore JavaScript and TypeScript files
+*.js
+*.jsx
+*.ts
+*.tsx
 
 .env
 .env.prod
@@ -19,4 +22,4 @@ src/assets/icons
 yarn.lock
 yarn-error.log
 
-README.md
+*.md

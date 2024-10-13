@@ -2,10 +2,10 @@
 
 ### General
 
-- [husky](https://typicode.github.io/husky/)@8.0.1
-- [lint-staged](https://github.com/lint-staged/lint-staged#readme)@13.0.3
+- [husky](https://typicode.github.io/husky/)@9.1.6
+- [lint-staged](https://github.com/lint-staged/lint-staged#readme)@15.2.10
 - [prettier](https://prettier.io/)@2.7.1
-- [turbo](https://turbo.build/)@1.11.3
+- [turbo](https://turbo.build/)@2.1.3
 - [typescript](https://www.typescriptlang.org/)@5.6.2
 
 ### Client Packages
