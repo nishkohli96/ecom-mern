@@ -11,6 +11,12 @@
       "dependsOn": ["^lib:build"],
       "outputs": ["dist/**", "build/**"]
     },
+    "lint": {
+      "dependsOn": [],
+      "outputs": [],
+      "cache": false
+    },
+    "lint:check": {},
     "//#prettier": {},
     "deploy": {
       "dependsOn": ["build"]

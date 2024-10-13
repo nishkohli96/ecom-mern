@@ -15,8 +15,8 @@ groceryRouter.get(
   '/records',
   (req: Request<{}, {}, {}, GroceryTypes.GetGroceryParams>, res: Response) => {
     const pageNum = req.query.page ?? 1;
-    const num_entries =
-      req.query.num_entries ?? ALGOLIA_CONFIG.default_records_fetch;
+    const num_entries
+      = req.query.num_entries ?? ALGOLIA_CONFIG.default_records_fetch;
     return groceryService.getGroceryRecords(res, pageNum, num_entries);
   }
 );

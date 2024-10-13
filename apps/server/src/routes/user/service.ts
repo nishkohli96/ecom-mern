@@ -65,10 +65,11 @@ class UserService {
     }
     /* Check if user already exists */
     const existingUser = await UserModel.findOne({ email: userData.email });
-    if (existingUser)
+    if (existingUser) {
       return res
         .status(400)
         .send('It seems you already have an account, please log in instead.');
+    }
     try {
       const razorpay_customer = await razorpayService.createRazorpayCustomer({
         name: userData.name,
@@ -147,7 +148,7 @@ class UserService {
       }
     }
     const { id } = userMetaData;
-    let passwordResetToken = await TokenModel.findOne({
+    const passwordResetToken = await TokenModel.findOne({
       userId: id
     });
 
@@ -345,10 +346,10 @@ class UserService {
     defaultAddressId: string
   ) {
     this.changeDefaultAddress(user_id, defaultAddressId)
-      .then((response) => {
+      .then(response => {
         res.status(200).send(response);
       })
-      .catch((err) => {
+      .catch(err => {
         errorLogger(res, err);
       });
   }
@@ -365,7 +366,7 @@ class UserService {
       }).select('addresses');
 
       const defaultAddr = userAddresses?.addresses?.find(
-        (addr) => addr.isDefault === true
+        addr => addr.isDefault === true
       );
       if (defaultAddr?._id.toString() === delete_addressId) {
         return res

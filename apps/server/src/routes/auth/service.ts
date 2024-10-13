@@ -30,7 +30,9 @@ class AuthService {
         'password',
         'role'
       ]);
-      if (!user) return res.status(401).send('Account does not exist');
+      if (!user) {
+        return res.status(401).send('Account does not exist');
+      }
 
       /* Check if user password is correct */
       const isPasswordValid = await bcrypt.compare(password, user.password);

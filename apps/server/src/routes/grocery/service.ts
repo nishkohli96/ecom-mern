@@ -87,10 +87,11 @@ class GroceryService {
     const existingProduct = await GroceryModel.findOne({
       product_name: groceryItem.product_name
     });
-    if (existingProduct)
+    if (existingProduct) {
       return res
         .status(400)
         .send('This product already exists in the inventory');
+    }
 
     try {
       const grocery = new GroceryModel(groceryItem);
@@ -105,7 +106,7 @@ class GroceryService {
        */
       const exclude = new Set(['createdAt', 'updatedAt', '__v']);
       const groceryFields = Object.fromEntries(
-        Object.entries(result.toObject()).filter((e) => !exclude.has(e[0]))
+        Object.entries(result.toObject()).filter(e => !exclude.has(e[0]))
       );
 
       const { objectID } = await algoliaIndex.saveObject(groceryFields, {
@@ -372,7 +373,7 @@ class GroceryService {
         printSuccessMsg(successMsg);
         res.status(200).send(objectIDs);
       })
-      .catch((err) => {
+      .catch(err => {
         errorLogger(res, err);
       });
   }

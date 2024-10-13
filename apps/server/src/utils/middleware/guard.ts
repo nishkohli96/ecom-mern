@@ -47,8 +47,8 @@ export function validateAuthHeader(
     refreshTokenKey
   ) as DecodedTokenInfo;
   if (
-    refreshTokenExpiry - Date.now() <=
-    AuthConfig.cookies_expiry.renew_threshold
+    refreshTokenExpiry - Date.now()
+    <= AuthConfig.cookies_expiry.renew_threshold
   ) {
     refreshToken = generateJWT(userInfo, true);
   }

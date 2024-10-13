@@ -45,8 +45,8 @@ class RazorpayService {
     customerDetails: UserProfileDetails
   ) {
     try {
-      const razorpayCustomer =
-        await this.createRazorpayCustomer(customerDetails);
+      const razorpayCustomer
+        = await this.createRazorpayCustomer(customerDetails);
       return res.send(razorpayCustomer).end();
     } catch (err) {
       errorLogger(res, err);
@@ -86,8 +86,8 @@ class RazorpayService {
 
   async getCustomerDetails(res: Response, customerId: string) {
     try {
-      const customerDetails =
-        await this.razorpayInstance.customers.fetch(customerId);
+      const customerDetails
+        = await this.razorpayInstance.customers.fetch(customerId);
       return res.send(customerDetails).end();
     } catch (err) {
       errorLogger(res, err);
@@ -139,8 +139,8 @@ class RazorpayService {
 
   async getOrderPaymentDetails(res: Response, orderId: string) {
     try {
-      const ordersDetails =
-        await this.razorpayInstance.orders.fetchPayments(orderId);
+      const ordersDetails
+        = await this.razorpayInstance.orders.fetchPayments(orderId);
       return res.send(ordersDetails).end();
     } catch (err) {
       errorLogger(res, err);

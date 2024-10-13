@@ -16,8 +16,8 @@ class CheckoutService {
   async createNewOrder(res: Response, createOrderData: CreateRazorpayOrder) {
     try {
       const { amount, ...otherOrderData } = createOrderData;
-      const { orderId, id } =
-        await razorpayService.createNewRazorpayOrder(amount);
+      const { orderId, id }
+        = await razorpayService.createNewRazorpayOrder(amount);
 
       const customerInfo = await UserModel.findOne({
         _id: otherOrderData.customerId

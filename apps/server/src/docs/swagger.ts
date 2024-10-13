@@ -27,7 +27,7 @@ async function readYMLFiles() {
 
   /* API Paths */
   const files = fs.readdirSync(path.join(__dirname + '/paths'));
-  files.forEach((file) => {
+  files.forEach(file => {
     const fileContent = fs.readFileSync(
       path.join(__dirname + '/paths/' + file),
       'utf-8'

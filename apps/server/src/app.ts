@@ -45,8 +45,7 @@ const swaggerOptions: SwaggerUiOptions = {
   customCss: '.swagger-ui .topbar { background-color: #000000 }'
 };
 app.get('/api-docs/swagger.json', (_, res: Response) =>
-  res.json(swaggerConfig)
-);
+  res.json(swaggerConfig));
 app.use(
   '/api-docs',
   swaggerUI.serve,
