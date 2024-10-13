@@ -72,6 +72,7 @@ async function handleExit(signal: string) {
   console.log(`Received ${signal}. Closing MongoDB connection.`);
   await mongoose.disconnect();
   console_log('Database', 'Disconnected 🔌');
+  process.exit(0);
 }
 
 process.on('SIGTERM', () => handleExit('SIGTERM'));
