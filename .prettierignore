@@ -2,12 +2,6 @@ public
 build
 dist
 
-# Ignore JavaScript and TypeScript files
-*.js
-*.jsx
-*.ts
-*.tsx
-
 .env
 .env.prod
 .env.testing
