@@ -28,7 +28,7 @@ import {
   setToastMessage,
   setToastStatus,
   defaultUserCartValue,
-  useUserLogoutMutation,
+  useUserLogoutMutation
 } from 'redux-store';
 import { GroceryAutocomplete, ThemeMode } from 'shared';
 import { useCartQuantity } from 'hooks';
@@ -36,14 +36,14 @@ import RouteList from 'routes/route-list';
 
 const userMenu = [
   { text: 'Profile', to: RouteList.profile.rootPath },
-  { text: 'Account', to: RouteList.account.rootPath },
+  { text: 'Account', to: RouteList.account.rootPath }
 ];
 
 const guestMenu = [
   {
     text: 'Login',
-    to: `${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`,
-  },
+    to: `${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`
+  }
 ];
 
 export const Navbar = () => {
@@ -139,7 +139,7 @@ export const Navbar = () => {
          * Override the default borderRadius of paper
          * component set in theme
          */
-        borderRadius: 0,
+        borderRadius: 0
       })}
     >
       <Toolbar>
@@ -181,12 +181,12 @@ export const Navbar = () => {
           anchorEl={anchorElUser}
           anchorOrigin={{
             vertical: 'top',
-            horizontal: 'right',
+            horizontal: 'right'
           }}
           keepMounted
           transformOrigin={{
             vertical: 'top',
-            horizontal: 'right',
+            horizontal: 'right'
           }}
           open={Boolean(anchorElUser)}
           onClose={handleCloseUserMenu}

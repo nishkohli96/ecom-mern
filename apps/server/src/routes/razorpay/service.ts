@@ -4,7 +4,7 @@ import Razorpay from 'razorpay';
 import {
   UserProfileDetails,
   RazorpayCustomer,
-  RazorPayOrder,
+  RazorPayOrder
 } from '@ecom-mern/shared';
 import { ENV_VARS } from '@/app-constants/env_vars';
 import { errorLogger } from '@/utils';
@@ -13,7 +13,7 @@ import * as RazorpayTypes from './types';
 class RazorpayService {
   razorpayInstance = new Razorpay({
     key_id: ENV_VARS.razorpay.key_id,
-    key_secret: ENV_VARS.razorpay.secret,
+    key_secret: ENV_VARS.razorpay.secret
   });
 
   /* -------- Customers -------- */
@@ -34,8 +34,8 @@ class RazorpayService {
       email: user.email,
       contact: user.phone,
       notes: {
-        avatar: user.avatar,
-      },
+        avatar: user.avatar
+      }
     })) as RazorpayCustomer;
     return newRzpCustomer;
   }
@@ -45,9 +45,8 @@ class RazorpayService {
     customerDetails: UserProfileDetails
   ) {
     try {
-      const razorpayCustomer = await this.createRazorpayCustomer(
-        customerDetails
-      );
+      const razorpayCustomer =
+        await this.createRazorpayCustomer(customerDetails);
       return res.send(razorpayCustomer).end();
     } catch (err) {
       errorLogger(res, err);
@@ -63,7 +62,7 @@ class RazorpayService {
       {
         name: `${user.name.first} ${user.name.last}`,
         email: user.email,
-        contact: user.phone,
+        contact: user.phone
       }
     )) as RazorpayCustomer;
     return updatedRzpCustomer;
@@ -87,9 +86,8 @@ class RazorpayService {
 
   async getCustomerDetails(res: Response, customerId: string) {
     try {
-      const customerDetails = await this.razorpayInstance.customers.fetch(
-        customerId
-      );
+      const customerDetails =
+        await this.razorpayInstance.customers.fetch(customerId);
       return res.send(customerDetails).end();
     } catch (err) {
       errorLogger(res, err);
@@ -122,7 +120,7 @@ class RazorpayService {
     const options = {
       amount,
       currency: 'INR',
-      receipt: orderId,
+      receipt: orderId
     };
     const orderData = (await this.razorpayInstance.orders.create(
       options
@@ -141,9 +139,8 @@ class RazorpayService {
 
   async getOrderPaymentDetails(res: Response, orderId: string) {
     try {
-      const ordersDetails = await this.razorpayInstance.orders.fetchPayments(
-        orderId
-      );
+      const ordersDetails =
+        await this.razorpayInstance.orders.fetchPayments(orderId);
       return res.send(ordersDetails).end();
     } catch (err) {
       errorLogger(res, err);
@@ -159,7 +156,7 @@ class RazorpayService {
       const updatedOrdersDetails = await this.razorpayInstance.orders.edit(
         orderId,
         {
-          notes: notesPayload,
+          notes: notesPayload
         }
       );
       return res.send(updatedOrdersDetails).end();
@@ -215,7 +212,7 @@ class RazorpayService {
       const updatedPaymentDetails = await this.razorpayInstance.payments.edit(
         paymentId,
         {
-          notes: notesPayload,
+          notes: notesPayload
         }
       );
       return res.send(updatedPaymentDetails).end();
@@ -235,7 +232,7 @@ class RazorpayService {
         {
           ...refundPayload,
           /* speed: 'optimum' for faster refund */
-          speed: 'normal',
+          speed: 'normal'
         }
       );
       return res.send(updatedPaymentDetails).end();
@@ -288,7 +285,7 @@ class RazorpayService {
       const updatedRefundDetails = await this.razorpayInstance.refunds.edit(
         refundId,
         {
-          notes: notesPayload,
+          notes: notesPayload
         }
       );
       return res.send(updatedRefundDetails).end();

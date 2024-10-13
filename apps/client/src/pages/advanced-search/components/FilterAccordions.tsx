@@ -17,7 +17,7 @@ interface FilterAccordionsProps {
 export const FilterAccordions = ({
   searchResult,
   facetFilters,
-  setFacetFilters,
+  setFacetFilters
 }: FilterAccordionsProps) => {
   return (
     <Fragment>

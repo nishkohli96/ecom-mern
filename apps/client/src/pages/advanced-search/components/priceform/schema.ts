@@ -38,6 +38,6 @@ export const LoginFormSchema: ObjectSchema<PriceFormSchema> = object()
       .test('valid', 'Value should be greater than min', (value, context) =>
         compareMinMax(context.parent.min, value)
       )
-      .default(''),
+      .default('')
   })
   .required();

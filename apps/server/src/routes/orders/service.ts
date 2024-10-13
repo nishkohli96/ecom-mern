@@ -7,7 +7,7 @@ import {
   PaymentStatus,
   OrderStatus,
   OrdersListItem,
-  CompleteOrdersDetail,
+  CompleteOrdersDetail
 } from '@ecom-mern/shared';
 import { OrderModel } from '@/models';
 import { errorLogger } from '@/utils';
@@ -23,10 +23,10 @@ class OrderService {
             $or: [
               { order_status: OrderStatus.Processing },
               { order_status: OrderStatus.InTransit },
-              { order_status: OrderStatus.Delivered },
+              { order_status: OrderStatus.Delivered }
             ],
-            payment_status: PaymentStatus.Paid,
-          },
+            payment_status: PaymentStatus.Paid
+          }
         },
         { $unwind: '$products' },
         {
@@ -34,7 +34,7 @@ class OrderService {
             from: 'groceries',
             let: {
               productId: '$products.product_id',
-              prodQuantity: '$products.quantity',
+              prodQuantity: '$products.quantity'
             },
             pipeline: [
               { $match: { $expr: { $eq: ['$_id', '$$productId'] } } },
@@ -42,12 +42,12 @@ class OrderService {
                 $project: {
                   _id: 0,
                   product_name: 1,
-                  image_url: 1,
-                },
-              },
+                  image_url: 1
+                }
+              }
             ],
-            as: 'productDetails',
-          },
+            as: 'productDetails'
+          }
         },
         {
           $group: {
@@ -56,10 +56,10 @@ class OrderService {
               createdAt: '$createdAt',
               order_status: '$order_status',
               payment_status: '$payment_status',
-              payment: '$payment',
+              payment: '$payment'
             },
-            products: { $push: { $first: '$productDetails' } },
-          },
+            products: { $push: { $first: '$productDetails' } }
+          }
         },
         {
           $project: {
@@ -68,9 +68,9 @@ class OrderService {
             order_status: '$_id.order_status',
             payment_status: '$_id.payment_status',
             payment: '$_id.payment',
-            products: '$products',
-          },
-        },
+            products: '$products'
+          }
+        }
       ]).exec();
       res.send(ordersList);
     } catch (err) {
@@ -93,26 +93,26 @@ class OrderService {
                   { $unwind: '$addresses' },
                   {
                     $match: {
-                      $expr: { $eq: ['$addresses._id', '$$addressId'] },
-                    },
+                      $expr: { $eq: ['$addresses._id', '$$addressId'] }
+                    }
                   },
                   {
                     $project: {
                       'addresses._id': 0,
                       'addresses.createdAt': 0,
                       'addresses.updatedAt': 0,
-                      'addresses.isDefault': 0,
-                    },
+                      'addresses.isDefault': 0
+                    }
                   },
                   {
                     $project: {
                       _id: 0,
-                      address: '$addresses',
-                    },
-                  },
+                      address: '$addresses'
+                    }
+                  }
                 ],
-                as: 'userDetails',
-              },
+                as: 'userDetails'
+              }
             },
             { $unwind: '$products' },
             {
@@ -120,7 +120,7 @@ class OrderService {
                 from: 'groceries',
                 let: {
                   productId: '$products.product_id',
-                  prodQuantity: '$products.quantity',
+                  prodQuantity: '$products.quantity'
                 },
                 pipeline: [
                   { $match: { $expr: { $eq: ['$_id', '$$productId'] } } },
@@ -133,12 +133,12 @@ class OrderService {
                       discount_price: 1,
                       quantity: 1,
                       handle: 1,
-                      num_items: '$$prodQuantity',
-                    },
-                  },
+                      num_items: '$$prodQuantity'
+                    }
+                  }
                 ],
-                as: 'productDetails',
-              },
+                as: 'productDetails'
+              }
             },
             {
               $group: {
@@ -149,10 +149,10 @@ class OrderService {
                   payment_status: '$payment_status',
                   razorpay_order_id: '$razorpay_order_id',
                   createdAt: '$createdAt',
-                  payment: '$payment',
+                  payment: '$payment'
                 },
-                products: { $push: { $first: '$productDetails' } },
-              },
+                products: { $push: { $first: '$productDetails' } }
+              }
             },
             {
               $project: {
@@ -163,9 +163,9 @@ class OrderService {
                 payment_status: '$_id.payment_status',
                 razorpay_order_id: '$_id.razorpay_order_id',
                 deliveryAddress: { $first: '$_id.userDetails.address' },
-                products: '$products',
-              },
-            },
+                products: '$products'
+              }
+            }
           ]
         );
         resolve(orderDetails[0]);
@@ -191,7 +191,7 @@ class OrderService {
     // res.send(orderInfo);
 
     const doc = new PDFDocument({
-      size: 'A4',
+      size: 'A4'
       // userPassword: '123@',
       // ownerPassword: '123@',
       // pdfVersion: '1.7ext3',
@@ -208,7 +208,7 @@ class OrderService {
       Title: `Invoice for Order ${orderId}`,
       Author: 'Nishant',
       Subject: 'Order Invoice',
-      CreationDate: new Date(),
+      CreationDate: new Date()
     };
 
     let homeAddress = `${orderInfo.deliveryAddress.houseNo}, ${orderInfo.deliveryAddress.street}`;
@@ -230,7 +230,7 @@ class OrderService {
       ${orderInfo.deliveryAddress.country.name}
       `,
       {
-        align: 'left',
+        align: 'left'
       }
     );
     doc.text(
@@ -240,7 +240,7 @@ class OrderService {
       Total - ₹ ${(orderInfo.payment.amount / 100).toFixed(2)}
     `,
       {
-        align: 'right',
+        align: 'right'
       }
     );
     doc.end();

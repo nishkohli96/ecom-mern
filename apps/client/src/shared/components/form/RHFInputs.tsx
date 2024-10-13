@@ -65,7 +65,7 @@ export function RHFPasswordField<T extends FieldValues>(
               {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </IconButton>
           </InputAdornment>
-        ),
+        )
       }}
     />
   );

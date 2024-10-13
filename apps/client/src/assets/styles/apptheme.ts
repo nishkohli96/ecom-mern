@@ -6,9 +6,9 @@ const AppTheme = (mode: PaletteMode) => ({
     mode,
     common: {
       black: '#000',
-      white: '#fff',
+      white: '#fff'
     },
-    ...(mode === 'light' ? LightThemePalette : DarkThemePalette),
+    ...(mode === 'light' ? LightThemePalette : DarkThemePalette)
   },
   breakpoints: {
     values: {
@@ -16,34 +16,34 @@ const AppTheme = (mode: PaletteMode) => ({
       sm: 600,
       md: 768,
       lg: 1024,
-      xl: 1200,
-    },
+      xl: 1200
+    }
   },
   components: {
     MuiPaper: {
       styleOverrides: {
         root: {
           boxShadow: 'none',
-          borderRadius: 12,
-        },
-      },
+          borderRadius: 12
+        }
+      }
     },
     MuiFormHelperText: {
       styleOverrides: {
         root: {
-          marginLeft: 0,
-        },
-      },
+          marginLeft: 0
+        }
+      }
     },
     MuiAutocomplete: {
       styleOverrides: {
         root: {
           display: 'flex',
-          justifyContent: 'center',
-        },
-      },
-    },
-  },
+          justifyContent: 'center'
+        }
+      }
+    }
+  }
 });
 
 export default AppTheme;

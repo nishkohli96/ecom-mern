@@ -18,7 +18,7 @@ export const geoApi = createApi({
         process.env.REACT_APP_CSC_API_KEY ?? 'API_KEY'
       );
       return headers;
-    },
+    }
   }),
   tagTypes: ['CountryList', 'StateList', 'CityList'],
   endpoints: (builder) => ({
@@ -26,13 +26,13 @@ export const geoApi = createApi({
       query: () => '/',
       providesTags: ['CountryList'],
       transformErrorResponse: (response: { status: string | number }) =>
-        response.status,
+        response.status
     }),
     getStatesByCountry: builder.query<CSC_Country_State[], string>({
       query: (country_iso: string) => `/${country_iso}/states`,
       providesTags: (result, error, arg) => [{ type: 'StateList', id: arg }],
       transformErrorResponse: (response: { status: string | number }) =>
-        response.status,
+        response.status
     }),
     getCitiesByStatesOfCountry: builder.query<
       CSC_Country_State[],
@@ -41,16 +41,16 @@ export const geoApi = createApi({
       query: ({ country_iso, state_iso }: GetCityByStateCountry) =>
         `/${country_iso}/states/${state_iso}/cities`,
       providesTags: (result, error, arg) => [
-        { type: 'CityList', id: arg.state_iso },
+        { type: 'CityList', id: arg.state_iso }
       ],
       transformErrorResponse: (response: { status: string | number }) =>
-        response.status,
-    }),
-  }),
+        response.status
+    })
+  })
 });
 
 export const {
   useGetAllCountriesQuery,
   useLazyGetStatesByCountryQuery,
-  useLazyGetCitiesByStatesOfCountryQuery,
+  useLazyGetCitiesByStatesOfCountryQuery
 } = geoApi;

@@ -9,21 +9,21 @@ import {
   setToastStatus,
   setUser,
   setUserCartInfo,
-  defaultUserCartValue,
+  defaultUserCartValue
 } from 'redux-store';
 import { cartApi } from './cart';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.auth.pathName}`,
+    baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.auth.pathName}`
   }),
   endpoints: (builder) => ({
     userLogin: builder.mutation<UserLoginInfo, UserLogin>({
       query: (payload) => ({
         url: `/${ApiRoutesConfig.auth.subRoutes.login}`,
         method: 'POST',
-        body: payload,
+        body: payload
       }),
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
@@ -41,7 +41,7 @@ export const authApi = createApi({
           });
         }
       },
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: (response) => response.data
     }),
     checkLogin: builder.query<string, void>({
       query: () => `/${ApiRoutesConfig.auth.subRoutes.checkLogin}`,
@@ -61,7 +61,7 @@ export const authApi = createApi({
             dispatch(setUserCartInfo(defaultUserCartValue));
           });
         }
-      },
+      }
     }),
     userLogout: builder.mutation<string, void>({
       query: () => ({
@@ -75,25 +75,25 @@ export const authApi = createApi({
          * text.
          * https://redux-toolkit.js.org/rtk-query/api/fetchBaseQuery#parsing-a-response
          */
-        responseHandler: (response) => response.text(),
+        responseHandler: (response) => response.text()
       }),
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: (response) => response.data
     }),
     initiatePasswordReset: builder.mutation<string, VerifyUserEmail>({
       query: (payload) => ({
         url: `/${ApiRoutesConfig.auth.subRoutes.findAccount}`,
         method: 'POST',
         body: payload,
-        responseHandler: (response) => response.text(),
+        responseHandler: (response) => response.text()
       }),
-      transformErrorResponse: (response) => response.data,
-    }),
-  }),
+      transformErrorResponse: (response) => response.data
+    })
+  })
 });
 
 export const {
   useUserLoginMutation,
   useCheckLoginQuery,
   useUserLogoutMutation,
-  useInitiatePasswordResetMutation,
+  useInitiatePasswordResetMutation
 } = authApi;

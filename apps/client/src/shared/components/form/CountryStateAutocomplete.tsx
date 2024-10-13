@@ -19,7 +19,7 @@ export function CountryStateAutocomplete({
   options,
   isLoading,
   errorMsg,
-  handleOptionSelection,
+  handleOptionSelection
 }: CountryStateAutocompleteProps) {
   return (
     <Autocomplete
@@ -44,7 +44,7 @@ export function CountryStateAutocomplete({
                 {isLoading && <CircularProgress color="inherit" size={20} />}
                 {params.InputProps.endAdornment}
               </Fragment>
-            ),
+            )
           }}
           error={Boolean(errorMsg)}
           helperText={errorMsg}

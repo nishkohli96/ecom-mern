@@ -7,7 +7,7 @@ const SignUpForm = () => {
     name: { first: '', last: '' },
     email: '',
     phone: '',
-    avatar: '',
+    avatar: ''
   };
 
   const onFormSubmit = (values: UserProfileDetails) => {};

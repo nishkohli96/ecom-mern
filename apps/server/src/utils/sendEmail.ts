@@ -15,11 +15,11 @@ export async function sendVerificationEmail(
         to: [{ email: emailTo }],
         dynamic_template_data: {
           customer_name: customerName,
-          btnLink: 'https://www.google.co.in',
-        },
-      },
+          btnLink: 'https://www.google.co.in'
+        }
+      }
     ],
-    template_id: ENV_VARS.sendgrid.signup_template_id,
+    template_id: ENV_VARS.sendgrid.signup_template_id
   };
 
   try {

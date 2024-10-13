@@ -10,7 +10,7 @@ import {
   setUser,
   setToastMessage,
   setToastStatus,
-  openToast,
+  openToast
 } from 'redux-store';
 import {
   Header5Text,
@@ -18,7 +18,7 @@ import {
   StatusMessage,
   LinkText,
   FormContainer,
-  ProfileForm,
+  ProfileForm
 } from 'shared';
 import RouteList from 'routes/route-list';
 
@@ -36,7 +36,7 @@ const UserProfilePage = () => {
   const onFormSubmit = (formData: UserProfileDetails) => {
     userUpdate({
       _id,
-      ...formData,
+      ...formData
     })
       .unwrap()
       .then((payload) => {

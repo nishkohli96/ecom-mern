@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import {
   ApiRoutesConfig,
   CreateRazorpayOrder,
-  UserProfileDetails,
+  UserProfileDetails
 } from '@ecom-mern/shared';
 import { validateAuthHeader, authenticateAdmin } from '@/utils';
 import razorpayService from './service';

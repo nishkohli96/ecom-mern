@@ -22,7 +22,7 @@ export const ConfirmationDialog = ({
   confirmBtnText = 'Ok',
   onConfirm,
   cancelBtnText = 'Close',
-  dialogContent,
+  dialogContent
 }: ConfirmationDialogProps) => {
   const handleConfirm = () => {
     onConfirm();

@@ -6,7 +6,7 @@ export interface CountryStateInfo {
 export const defaultCountryState: CountryStateInfo = { name: '', iso2: '' };
 export const fallbackCountryState: CountryStateInfo = {
   name: 'N/A',
-  iso2: '-',
+  iso2: '-'
 };
 
 export interface UserAddress {

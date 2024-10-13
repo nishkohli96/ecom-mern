@@ -30,7 +30,7 @@ export function generateJWT(
     { ...payload, iat: Date.now() },
     isRefeshToken ? refreshTokenKey : jwtSecretKey,
     {
-      expiresIn: expiry,
+      expiresIn: expiry
     }
   );
   return token;

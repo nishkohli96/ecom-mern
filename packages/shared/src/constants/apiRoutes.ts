@@ -15,22 +15,22 @@ export const ApiRoutesConfig = Object.freeze({
       refreshToken: 'refresh-token',
       resetPassword: 'reset-password',
       verifyEmail: 'verify-email',
-      findAccount: 'find-account',
-    },
+      findAccount: 'find-account'
+    }
   },
   cart: {
     pathName: 'cart',
     subRoutes: {
       add: 'add-product',
       update: 'update-product',
-      products: 'products',
-    },
+      products: 'products'
+    }
   },
   checkout: {
     pathName: 'checkout',
     subRoutes: {
-      order: 'create-order',
-    },
+      order: 'create-order'
+    }
   },
   grocery: {
     pathName: 'grocery',
@@ -39,11 +39,11 @@ export const ApiRoutesConfig = Object.freeze({
       categorization: 'categorization',
       productById: 'product-id',
       productInfo: 'product-info',
-      randomRecords: 'random-records',
-    },
+      randomRecords: 'random-records'
+    }
   },
   orders: {
-    pathName: 'orders',
+    pathName: 'orders'
   },
   razorpay: {
     pathName: 'razorpay',
@@ -54,12 +54,12 @@ export const ApiRoutesConfig = Object.freeze({
         pathName: 'payments',
         subRoutes: {
           capture: 'capture',
-          refund: 'refund',
-        },
+          refund: 'refund'
+        }
       },
       refunds: 'refunds',
-      settlements: 'settlements',
-    },
+      settlements: 'settlements'
+    }
   },
   user: {
     pathName: 'user',
@@ -68,7 +68,7 @@ export const ApiRoutesConfig = Object.freeze({
       changePswd: 'change-password',
       defaultAddr: 'default-address',
       resetPswd: 'reset-password',
-      update: 'update',
-    },
-  },
+      update: 'update'
+    }
+  }
 });

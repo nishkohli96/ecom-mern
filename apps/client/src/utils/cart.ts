@@ -38,9 +38,7 @@ export function addProductToCart(
     if (prod.product_id === newProduct.product_id) {
       prod = {
         ...prod,
-        quantity: isUpdate
-          ? prod.quantity
-          : prod.quantity + newProduct.quantity,
+        quantity: isUpdate ? prod.quantity : prod.quantity + newProduct.quantity
       };
     }
     return prod;

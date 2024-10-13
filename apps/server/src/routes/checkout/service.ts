@@ -4,7 +4,7 @@ import {
   CreateOrderResponse,
   OrderStatus,
   PaymentStatus,
-  RazorPayOrderSuccess,
+  RazorPayOrderSuccess
 } from '@ecom-mern/shared';
 import { OrderModel, UserModel } from '@/models';
 import { errorLogger } from '@/utils';
@@ -16,12 +16,11 @@ class CheckoutService {
   async createNewOrder(res: Response, createOrderData: CreateRazorpayOrder) {
     try {
       const { amount, ...otherOrderData } = createOrderData;
-      const { orderId, id } = await razorpayService.createNewRazorpayOrder(
-        amount
-      );
+      const { orderId, id } =
+        await razorpayService.createNewRazorpayOrder(amount);
 
       const customerInfo = await UserModel.findOne({
-        _id: otherOrderData.customerId,
+        _id: otherOrderData.customerId
       });
 
       const newOrder = new OrderModel({
@@ -30,12 +29,12 @@ class CheckoutService {
         ...otherOrderData,
         payment: { amount, currency: 'INR' },
         order_status: OrderStatus.Created,
-        payment_status: PaymentStatus.Pending,
+        payment_status: PaymentStatus.Pending
       });
       await newOrder.save();
       const createOrderInfo: CreateOrderResponse = {
         orderId: id,
-        razorpay_customer_id: customerInfo?.razorpay_customer_id ?? '',
+        razorpay_customer_id: customerInfo?.razorpay_customer_id ?? ''
       };
       res.status(200).send(createOrderInfo);
     } catch (err) {
@@ -53,8 +52,8 @@ class CheckoutService {
           $set: {
             payment_id: razorpay_payment_id,
             order_status: OrderStatus.Processing,
-            payment_status: PaymentStatus.Paid,
-          },
+            payment_status: PaymentStatus.Paid
+          }
         }
       );
       await groceryService.updateStockAfterPurchase(orderInfo?.products ?? []);

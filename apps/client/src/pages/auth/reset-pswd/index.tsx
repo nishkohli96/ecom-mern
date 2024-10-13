@@ -9,7 +9,7 @@ import {
   openToast,
   setToastMessage,
   setToastStatus,
-  useResetUserPasswordMutation,
+  useResetUserPasswordMutation
 } from 'redux-store';
 import { FormPage, RHFPasswordField, MuiButton } from 'shared';
 import RouteList from 'routes/route-list';
@@ -17,7 +17,7 @@ import RouteList from 'routes/route-list';
 const ResetPswdPage = () => {
   const initialValues: ConfirmPasswordType = {
     new_password: '',
-    confirm_password: '',
+    confirm_password: ''
   };
 
   const dispatch = useAppDispatch();
@@ -30,10 +30,10 @@ const ResetPswdPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<ConfirmPasswordType>({
     defaultValues: initialValues,
-    resolver: yupResolver(PasswordResetSchema),
+    resolver: yupResolver(PasswordResetSchema)
   });
 
   const onFormSubmit = (formData: ConfirmPasswordType) => {

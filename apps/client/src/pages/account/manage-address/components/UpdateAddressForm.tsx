@@ -7,7 +7,7 @@ import {
   UserAddress,
   CountryStateInfo,
   defaultCountryState,
-  fallbackCountryState,
+  fallbackCountryState
 } from '@ecom-mern/shared';
 import {
   useAppDispatch,
@@ -16,7 +16,7 @@ import {
   useLazyGetCitiesByStatesOfCountryQuery,
   setToastMessage,
   setToastStatus,
-  openToast,
+  openToast
 } from 'redux-store';
 import {
   RHFCheckbox,
@@ -26,7 +26,7 @@ import {
   RHFTextField,
   MuiButton,
   PhoneInput,
-  AddressFormSchema,
+  AddressFormSchema
 } from 'shared';
 
 interface AddressFormProps {
@@ -44,7 +44,7 @@ export const UpdateAddressForm = ({
   title,
   initialValues,
   onFormSubmit,
-  actionBtnText,
+  actionBtnText
 }: AddressFormProps) => {
   const dispatch = useAppDispatch();
 
@@ -54,10 +54,10 @@ export const UpdateAddressForm = ({
     handleSubmit,
     setValue,
     getValues,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     defaultValues: initialValues,
-    resolver: yupResolver(AddressFormSchema),
+    resolver: yupResolver(AddressFormSchema)
   });
 
   const {
@@ -65,7 +65,7 @@ export const UpdateAddressForm = ({
     isLoading: countriesLoading,
     isFetching: countriesFetching,
     isSuccess: countriesFetchSuccess,
-    isError: countriesFetchError,
+    isError: countriesFetchError
   } = useGetAllCountriesQuery();
 
   if (countriesFetchError) {
@@ -79,11 +79,11 @@ export const UpdateAddressForm = ({
   const countryOptions = countriesList?.length
     ? countriesList.map((country) => ({
         name: country.name,
-        iso2: country.iso2,
+        iso2: country.iso2
       }))
     : countriesFetchSuccess
-    ? [fallbackCountryState]
-    : [defaultCountryState];
+      ? [fallbackCountryState]
+      : [defaultCountryState];
 
   const [
     fetchStates,
@@ -92,8 +92,8 @@ export const UpdateAddressForm = ({
       isLoading: statesLoading,
       isFetching: statesFetching,
       isSuccess: statesFetchSuccess,
-      isError: statesFetchError,
-    },
+      isError: statesFetchError
+    }
   ] = useLazyGetStatesByCountryQuery();
 
   if (statesFetchError) {
@@ -107,11 +107,11 @@ export const UpdateAddressForm = ({
   const statesOptions = statesList?.length
     ? statesList.map((state) => ({
         name: state.name,
-        iso2: state.iso2,
+        iso2: state.iso2
       }))
     : statesFetchSuccess
-    ? [fallbackCountryState]
-    : [defaultCountryState];
+      ? [fallbackCountryState]
+      : [defaultCountryState];
 
   const [
     fetchCities,
@@ -120,15 +120,15 @@ export const UpdateAddressForm = ({
       isLoading: citiesLoading,
       isFetching: citiesFetching,
       isSuccess: citiesFetchSuccess,
-      isError: citiesFetchError,
-    },
+      isError: citiesFetchError
+    }
   ] = useLazyGetCitiesByStatesOfCountryQuery();
 
   const cityOptions = citiesList?.length
     ? citiesList.map((city) => city.name)
     : citiesFetchSuccess
-    ? ['N/A']
-    : [];
+      ? ['N/A']
+      : [];
 
   if (citiesFetchError) {
     batch(() => {
@@ -143,7 +143,7 @@ export const UpdateAddressForm = ({
     fetchStates(getValues('country.iso2'));
     fetchCities({
       country_iso: getValues('country.iso2'),
-      state_iso: getValues('state.iso2'),
+      state_iso: getValues('state.iso2')
     });
   }, []);
 
@@ -151,7 +151,7 @@ export const UpdateAddressForm = ({
     setValue('recipientPhone', value, {
       shouldDirty: true,
       shouldValidate: true,
-      shouldTouch: true,
+      shouldTouch: true
     });
 
   const fetchStatesList = (selectedCountry: CountryStateInfo) => {
@@ -171,7 +171,7 @@ export const UpdateAddressForm = ({
       const siso = stateSelected.iso2;
       fetchCities({
         country_iso: getValues('country.iso2'),
-        state_iso: siso,
+        state_iso: siso
       });
     }
   };

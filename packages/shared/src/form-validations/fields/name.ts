@@ -16,6 +16,6 @@ export const nameValidation = {
     last: string()
       .required(fieldReqdMsg('your last name'))
       .min(minLen_lName, minCharMsg('Last Name', minLen_lName))
-      .matches(nameRegex, nameValidationError),
-  }),
+      .matches(nameRegex, nameValidationError)
+  })
 };

@@ -13,13 +13,13 @@ import {
   useDeleteAddressMutation,
   setToastMessage,
   setToastStatus,
-  openToast,
+  openToast
 } from 'redux-store';
 import {
   AddressText,
   MuiPaper,
   UserAddressInfo,
-  ConfirmationDialog,
+  ConfirmationDialog
 } from 'shared';
 import { UpdateAddressForm } from './UpdateAddressForm';
 
@@ -46,7 +46,7 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
     updateAddress({
       id: user_id,
       _id,
-      ...formValues,
+      ...formValues
     })
       .unwrap()
       .then((resp) => {
@@ -124,7 +124,7 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
                   sx={{
                     fontWeight: 500,
                     textTransform: 'uppercase',
-                    color: (theme) => theme.palette.warning.main,
+                    color: (theme) => theme.palette.warning.main
                   }}
                 >
                   Default Delivery Address
@@ -201,7 +201,7 @@ export const AddressCard = ({ address, user_id }: AddressCardProps) => {
                 recipientName,
                 recipientPhone,
                 isDefault,
-                ...addressDetails,
+                ...addressDetails
               }}
             />
           )}

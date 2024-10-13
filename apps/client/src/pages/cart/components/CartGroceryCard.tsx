@@ -6,7 +6,7 @@ import {
   IconButton,
   Paper,
   SelectChangeEvent,
-  Tooltip,
+  Tooltip
 } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -18,7 +18,7 @@ import {
   setToastStatus,
   addProductToGuestCart,
   removeProductFromGuestCart,
-  useUpdateOrRemoveProductMutation,
+  useUpdateOrRemoveProductMutation
 } from 'redux-store';
 import AlgoliaConfig from 'constants/algolia-config';
 import {
@@ -26,7 +26,7 @@ import {
   Header6Text,
   PrimaryText,
   PriceCompare,
-  QuantitySelector,
+  QuantitySelector
 } from 'shared';
 import RouteList from 'routes/route-list';
 
@@ -41,7 +41,7 @@ const CartGroceryCard = ({
   user_id,
   cart_id,
   grocery,
-  quantity,
+  quantity
 }: GroceryCardProps) => {
   const dispatch = useAppDispatch();
   const [updateCartProduct] = useUpdateOrRemoveProductMutation();
@@ -64,8 +64,8 @@ const CartGroceryCard = ({
       cart_id,
       product: {
         product_id: grocery._id,
-        quantity,
-      },
+        quantity
+      }
     });
   };
 
@@ -75,8 +75,8 @@ const CartGroceryCard = ({
       cart_id,
       product: {
         product_id: grocery._id,
-        quantity: Number(e.target.value),
-      },
+        quantity: Number(e.target.value)
+      }
     });
     // dispatch(
     //   addProductToGuestCart({
@@ -120,7 +120,7 @@ const CartGroceryCard = ({
               sx={{
                 display: 'flex',
                 width: 'fit-content',
-                marginLeft: '1rem',
+                marginLeft: '1rem'
               }}
             >
               <Divider orientation="vertical" flexItem />

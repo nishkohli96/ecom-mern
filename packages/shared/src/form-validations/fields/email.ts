@@ -9,5 +9,5 @@ export const emailValidation = {
   email: string()
     .required(emailReqdMsg)
     .email(emailErrorMsg)
-    .matches(emailRegex, emailErrorMsg),
+    .matches(emailRegex, emailErrorMsg)
 };

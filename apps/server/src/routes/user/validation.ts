@@ -6,7 +6,7 @@ import {
   nameValidation,
   phoneValidation,
   passwordValidation,
-  passwordOptionalValidation,
+  passwordOptionalValidation
 } from '@ecom-mern/shared';
 import { UserRole } from '@/models/User';
 import * as UserTypes from './types';
@@ -16,13 +16,13 @@ const BasicUserInfoSchema = {
   ...emailValidation,
   ...phoneValidation,
   ...avatarValidation,
-  role: string().optional().oneOf(Object.values(UserRole)),
+  role: string().optional().oneOf(Object.values(UserRole))
 };
 
 export const AddUserSchema: ObjectSchema<UserTypes.AddUser> = object()
   .shape({
     ...BasicUserInfoSchema,
-    ...passwordValidation,
+    ...passwordValidation
   })
   .required();
 
@@ -30,6 +30,6 @@ export const UpdateUserSchema: ObjectSchema<UserTypes.UpdateUser> = object()
   .shape({
     ...BasicUserInfoSchema,
     ...avatarOptionalValidation,
-    ...passwordOptionalValidation,
+    ...passwordOptionalValidation
   })
   .required();

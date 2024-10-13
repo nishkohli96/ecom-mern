@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const corsConfig = {
   origin: [ENV_VARS.client_url],
-  credentials: true,
+  credentials: true
 };
 
 app.use(cors(corsConfig));
@@ -35,14 +35,14 @@ app.use(
     replaceWith: '_',
     onSanitize: ({ req, key }) => {
       winstonLogger.warn(`This request[${key}] is sanitized`, req);
-    },
+    }
   })
 );
 
 /* Serve swagger docs on "/api-docs" endpoint */
 const swaggerOptions: SwaggerUiOptions = {
   explorer: true,
-  customCss: '.swagger-ui .topbar { background-color: #000000 }',
+  customCss: '.swagger-ui .topbar { background-color: #000000 }'
 };
 app.get('/api-docs/swagger.json', (_, res: Response) =>
   res.json(swaggerConfig)
@@ -83,7 +83,7 @@ app.get('*', (req: Request, response: Response) => {
   response.status(404).send({
     success: false,
     message: notFoundMsg,
-    data: null,
+    data: null
   });
 });
 

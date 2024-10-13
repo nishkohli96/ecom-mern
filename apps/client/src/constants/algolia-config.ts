@@ -6,15 +6,15 @@ const AlgoliaConfig = Object.freeze({
     brand: 'brand',
     category: 'category',
     sub_category: 'sub_category',
-    defaultPrice: 'discount_price',
+    defaultPrice: 'discount_price'
   },
   ALGOLIA_EVENTS: {
     click: 'click',
-    conversion: 'conversion',
+    conversion: 'conversion'
   },
   USER_EVENTS: {
     product_click: 'Product Clicked',
-    product_purchased: 'Product Purchased',
+    product_purchased: 'Product Purchased'
   },
   CONFIG: {
     hitsPerPage: {
@@ -26,16 +26,16 @@ const AlgoliaConfig = Object.freeze({
       /* Max items to fetch in refinement list */
       brand_categories: 10,
       /* Used in instantsearch configure */
-      products: 18,
+      products: 18
     },
     search: {
       /** Enter atleast 2 chars to trigger search results */
-      minCharInput: 2,
+      minCharInput: 2
     },
     productPage: {
-      maxAllowedPurchase: 5,
-    },
-  },
+      maxAllowedPurchase: 5
+    }
+  }
 });
 
 export default AlgoliaConfig;

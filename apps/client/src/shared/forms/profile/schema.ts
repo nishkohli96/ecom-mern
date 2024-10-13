@@ -4,7 +4,7 @@ import {
   avatarValidation,
   nameValidation,
   phoneValidation,
-  UserProfileDetails,
+  UserProfileDetails
 } from '@ecom-mern/shared';
 
 const ProfileFormSchema: ObjectSchema<UserProfileDetails> = object()
@@ -12,7 +12,7 @@ const ProfileFormSchema: ObjectSchema<UserProfileDetails> = object()
     ...emailValidation,
     ...avatarValidation,
     ...nameValidation,
-    ...phoneValidation,
+    ...phoneValidation
   })
   .required();
 

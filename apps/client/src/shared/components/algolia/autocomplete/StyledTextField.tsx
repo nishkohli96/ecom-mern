@@ -15,13 +15,13 @@ export const StyledTextField = styled(TextField)(({ theme }) => ({
     color: '#fff !important',
     padding: '0px !important',
     '& input:focus': {
-      padding: '0px !important',
-    },
+      padding: '0px !important'
+    }
   },
   '& fieldset': {
     borderWidth: '0px',
     '& fieldset:hover, & fieldset:focus, & fieldset:active': {
-      borderWidth: '0px',
+      borderWidth: '0px'
     },
     '& .MuiInputBase-input': {
       padding: theme.spacing(2, 1, 1, 2),
@@ -31,9 +31,9 @@ export const StyledTextField = styled(TextField)(({ theme }) => ({
       [theme.breakpoints.up('sm')]: {
         width: '12ch',
         '&:focus': {
-          width: '20ch',
-        },
-      },
-    },
-  },
+          width: '20ch'
+        }
+      }
+    }
+  }
 }));

@@ -9,7 +9,7 @@ import {
   useChangePasswordMutation,
   openToast,
   setToastMessage,
-  setToastStatus,
+  setToastStatus
 } from 'redux-store';
 import { FormPage, RHFPasswordField, MuiButton } from 'shared';
 
@@ -21,16 +21,16 @@ const ChangePswdPage = () => {
   const initialValues: UserPasswordChange = {
     password: '',
     new_password: '',
-    confirm_password: '',
+    confirm_password: ''
   };
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<UserPasswordChange>({
     defaultValues: initialValues,
-    resolver: yupResolver(PasswordChangeSchema),
+    resolver: yupResolver(PasswordChangeSchema)
   });
 
   const onFormSubmit = (formData: UserPasswordChange) => {

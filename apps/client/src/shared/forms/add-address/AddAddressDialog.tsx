@@ -7,7 +7,7 @@ import {
   UserSelector,
   setToastStatus,
   setToastMessage,
-  openToast,
+  openToast
 } from 'redux-store';
 import AddAddressForm from './AddAddressForm';
 
@@ -33,13 +33,13 @@ const AddAddressDialog = ({ open, handleClose }: AddAddressDialogProps) => {
     state: defaultCountryState,
     country: defaultCountryState,
     zipCode: '',
-    isDefault: false,
+    isDefault: false
   };
 
   const onFormSubmit = (formValues: UserAddress) => {
     addUserAddress({
       ...formValues,
-      id: user?._id ?? '',
+      id: user?._id ?? ''
     })
       .unwrap()
       .then((resp) => {

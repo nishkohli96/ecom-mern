@@ -12,12 +12,12 @@ export const addressValidation = {
   city: string().required(fieldSelectMsg('your city')),
   state: object().shape({
     name: string().required(fieldSelectMsg('your state')).min(2),
-    iso2: string().required().min(2),
+    iso2: string().required().min(2)
   }),
   country: object().shape({
     name: string().required(fieldSelectMsg('your country')).min(2),
-    iso2: string().required().min(2),
+    iso2: string().required().min(2)
   }),
   zipCode: string().required(fieldReqdMsg('your pin code')).min(5),
-  isDefault: boolean().required().default(false),
+  isDefault: boolean().required().default(false)
 };

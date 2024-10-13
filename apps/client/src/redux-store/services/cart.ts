@@ -5,14 +5,14 @@ import {
   AddToUserCart,
   CartProduct,
   GroceryItem,
-  GuestUserCart,
+  GuestUserCart
 } from '@ecom-mern/shared';
 import {
   setUserCartInfo,
   setToastMessage,
   setToastStatus,
   openToast,
-  defaultUserCartValue,
+  defaultUserCartValue
 } from 'redux-store';
 import AppConfig from 'constants/app-config';
 
@@ -22,7 +22,7 @@ export const cartApi = createApi({
   reducerPath: 'cartApi',
   tagTypes: ['CartProductsUser', 'CartDetailsUser'],
   baseQuery: fetchBaseQuery({
-    baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.cart.pathName}`,
+    baseUrl: `${AppConfig.api_endpoint}/${ApiRoutesConfig.cart.pathName}`
   }),
   endpoints: (builder) => ({
     /**
@@ -50,13 +50,13 @@ export const cartApi = createApi({
           });
         }
       },
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: (response) => response.data
     }),
     /** Get full info of cart products when on cart page */
     getCartProducts: builder.query<GroceryItem[], string>({
       query: (payload) =>
         `/${ApiRoutesConfig.cart.subRoutes.products}?productids=${payload}`,
-      providesTags: ['CartDetailsUser'],
+      providesTags: ['CartDetailsUser']
     }),
     upsertProductsToCart: builder.mutation<GuestUserCart, AddUserCartProduct>({
       query: (payload) => {
@@ -68,7 +68,7 @@ export const cartApi = createApi({
         return {
           url: queryURL,
           method: 'PUT',
-          body: product,
+          body: product
         };
       },
       /**
@@ -76,23 +76,23 @@ export const cartApi = createApi({
        * user cart details again.
        */
       invalidatesTags: ['CartProductsUser'],
-      transformErrorResponse: (response) => response.data,
+      transformErrorResponse: (response) => response.data
     }),
     updateOrRemoveProduct: builder.mutation<GuestUserCart, AddUserCartProduct>({
       query: ({ user_id, cart_id, product }) => ({
         url: `/${ApiRoutesConfig.cart.subRoutes.update}?user_id=${user_id}&cart_id=${cart_id}`,
         method: 'PUT',
-        body: product,
+        body: product
       }),
       invalidatesTags: ['CartProductsUser', 'CartDetailsUser'],
-      transformErrorResponse: (response) => response.data,
-    }),
-  }),
+      transformErrorResponse: (response) => response.data
+    })
+  })
 });
 
 export const {
   useGetUserCartInfoQuery,
   useGetCartProductsQuery,
   useUpsertProductsToCartMutation,
-  useUpdateOrRemoveProductMutation,
+  useUpdateOrRemoveProductMutation
 } = cartApi;

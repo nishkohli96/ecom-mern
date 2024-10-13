@@ -9,7 +9,7 @@ import {
   defaultCountries,
   FlagImage,
   parseCountry,
-  usePhoneInput,
+  usePhoneInput
 } from 'react-international-phone';
 import 'react-international-phone/style.css';
 
@@ -22,7 +22,7 @@ interface PhoneInputProps extends BaseTextFieldProps {
 export const PhoneInput: React.FC<PhoneInputProps> = ({
   value,
   onChange,
-  errorMsg,
+  errorMsg
 }) => {
   const isError = Boolean(errorMsg);
   const { inputValue, handlePhoneValueChange, inputRef, country, setCountry } =
@@ -33,7 +33,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
       forceDialCode: true,
       onChange: (data) => {
         onChange(data.inputValue);
-      },
+      }
     });
 
   return (
@@ -61,32 +61,32 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
                   height: '300px',
                   width: '360px',
                   top: '10px',
-                  left: '-34px',
+                  left: '-34px'
                 },
                 transformOrigin: {
                   vertical: 'top',
-                  horizontal: 'left',
-                },
+                  horizontal: 'left'
+                }
               }}
               sx={{
                 width: 'max-content',
                 // Remove default outline (display only on focus)
                 fieldset: {
-                  display: 'none',
+                  display: 'none'
                 },
                 '&.Mui-focused:has(div[aria-expanded="false"])': {
                   fieldset: {
-                    display: 'block',
-                  },
+                    display: 'block'
+                  }
                 },
                 // Update default spacing
                 '.MuiSelect-select': {
                   padding: '8px',
-                  paddingRight: '24px !important',
+                  paddingRight: '24px !important'
                 },
                 svg: {
-                  right: 0,
-                },
+                  right: 0
+                }
               }}
               value={country.iso2}
               onChange={(e) => setCountry(e.target.value as CountryIso2)}
@@ -109,7 +109,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
               })}
             </Select>
           </InputAdornment>
-        ),
+        )
       }}
     />
   );

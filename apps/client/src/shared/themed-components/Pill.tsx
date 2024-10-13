@@ -24,7 +24,7 @@ export const Pill = ({
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
         margin: spacing ?? '0.5rem 0',
-        textTransform: 'none',
+        textTransform: 'none'
       }}
       endIcon={hideCloseIcon ? undefined : <Close />}
       {...btnProps}

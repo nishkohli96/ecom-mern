@@ -16,7 +16,7 @@ export const BrandsList = () => {
 
   const { items, searchForItems } = useRefinementList({
     attribute: AlgoliaConfig.FACET_ATTRIBUTES.brand,
-    limit: AlgoliaConfig.CONFIG.hitsPerPage.brands_list,
+    limit: AlgoliaConfig.CONFIG.hitsPerPage.brands_list
   });
 
   const handleInputChange = (value: string) => {
@@ -44,8 +44,8 @@ export const BrandsList = () => {
                   <ClearIcon />
                 </IconButton>
               </InputAdornment>
-            ),
-          }),
+            )
+          })
         }}
         onChange={(e) => handleInputChange(e.currentTarget.value)}
       />
@@ -58,7 +58,7 @@ export const BrandsList = () => {
               spacing=" 0 3rem 1.5rem 0"
               onClick={() =>
                 navigate(`${RouteList.advancedSearch}`, {
-                  state: `${AlgoliaConfig.FACET_ATTRIBUTES.brand}:${brand.label}`,
+                  state: `${AlgoliaConfig.FACET_ATTRIBUTES.brand}:${brand.label}`
                 })
               }
               hideCloseIcon

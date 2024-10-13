@@ -13,7 +13,7 @@ type AddressCardProps = {
 export const AddressCard = ({
   address,
   selectedAddress,
-  onAddressChange,
+  onAddressChange
 }: AddressCardProps) => {
   const { _id, recipientName, recipientPhone, isDefault, ...addressDetails } =
     address;
@@ -32,8 +32,8 @@ export const AddressCard = ({
         marginBottom: '1rem',
         padding: '1rem',
         ...(isSelected && {
-          backgroundColor: (theme) => `${theme.palette.warning.main}BF`,
-        }),
+          backgroundColor: (theme) => `${theme.palette.warning.main}BF`
+        })
       }}
     >
       <FormControlLabel

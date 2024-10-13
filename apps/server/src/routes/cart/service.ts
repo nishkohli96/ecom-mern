@@ -6,7 +6,7 @@ import {
   errorLogger,
   rearrangeCartProducts,
   addProductToCart,
-  removeProductFromCart,
+  removeProductFromCart
 } from '@/utils';
 import * as CartTypes from './types';
 
@@ -14,7 +14,7 @@ class CartService {
   async getUserCartInfo(res: Response, user_id: string) {
     try {
       const cartInfo = await CartModel.findOne({
-        user_id: new Types.ObjectId(user_id),
+        user_id: new Types.ObjectId(user_id)
       }).select(['_id', 'products']);
 
       if (!cartInfo) {
@@ -25,7 +25,7 @@ class CartService {
         .status(200)
         .send({
           cart_id: cartInfo?._id,
-          products: cartInfo?.products,
+          products: cartInfo?.products
         })
         .end();
     } catch (err: any) {
@@ -55,7 +55,7 @@ class CartService {
             from: 'groceries',
             let: {
               pid: '$products.product_id',
-              pquantity: '$products.quantity',
+              pquantity: '$products.quantity'
             },
             pipeline: [
               { $match: { $expr: { $eq: ['$_id', '$$pid'] } } },
@@ -72,18 +72,18 @@ class CartService {
                   discount_price: 1,
                   inStock: 1,
                   quantity: 1,
-                  num_products: '$$pquantity',
-                },
-              },
+                  num_products: '$$pquantity'
+                }
+              }
             ],
-            as: 'productsDetail',
-          },
+            as: 'productsDetail'
+          }
         },
         {
           $project: {
-            products: '$productsDetail',
-          },
-        },
+            products: '$productsDetail'
+          }
+        }
       ]);
       return res.status(200).send(userCartDetails);
     } catch (err: any) {
@@ -108,14 +108,14 @@ class CartService {
       if (!cart_id) {
         const cartInfo = await new CartModel({
           user_id,
-          products: [product],
+          products: [product]
         }).save();
         return res
           .status(200)
           .send({
             user_id,
             cart_id: cartInfo._id,
-            products: cartInfo.products,
+            products: cartInfo.products
           })
           .end();
       }
@@ -123,24 +123,24 @@ class CartService {
       /* Update products in existing cart */
       const exisitingCart = await CartModel.findOne({
         _id: new Types.ObjectId(cart_id),
-        user_id: new Types.ObjectId(user_id),
+        user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
       const existingProducts =
         exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
       const exisitingCartProducts = existingProducts.map((prod) => ({
         ...prod,
-        product_id: prod.product_id.toString(),
+        product_id: prod.product_id.toString()
       }));
       const updatedProducts = addProductToCart(exisitingCartProducts, product);
       const updatedCart = await CartModel.findByIdAndUpdate(
         {
           _id: exisitingCart?._id,
-          user_id: exisitingCart?.user_id,
+          user_id: exisitingCart?.user_id
         },
         { products: updatedProducts },
         {
-          new: true,
+          new: true
         }
       );
       return res
@@ -148,7 +148,7 @@ class CartService {
         .send({
           user_id,
           cart_id,
-          products: updatedCart?.products ?? [],
+          products: updatedCart?.products ?? []
         })
         .end();
     } catch (err: any) {
@@ -168,14 +168,14 @@ class CartService {
     try {
       const exisitingCart = await CartModel.findOne({
         _id: new Types.ObjectId(cart_id),
-        user_id: new Types.ObjectId(user_id),
+        user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
       const existingProducts =
         exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
       const exisitingCartProducts = existingProducts.map((prod) => ({
         ...prod,
-        product_id: prod.product_id.toString(),
+        product_id: prod.product_id.toString()
       }));
       const updatedProducts = removeProductFromCart(
         exisitingCartProducts,
@@ -184,11 +184,11 @@ class CartService {
       const updatedCart = await CartModel.findByIdAndUpdate(
         {
           _id: exisitingCart?._id,
-          user_id: exisitingCart?.user_id,
+          user_id: exisitingCart?.user_id
         },
         { products: updatedProducts },
         {
-          new: true,
+          new: true
         }
       );
       return res
@@ -196,7 +196,7 @@ class CartService {
         .send({
           user_id,
           cart_id,
-          products: updatedCart?.products ?? [],
+          products: updatedCart?.products ?? []
         })
         .end();
     } catch (err: any) {
@@ -215,7 +215,7 @@ class CartService {
       .map((prodId) => new Types.ObjectId(prodId));
 
     const productsData = await GroceryModel.find({
-      _id: { $in: objIds },
+      _id: { $in: objIds }
     }).select([
       '_id',
       'product_name',
@@ -227,7 +227,7 @@ class CartService {
       'price',
       'discount_price',
       'inStock',
-      'quantity',
+      'quantity'
     ]);
 
     const orderedCartData = rearrangeCartProducts(

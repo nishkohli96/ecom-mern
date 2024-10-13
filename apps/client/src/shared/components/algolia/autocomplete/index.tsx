@@ -4,7 +4,7 @@ import {
   Autocomplete as MUIAutocomplete,
   Box,
   CircularProgress,
-  IconButton,
+  IconButton
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import AlgoliaConfig from 'constants/algolia-config';
@@ -82,16 +82,16 @@ export const GroceryAutocomplete = () => {
       sx={{
         minWidth: 200,
         '& .MuiOutlinedInput-root': {
-          paddingRight: '15px!important',
-        },
+          paddingRight: '15px!important'
+        }
       }}
       renderOption={(props, option) => (
         <Box
           component="li"
           sx={{
             ':not(:last-child)': {
-              borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
-            },
+              borderBottom: (theme) => `1px solid ${theme.palette.divider}`
+            }
           }}
           {...props}
         >
@@ -123,7 +123,7 @@ export const GroceryAutocomplete = () => {
                   </IconButton>
                 )}
               </Fragment>
-            ),
+            )
           }}
         />
       )}

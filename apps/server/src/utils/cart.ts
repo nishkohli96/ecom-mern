@@ -36,7 +36,7 @@ export function addProductToCart(
         ...prod,
         quantity: isAlreadyAdded
           ? prod.quantity + newProduct.quantity
-          : prod.quantity,
+          : prod.quantity
       };
     }
     return prod;
@@ -54,7 +54,7 @@ export function removeProductFromCart(
       const shouldRemove = prod.quantity === productToRemoveOrUpdate.quantity;
       prod = {
         ...prod,
-        quantity: shouldRemove ? 0 : productToRemoveOrUpdate.quantity,
+        quantity: shouldRemove ? 0 : productToRemoveOrUpdate.quantity
       };
     }
     return prod;

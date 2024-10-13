@@ -7,7 +7,7 @@ import {
   Header2Text,
   Header3Text,
   Header5Text,
-  QuantitySelector,
+  QuantitySelector
 } from 'shared';
 import Box from '@mui/material/Box';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
@@ -21,7 +21,7 @@ import {
   UserSelector,
   UserCartSelector,
   addProductToGuestCart,
-  useUpsertProductsToCartMutation,
+  useUpsertProductsToCartMutation
 } from 'redux-store';
 import AlgoliaConfig from 'constants/algolia-config';
 import { addProductToCart } from 'utils';
@@ -31,7 +31,7 @@ const buttonSx = {
   width: '100%',
   minWidth: 150,
   maxWidth: 300,
-  margin: '1rem 0',
+  margin: '1rem 0'
 };
 
 const GroceryItemPage = () => {
@@ -71,12 +71,12 @@ const GroceryItemPage = () => {
         cart_id: userCart.cart_id ?? '',
         product: {
           product_id: data?._id ?? '',
-          quantity: Number(quantity),
-        },
+          quantity: Number(quantity)
+        }
       });
     } else {
       navigate(`${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`, {
-        state: location.pathname,
+        state: location.pathname
       });
     }
     // dispatch(
@@ -100,14 +100,14 @@ const GroceryItemPage = () => {
           products: [
             {
               product_id: data?._id ?? '',
-              quantity: Number(quantity),
-            },
-          ],
-        },
+              quantity: Number(quantity)
+            }
+          ]
+        }
       });
     } else {
       navigate(`${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`, {
-        state: location.pathname,
+        state: location.pathname
       });
     }
   };
@@ -157,7 +157,7 @@ const GroceryItemPage = () => {
               <Typography
                 sx={{
                   fontSize: '1.5rem',
-                  color: (theme) => theme.palette.success.main,
+                  color: (theme) => theme.palette.success.main
                 }}
               >{`₹${data?.discount_price?.toFixed(2)}   `}</Typography>
             )}

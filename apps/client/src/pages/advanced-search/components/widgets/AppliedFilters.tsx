@@ -17,7 +17,7 @@ export const AppliedFilters = ({
   filters,
   numericFilters,
   setNewFilters,
-  setNumericFilters,
+  setNumericFilters
 }: AppliedFiltersProps): ReactElement => {
   if (filters.length === 0 && numericFilters.length === 0) {
     return <></>;

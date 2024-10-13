@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import {
   ApiRoutesConfig,
   CreateRazorpayOrder,
-  RazorPayOrderSuccess,
+  RazorPayOrderSuccess
 } from '@ecom-mern/shared';
 import CheckoutService from './service';
 

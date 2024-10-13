@@ -55,10 +55,10 @@ export function validateAuthHeader(
 
   res
     .cookie(AuthConfig.cookies_name.jwt, token, {
-      maxAge: AuthConfig.cookies_expiry.jwt,
+      maxAge: AuthConfig.cookies_expiry.jwt
     })
     .cookie(AuthConfig.cookies_name.refresh, refreshToken, {
-      maxAge: AuthConfig.cookies_expiry.refresh,
+      maxAge: AuthConfig.cookies_expiry.refresh
     });
   res.locals.user = userInfo;
   next();

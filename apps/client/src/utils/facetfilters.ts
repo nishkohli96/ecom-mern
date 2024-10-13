@@ -8,7 +8,7 @@ export function categorizeFacets(
   let result: FilterCategories = {
     brand: [],
     category: [],
-    sub_category: [],
+    sub_category: []
   };
   filters.map((el) => {
     const facet = el.split(':');

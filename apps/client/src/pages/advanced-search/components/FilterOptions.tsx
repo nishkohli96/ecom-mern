@@ -13,7 +13,7 @@ export const FilterOptions = ({
   filterValues,
   attribute,
   facetFilters,
-  setFacetFilters,
+  setFacetFilters
 }: FilterOptionsProp) => {
   const applyFilter = (filterVal: string, isSelected: boolean) => {
     if (!isSelected) {

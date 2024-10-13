@@ -128,8 +128,8 @@ const OrdersDetailPage = () => {
                     isProcessing
                       ? theme.palette.warning.main
                       : isDelivered
-                      ? theme.palette.success.main
-                      : theme.palette.text.primary,
+                        ? theme.palette.success.main
+                        : theme.palette.text.primary
                 }}
               >
                 Your order is {orderData?.order_status?.toUpperCase()}

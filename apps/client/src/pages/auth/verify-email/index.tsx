@@ -8,7 +8,7 @@ import {
   useInitiatePasswordResetMutation,
   openToast,
   setToastMessage,
-  setToastStatus,
+  setToastStatus
 } from 'redux-store';
 import { FormPage, RHFTextField, MuiButton } from 'shared';
 import RouteList from 'routes/route-list';
@@ -16,7 +16,7 @@ import { EmailSchema } from './schema';
 
 const VerifyEmailPage = () => {
   const initialValues: VerifyUserEmail = {
-    email: '',
+    email: ''
   };
 
   const [initiatePasswordReset] = useInitiatePasswordResetMutation();
@@ -26,10 +26,10 @@ const VerifyEmailPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<VerifyUserEmail>({
     defaultValues: initialValues,
-    resolver: yupResolver(EmailSchema),
+    resolver: yupResolver(EmailSchema)
   });
 
   const onFormSubmit = (formData: VerifyUserEmail) => {

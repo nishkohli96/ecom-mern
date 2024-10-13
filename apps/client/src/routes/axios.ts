@@ -6,8 +6,8 @@ const axiosInstance = axios.create({
   timeout: 1000,
   headers: {
     'X-Custom-Header': 'foobar',
-    'Access-Control-Allow-Origin': '*',
-  },
+    'Access-Control-Allow-Origin': '*'
+  }
 });
 
 axiosInstance.interceptors.request.use(

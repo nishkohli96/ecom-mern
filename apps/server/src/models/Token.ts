@@ -4,11 +4,11 @@ const TokenSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'user',
+    ref: 'user'
   },
   token: {
     type: String,
-    required: true,
+    required: true
   },
   createdAt: {
     type: Date,
@@ -17,8 +17,8 @@ const TokenSchema = new Schema({
      * Expiry in seconds, if expired, the model.find()
      * will return null and the
      */
-    expires: 60,
-  },
+    expires: 60
+  }
 });
 
 const TokenModel = model('token', TokenSchema);

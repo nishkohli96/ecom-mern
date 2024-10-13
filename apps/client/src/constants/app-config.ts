@@ -5,8 +5,8 @@ const AppConfig = Object.freeze({
   geo_api: 'https://api.countrystatecity.in/v1/countries',
   razorpay: {
     key: process.env.REACT_APP_RAZORPAY_KEY_ID ?? '',
-    scriptURL: 'https://checkout.razorpay.com/v1/checkout.js',
-  },
+    scriptURL: 'https://checkout.razorpay.com/v1/checkout.js'
+  }
 });
 
 export default AppConfig;

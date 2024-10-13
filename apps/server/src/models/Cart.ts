@@ -10,13 +10,13 @@ export const GroceryPurchase = new Schema<GroceryCartProduct>(
     product_id: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'grocery',
+      ref: 'grocery'
     },
     quantity: {
       type: Number,
       required: true,
-      default: 1,
-    },
+      default: 1
+    }
   },
   { _id: false }
 );
@@ -26,16 +26,16 @@ const CartSchema = new Schema(
     user_id: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'user',
+      ref: 'user'
     },
     /*  Can also be written as [GroceryPurchase] */
     products: {
       type: [GroceryPurchase],
-      default: [],
-    },
+      default: []
+    }
   },
   {
-    timestamps: { createdAt: 'createdAt', updatedAt: 'lastModifiedOn' },
+    timestamps: { createdAt: 'createdAt', updatedAt: 'lastModifiedOn' }
   }
 );
 

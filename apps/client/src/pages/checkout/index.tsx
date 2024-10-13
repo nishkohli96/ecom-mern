@@ -15,14 +15,14 @@ import {
   setToastMessage,
   setToastStatus,
   openToast,
-  GuestUserData,
+  GuestUserData
 } from 'redux-store';
 import {
   Header3Text,
   CenterContent,
   Loading,
   PurchaseDetails,
-  PurchaseSummary,
+  PurchaseSummary
 } from 'shared';
 import { AddressCard, AddAddressMessage, RazorpayCheckout } from './components';
 
@@ -37,7 +37,7 @@ const AddressSelectionPage = () => {
   const {
     data: addressList,
     isLoading,
-    isFetching,
+    isFetching
   } = useGetUserAddressesQuery(user?._id ?? '');
   const [addrId, setAddrId] = useState<string>('');
 
@@ -59,7 +59,7 @@ const AddressSelectionPage = () => {
       customerId: user?._id ?? '',
       deliveryAddressId: addrId,
       products: purchaseInfo.products ?? userCart.products,
-      fromCart: Boolean(purchaseInfo.fromCart),
+      fromCart: Boolean(purchaseInfo.fromCart)
     })
       .unwrap()
       .then((response) => {

@@ -7,14 +7,14 @@ export enum OrderStatus {
   Cancelled = 'cancelled',
   Processing = 'processing',
   InTransit = 'in-transit',
-  Delivered = 'delivered',
+  Delivered = 'delivered'
 }
 
 export enum PaymentStatus {
   Pending = 'pending',
   Failed = 'failed',
   Paid = 'paid',
-  Refunded = 'refunded',
+  Refunded = 'refunded'
 }
 
 export type Payment = {

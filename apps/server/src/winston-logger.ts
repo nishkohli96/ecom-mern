@@ -12,14 +12,14 @@ const customLevels = {
     http: 3,
     verbose: 4,
     debug: 5,
-    silly: 6,
+    silly: 6
   },
   colors: {
     error: 'bold red blackBG',
     warn: 'italic yellow',
     info: 'blue',
-    http: 'magenta',
-  },
+    http: 'magenta'
+  }
 };
 
 const myFormat = printf(({ level, message, timestamp }) => {
@@ -53,8 +53,8 @@ const winstonLogger = createLogger({
      * - Write all logs with importance level of `info` or less to `info-warning.log`
      */
     new transports.File({ filename: 'logs/error.log', level: 'error' }),
-    new transports.File({ filename: 'logs/info-warning.log' }),
-  ],
+    new transports.File({ filename: 'logs/info-warning.log' })
+  ]
 });
 
 addColors(customLevels.colors);

@@ -10,14 +10,14 @@ import {
   setUser,
   openToast,
   setToastMessage,
-  setToastStatus,
+  setToastStatus
 } from 'redux-store';
 import {
   FormPage,
   LinkText,
   MuiButton,
   RHFTextField,
-  RHFPasswordField,
+  RHFPasswordField
 } from 'shared';
 import RouteList from 'routes/route-list';
 import LoginFormSchema from './schema';
@@ -25,7 +25,7 @@ import LoginFormSchema from './schema';
 const LoginForm = () => {
   const initialValues: UserLogin = {
     email: '',
-    password: '',
+    password: ''
   };
 
   const dispatch = useAppDispatch();
@@ -37,10 +37,10 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting }
   } = useForm<UserLogin>({
     defaultValues: initialValues,
-    resolver: yupResolver(LoginFormSchema),
+    resolver: yupResolver(LoginFormSchema)
   });
 
   const onSubmit: SubmitHandler<UserLogin> = async (formData) => {

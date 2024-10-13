@@ -12,14 +12,14 @@ const AccountPage = () => {
       title: 'Manage Orders',
       description: 'View or cancel Order, download invoice',
       to: RouteList.account.subPaths.orders,
-      icon: <LocalShippingIcon sx={{ fontSize: 40 }} />,
+      icon: <LocalShippingIcon sx={{ fontSize: 40 }} />
     },
     {
       title: 'Manage Addresses',
       description: 'View, add, edit or delete your addresses',
       to: RouteList.account.subPaths.address,
-      icon: <LocationOnIcon sx={{ fontSize: 40 }} />,
-    },
+      icon: <LocationOnIcon sx={{ fontSize: 40 }} />
+    }
   ];
   return (
     <Container>

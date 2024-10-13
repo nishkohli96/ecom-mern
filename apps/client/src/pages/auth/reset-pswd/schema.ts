@@ -2,13 +2,13 @@ import { object, ObjectSchema } from 'yup';
 import {
   emailValidation,
   passwordValidation,
-  VerifyUserEmail,
+  VerifyUserEmail
 } from '@ecom-mern/shared';
 
 export const EmailSchema: ObjectSchema<VerifyUserEmail> = object().shape({
-  ...emailValidation,
+  ...emailValidation
 });
 
 export const PasswordResetSchema = object().shape({
-  ...passwordValidation,
+  ...passwordValidation
 });

@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 import {
   authenticateAdmin,
   validateAuthHeader,
-  checkTokenMismatchInReqParams,
+  checkTokenMismatchInReqParams
 } from '@/utils';
 import {
   ApiRoutesConfig,
@@ -10,7 +10,7 @@ import {
   PasswordResetQueryParams,
   SetDefaultAddress,
   UserPasswordChange,
-  UserAddress,
+  UserAddress
 } from '@ecom-mern/shared';
 import UserService from './service';
 import * as UserTypes from './types';

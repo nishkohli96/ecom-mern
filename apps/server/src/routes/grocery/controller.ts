@@ -4,7 +4,7 @@ import { validateAuthHeader, authenticateAdmin } from '@/utils';
 import {
   ApiRoutesConfig,
   GroceryInventory,
-  CartProduct,
+  CartProduct
 } from '@ecom-mern/shared';
 import groceryService from './service';
 import * as GroceryTypes from './types';

@@ -8,7 +8,7 @@ interface SettingsConfig {
 }
 
 const initialState: SettingsConfig = {
-  mode: ThemeMode.DARK,
+  mode: ThemeMode.DARK
 };
 
 export const settingsSlice = createSlice({
@@ -18,8 +18,8 @@ export const settingsSlice = createSlice({
     toggleTheme: (state) => {
       state.mode =
         state.mode === ThemeMode.LIGHT ? ThemeMode.DARK : ThemeMode.LIGHT;
-    },
-  },
+    }
+  }
 });
 
 /* Actions */

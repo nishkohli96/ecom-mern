@@ -17,7 +17,7 @@ export const OrderCard = (props: OrderCardProps) => {
     navigate(
       `${RouteList.account.rootPath}/${RouteList.account.subPaths.orderDetails}`,
       {
-        state: props._id,
+        state: props._id
       }
     );
   };
@@ -29,7 +29,7 @@ export const OrderCard = (props: OrderCardProps) => {
         mb: '2rem',
         width: '100%',
         borderRadius: cardRadius,
-        border: (theme) => `1px solid ${theme.palette.divider}`,
+        border: (theme) => `1px solid ${theme.palette.divider}`
       }}
     >
       <Grid
@@ -40,7 +40,7 @@ export const OrderCard = (props: OrderCardProps) => {
           padding: '1rem',
           borderTopRightRadius: cardRadius,
           borderTopLeftRadius: cardRadius,
-          background: (theme) => theme.palette.background.paper,
+          background: (theme) => theme.palette.background.paper
         }}
       >
         <Grid item xs={12} md={6}>
@@ -66,7 +66,7 @@ export const OrderCard = (props: OrderCardProps) => {
         sx={{
           padding: '1rem',
           borderBottomLeftRadius: cardRadius,
-          borderBottomRightRadius: cardRadius,
+          borderBottomRightRadius: cardRadius
         }}
       >
         <Grid container item xs={12} md={8} sx={{ mb: { xs: '1rem', md: 0 } }}>

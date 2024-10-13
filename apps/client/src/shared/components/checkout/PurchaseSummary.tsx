@@ -30,7 +30,7 @@ export const PurchaseSummary = ({
   nextBtnOnClick,
   nextBtnNavigateTo,
   navigateData,
-  disableBtn,
+  disableBtn
 }: PurchaseSummaryProps) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export const PurchaseSummary = ({
         : navigate(nextBtnNavigateTo ?? '/', { state: navigateData });
     } else {
       navigate(`${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`, {
-        state: navigateData,
+        state: navigateData
       });
     }
   };

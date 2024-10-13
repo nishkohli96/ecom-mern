@@ -35,7 +35,7 @@ async function readYMLFiles() {
     const reqDoc = YAML.parse(fileContent);
     swaggerPaths = {
       ...swaggerPaths,
-      ...reqDoc,
+      ...reqDoc
     };
   });
 }
@@ -46,17 +46,17 @@ export default {
   info: {
     version: '1.0.0',
     title: 'Ecom-mern-backend',
-    description: 'Swagger Docs for backend',
+    description: 'Swagger Docs for backend'
   },
   servers: [
     {
-      url: ENV_VARS.swagger_url,
-    },
+      url: ENV_VARS.swagger_url
+    }
   ],
   paths: swaggerPaths,
   components: {
     responses,
     schemas,
-    securitySchemes,
-  },
+    securitySchemes
+  }
 };
