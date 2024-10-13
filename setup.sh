@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Check for Yarn installation
-if ! command -v yarn &> /dev/null; then
-  echo "Yarn is not available in PATH. Please ensure it is installed correctly."
-  exit 1
-else
-  echo "Yarn is installed. Version: $(yarn --version)"
-fi
-
 # Install Dependencies & Build Package
 echo "🏁 Initiating Setup..."
 echo "Installing Dependencies & Building Shared Package 🛠️"
