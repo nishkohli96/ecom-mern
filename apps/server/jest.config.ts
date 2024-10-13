@@ -3,9 +3,18 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest';
+/** @type {import('ts-jest').JestConfigWithTsJest} **/
 
-const config: Config = {
+import {
+  type JestConfigWithTsJest,
+  createDefaultPreset,
+  pathsToModuleNameMapper,
+} from 'ts-jest';
+import { compilerOptions } from './tsconfig.json';
+
+const defaultPreset = createDefaultPreset();
+
+const config: JestConfigWithTsJest = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -102,7 +111,7 @@ const config: Config = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -173,7 +182,7 @@ const config: Config = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ['/node_modules/', '/__tests__/utils/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/', '/__tests__/utils/'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -204,6 +213,7 @@ const config: Config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  ...defaultPreset,
 };
 
 export default config;
