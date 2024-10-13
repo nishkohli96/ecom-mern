@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
-import { UserName, UserAddress } from '@ecom/mern-shared';
-import { UserRole } from 'models/User';
+import { UserName, UserAddress } from '@ecom-mern/shared';
+import { UserRole } from '@/models/User';
 
 export interface AddUser extends UserName {
   password: string;

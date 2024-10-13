@@ -1,10 +1,26 @@
-# Excluding node_modules as `tsc` cmd not found err while running build
-#node_modules
+# Node-related files
+**/node_modules
 
-.prettierrc
-.prettierignore
+# Version control and CI-related files
+.git
 .github
 .husky
-README.md
 
-yarn.lock
+# Docker-related files
+.dockerignore
+
+# Configuration and local-only files
+.gitignore
+.prettierignore
+.prettierrc
+
+# Documentation
+*.md
+
+# Logs and temporary files
+*.log
+
+# Build outputs (if any)
+dist/
+build/
+.cache/

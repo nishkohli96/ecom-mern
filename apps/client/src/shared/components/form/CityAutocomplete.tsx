@@ -18,7 +18,7 @@ export function CityAutocomplete({
   options,
   isLoading,
   errorMsg,
-  handleOptionSelection,
+  handleOptionSelection
 }: CityAutocompleteProps) {
   return (
     <Autocomplete
@@ -45,7 +45,7 @@ export function CityAutocomplete({
                 {isLoading && <CircularProgress color="inherit" size={20} />}
                 {params.InputProps.endAdornment}
               </Fragment>
-            ),
+            )
           }}
         />
       )}

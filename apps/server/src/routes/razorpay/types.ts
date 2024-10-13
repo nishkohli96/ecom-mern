@@ -1,4 +1,4 @@
-import { RazorPayOrder } from '@ecom/mern-shared';
+import { RazorPayOrder } from '@ecom-mern/shared';
 
 export type CustomerIdParams = {
   customerId: string;

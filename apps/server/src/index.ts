@@ -3,8 +3,8 @@ import os from 'os';
 import chalk from 'chalk';
 import { createClient } from 'redis';
 import mongoose from 'mongoose';
-import { ENV_VARS } from 'app-constants';
-import { console_log } from 'utils';
+import { ENV_VARS } from '@/app-constants';
+import { console_log } from '@/utils';
 import app from './app';
 
 const hostName = os.hostname();
@@ -24,8 +24,8 @@ const redisURL = `redis://${redis_username}:${redis_user_pswd}@${redis_host}:${r
  */
 const client = createClient({
   ...(Boolean(redis_username) && {
-    url: redisURL,
-  }),
+    url: redisURL
+  })
 });
 
 const db_url = ENV_VARS.mongo.cluster_url;
@@ -48,7 +48,7 @@ async function bootstrap() {
 
   try {
     await mongoose.connect(db_connection_string, {
-      autoIndex: true,
+      autoIndex: true
     });
     console_log('Connected to DATABASE', `${db_name}@${db_url}`);
   } catch (err) {
@@ -66,5 +66,20 @@ async function bootstrap() {
     );
   });
 }
+
+/* Gracefully handle SIGTERM or SIGINT */
+async function handleExit(signal: string) {
+  console.log(`Received ${signal}`);
+  console_log('Database', 'Disconnecting... 🔌');
+  try {
+    await mongoose.disconnect();
+  } catch (error) {
+    console.error('Error while disconnecting from the database:', error);
+  }
+  process.exit(0);
+}
+
+process.on('SIGTERM', () => handleExit('SIGTERM'));
+process.on('SIGINT', () => handleExit('SIGINT'));
 
 bootstrap();

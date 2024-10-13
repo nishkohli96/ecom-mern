@@ -1,5 +1,5 @@
-import { CartProduct } from '@ecom/mern-shared';
 import { Schema } from 'mongoose';
+import { CartProduct } from '@ecom-mern/shared';
 
 export interface GroceryCartProduct extends Omit<CartProduct, 'product_id'> {
   product_id: Schema.Types.ObjectId;

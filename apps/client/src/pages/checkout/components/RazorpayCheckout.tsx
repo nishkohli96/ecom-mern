@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material';
 import {
   RazorPayOrderSuccess,
-  RazorpayModalDismissReason,
-} from '@ecom/mern-shared';
+  RazorpayModalDismissReason
+} from '@ecom-mern/shared';
 import AppConfig from 'constants/app-config';
 import { useUpdateOrderStatusMutation } from 'redux-store';
 import { loadScript } from 'utils';
@@ -22,7 +22,7 @@ export const RazorpayCheckout = ({
   amount,
   customer,
   orderId,
-  rzpCustomerId,
+  rzpCustomerId
 }: RazorpayProps) => {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export const RazorpayCheckout = ({
       prefill: {
         email: customer.email,
         contact: customer.phone,
-        name: `${customer.name.first} ${customer.name.last}`,
+        name: `${customer.name.first} ${customer.name.last}`
       },
       customer_id: rzpCustomerId,
       remember_customer: true,
@@ -63,9 +63,9 @@ export const RazorpayCheckout = ({
             netbanking: 1,
             card: 1,
             upi: 1,
-            wallet: 1,
-          },
-        },
+            wallet: 1
+          }
+        }
       },
       handler: (response: RazorPayOrderSuccess) => {
         updateOrderStatus(response)
@@ -83,9 +83,9 @@ export const RazorpayCheckout = ({
         confirm_close: true,
         ondismiss: async (reason: RazorpayModalDismissReason) => {
           console.log('reason: ', reason);
-        },
+        }
       },
-      timeout: 1000,
+      timeout: 1000
     };
     const razorpay = new window.Razorpay(razorpayModalOptions);
 

@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import crypto from 'crypto';
-import { ApiRoutesConfig } from '@ecom/mern-shared';
-import { UserModel, TokenModel } from 'models';
-import { generateJWT, printError, errorLogger } from 'utils';
-import { AuthConfig, ENV_VARS } from 'app-constants';
+import { ApiRoutesConfig } from '@ecom-mern/shared';
+import { UserModel, TokenModel } from '@/models';
+import { generateJWT, printError, errorLogger } from '@/utils';
+import { AuthConfig, ENV_VARS } from '@/app-constants';
 import * as AuthTypes from './types';
 
 class AuthService {
@@ -28,7 +28,7 @@ class AuthService {
         'phone',
         'avatar',
         'password',
-        'role',
+        'role'
       ]);
       if (!user) return res.status(401).send('Account does not exist');
 
@@ -42,13 +42,13 @@ class AuthService {
       const token = generateJWT({
         _id: user_id,
         email,
-        role: user.role,
+        role: user.role
       });
       const refreshToken = generateJWT(
         {
           _id: user_id,
           email,
-          role: user.role,
+          role: user.role
         },
         true
       );
@@ -56,26 +56,26 @@ class AuthService {
       res
         .status(200)
         .header({
-          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Credentials': 'true'
         })
         .cookie(AuthConfig.cookies_name.refresh, refreshToken, {
           /* cannot be read by document.cookie */
           httpOnly: true,
           sameSite: 'strict',
           secure: true,
-          maxAge: AuthConfig.cookies_expiry.refresh,
+          maxAge: AuthConfig.cookies_expiry.refresh
         })
         .cookie(AuthConfig.cookies_name.jwt, token, {
           httpOnly: true,
           secure: true,
-          maxAge: AuthConfig.cookies_expiry.jwt,
+          maxAge: AuthConfig.cookies_expiry.jwt
         })
         .send({
           _id: user._id.toString(),
           name: user.name,
           email: user.email,
           avatar: user.avatar,
-          phone: user.phone,
+          phone: user.phone
         });
     } catch (err) {
       res.status(500).send('Internal Server Error');
@@ -98,16 +98,16 @@ class AuthService {
         const newToken = generateJWT({
           _id: userData._id,
           email: userData.email,
-          role: userData.role,
+          role: userData.role
         });
 
         res
           .status(200)
           .cookie(AuthConfig.cookies_name.jwt, newToken, {
-            maxAge: AuthConfig.cookies_expiry.jwt,
+            maxAge: AuthConfig.cookies_expiry.jwt
           })
           .send({
-            _id: userData._id,
+            _id: userData._id
           });
       } catch (err) {
         printError(err);
@@ -151,7 +151,7 @@ class AuthService {
       await new TokenModel({
         userId: user._id,
         token: hash,
-        createdAt: Date.now(),
+        createdAt: Date.now()
       }).save();
 
       const link = `${ENV_VARS.client_url}/${ApiRoutesConfig.auth.pathName}/${ApiRoutesConfig.auth.subRoutes.resetPassword}?token=${resetToken}&id=${user._id}`;

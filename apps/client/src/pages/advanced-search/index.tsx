@@ -15,7 +15,7 @@ import {
   FilterAccordions,
   SearchSkeleton,
   PriceForm,
-  PaginationWidget,
+  PaginationWidget
 } from './components';
 
 const AdvancedSearchPage = () => {
@@ -71,7 +71,7 @@ const AdvancedSearchPage = () => {
                   sx={{
                     marginRight: '0.5rem',
                     borderRadius: '50%',
-                    background: (theme) => theme.palette.error.main,
+                    background: (theme) => theme.palette.error.main
                   }}
                 >
                   <IconButton>
@@ -83,7 +83,7 @@ const AdvancedSearchPage = () => {
                 <IconButton>
                   <ClearIcon />
                 </IconButton>
-              ),
+              )
             }}
             onChange={handleInputChange}
           />
@@ -91,7 +91,7 @@ const AdvancedSearchPage = () => {
             variant="h6"
             sx={{
               color: (theme) => theme.palette.success.main,
-              margin: '1rem 0',
+              margin: '1rem 0'
             }}
           >
             Showing {searchResult.nbHits} products for your search...

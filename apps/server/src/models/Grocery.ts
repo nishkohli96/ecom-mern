@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { slugifyGroceryName } from 'utils';
+import { slugifyGroceryName } from '@/utils';
 
 const GrocerySchema = new Schema(
   {
@@ -10,21 +10,21 @@ const GrocerySchema = new Schema(
     price: {
       type: Number,
       required: true,
-      min: [1, 'Minimum value should be 1, got {VALUE}'],
+      min: [1, 'Minimum value should be 1, got {VALUE}']
     },
     discount_price: {
       type: Number,
       required: true,
-      min: 1,
+      min: 1
     },
     image_url: { type: String, required: true },
     quantity: { type: String, required: true },
     category: { type: String, required: true },
     sub_category: { type: String, default: null },
-    inStock: { type: Number, default: 20 },
+    inStock: { type: Number, default: 20 }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 

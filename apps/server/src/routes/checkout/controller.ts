@@ -2,8 +2,8 @@ import { Router, Request, Response } from 'express';
 import {
   ApiRoutesConfig,
   CreateRazorpayOrder,
-  RazorPayOrderSuccess,
-} from '@ecom/mern-shared';
+  RazorPayOrderSuccess
+} from '@ecom-mern/shared';
 import CheckoutService from './service';
 
 const checkoutRouter = Router();

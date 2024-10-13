@@ -13,5 +13,5 @@ export {
   groceryRouter,
   orderRouter,
   razorpayRouter,
-  userRouter,
+  userRouter
 };

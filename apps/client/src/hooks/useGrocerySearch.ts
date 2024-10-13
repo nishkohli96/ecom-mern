@@ -25,7 +25,7 @@ const defaultSearchResult = {
   hitsPerPage: AlgoliaConfig.CONFIG.hitsPerPage.searchbar,
   processingTimeMS: 0,
   exhaustiveNbHits: false,
-  params: '',
+  params: ''
 };
 
 export const useGrocerySearch = (
@@ -57,7 +57,7 @@ export const useGrocerySearch = (
               ? generateFacetFilters(categorizeFacets(facetFilters, true))
               : [],
             clickAnalytics: true,
-            getRankingInfo: true,
+            getRankingInfo: true
           }
         );
         setSearchResult(searchResponse);
@@ -72,6 +72,6 @@ export const useGrocerySearch = (
 
   return {
     isFetching,
-    searchResult,
+    searchResult
   };
 };

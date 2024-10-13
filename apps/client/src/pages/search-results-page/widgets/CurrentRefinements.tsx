@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import {
   useCurrentRefinements,
-  useClearRefinements,
+  useClearRefinements
 } from 'react-instantsearch';
 import { Button, Box, IconButton, Paper, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';

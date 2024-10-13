@@ -1,4 +1,4 @@
-import { GroceryItem, CartProduct } from '@ecom/mern-shared';
+import { GroceryItem, CartProduct } from '@ecom-mern/shared';
 import { PurchaseSummary } from 'shared';
 import RouteList from 'routes/route-list';
 import { getCartTotal } from 'utils';

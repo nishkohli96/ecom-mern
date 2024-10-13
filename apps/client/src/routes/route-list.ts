@@ -4,8 +4,8 @@ const RouteList = Object.freeze({
     subPaths: {
       address: 'address-list',
       orders: 'orders',
-      orderDetails: 'order-details',
-    },
+      orderDetails: 'order-details'
+    }
   },
   advancedSearch: '/advanced-search',
   auth: {
@@ -15,24 +15,24 @@ const RouteList = Object.freeze({
       resetPswd: 'reset-password',
       signUp: 'sign-up',
       emailVerified: 'email-verified',
-      verifyEmail: 'verify-email',
-    },
+      verifyEmail: 'verify-email'
+    }
   },
   cart: '/cart',
   checkout: {
     rootPath: '/checkout',
     subPaths: {
-      success: 'success',
-    },
+      success: 'success'
+    }
   },
   grocery: '/grocery',
   profile: {
     rootPath: '/profile',
     subPaths: {
-      changePswd: 'change-password',
-    },
+      changePswd: 'change-password'
+    }
   },
-  search: '/search',
+  search: '/search'
 });
 
 export default RouteList;

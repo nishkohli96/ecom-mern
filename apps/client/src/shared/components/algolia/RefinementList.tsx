@@ -18,12 +18,12 @@ interface RefinementListCustomProps {
 
 export const RefinementList = ({
   attribute,
-  searchPlaceholder,
+  searchPlaceholder
 }: RefinementListCustomProps): ReactElement => {
   const [inputValue, setInputValue] = useState<string>('');
   const { items, refine, searchForItems } = useRefinementList({
     attribute,
-    limit: AlgoliaConfig.CONFIG.hitsPerPage.brand_categories,
+    limit: AlgoliaConfig.CONFIG.hitsPerPage.brand_categories
   });
 
   const handleInputChange = (value: string) => {
@@ -51,8 +51,8 @@ export const RefinementList = ({
                   <ClearIcon />
                 </IconButton>
               </InputAdornment>
-            ),
-          }),
+            )
+          })
         }}
         onChange={(e) => handleInputChange(e.currentTarget.value)}
       />

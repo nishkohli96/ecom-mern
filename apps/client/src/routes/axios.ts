@@ -2,12 +2,12 @@ import axios from 'axios';
 import { readCookie } from 'utils/cookie-helper';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:8000/api',
   timeout: 1000,
   headers: {
     'X-Custom-Header': 'foobar',
-    'Access-Control-Allow-Origin': '*',
-  },
+    'Access-Control-Allow-Origin': '*'
+  }
 });
 
 axiosInstance.interceptors.request.use(

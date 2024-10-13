@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import { CartProduct } from '@ecom/mern-shared';
+import { CartProduct } from '@ecom-mern/shared';
 import { useAppSelector, UserSelector } from 'redux-store';
 import { Header4Text, Header5Text } from 'shared';
 import RouteList from 'routes/route-list';
@@ -30,7 +30,7 @@ export const PurchaseSummary = ({
   nextBtnOnClick,
   nextBtnNavigateTo,
   navigateData,
-  disableBtn,
+  disableBtn
 }: PurchaseSummaryProps) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export const PurchaseSummary = ({
         : navigate(nextBtnNavigateTo ?? '/', { state: navigateData });
     } else {
       navigate(`${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`, {
-        state: navigateData,
+        state: navigateData
       });
     }
   };

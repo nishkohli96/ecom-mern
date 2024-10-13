@@ -2,7 +2,7 @@ import {
   useAppSelector,
   UserSelector,
   UserCartSelector,
-  GuestCartSelector,
+  GuestCartSelector
 } from 'redux-store';
 import { getTotalCartProducts } from 'utils';
 

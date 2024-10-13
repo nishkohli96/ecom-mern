@@ -2,9 +2,6 @@ public
 build
 dist
 
-src/assets/images
-src/assets/icons
-
 .env
 .env.prod
 .env.testing
@@ -19,4 +16,4 @@ src/assets/icons
 yarn.lock
 yarn-error.log
 
-README.md
+*.md

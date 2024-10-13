@@ -3,27 +3,27 @@ import {
   emailRegex,
   pswdRegex,
   nameRegex,
-  UserAddress,
-} from '@ecom/mern-shared';
-import { UserInfo } from 'routes/user/types';
-import { hashPassword } from 'utils';
+  UserAddress
+} from '@ecom-mern/shared';
+import { UserInfo } from '@/routes/user/types';
+import { hashPassword } from '@/utils';
 
 export enum UserRole {
   Admin = 'ADMIN',
-  Customer = 'CUSTOMER',
+  Customer = 'CUSTOMER'
 }
 
 const nameValidation = {
   type: String,
   min: 2,
   required: true,
-  match: nameRegex,
+  match: nameRegex
 };
 
 const PersonName = new Schema(
   {
     first: nameValidation,
-    last: nameValidation,
+    last: nameValidation
   },
   { _id: false }
 );
@@ -31,7 +31,7 @@ const PersonName = new Schema(
 const Address_Country_State = new Schema(
   {
     name: { type: String, required: true, min: 2 },
-    iso2: { type: String, required: true, min: 2 },
+    iso2: { type: String, required: true, min: 2 }
   },
   { _id: false }
 );
@@ -47,7 +47,7 @@ const AddressSchema = new Schema<UserAddress>(
     state: { type: Address_Country_State, required: true },
     country: { type: Address_Country_State, required: true },
     zipCode: { type: String, required: true, minLength: 5 },
-    isDefault: { type: Boolean, default: false },
+    isDefault: { type: Boolean, default: false }
   },
   { timestamps: true }
 );
@@ -56,55 +56,55 @@ const UserSchema = new Schema<UserInfo>(
   {
     name: {
       type: PersonName,
-      required: true,
+      required: true
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: emailRegex,
+      match: emailRegex
     },
     password: {
       type: String,
       required: true,
       minLength: 8,
       select: false,
-      match: pswdRegex,
+      match: pswdRegex
     },
     isEmailVerified: {
       type: Boolean,
-      default: false,
+      default: false
     },
     phone: { type: String, required: true, minLength: 10 },
     isPhoneVerified: {
       type: Boolean,
-      default: false,
+      default: false
     },
     avatar: {
       type: String,
-      default: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+      default: 'https://randomuser.me/api/portraits/thumb/men/75.jpg'
     },
     role: {
       type: String,
       enum: Object.values(UserRole),
-      default: UserRole.Customer,
+      default: UserRole.Customer
     },
     addresses: {
       type: [AddressSchema],
-      default: [],
+      default: []
     },
     razorpay_customer_id: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   {
     timestamps: true,
     methods: {
       fullName() {
         return this.name.first + ' ' + this.name.last;
-      },
-    },
+      }
+    }
   }
 );
 

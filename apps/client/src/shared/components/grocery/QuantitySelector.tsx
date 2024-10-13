@@ -4,7 +4,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  SelectChangeEvent,
+  SelectChangeEvent
 } from '@mui/material';
 import AlgoliaConfig from 'constants/algolia-config';
 
@@ -19,7 +19,7 @@ const QuantitySelector = ({
   inStock,
   quantity,
   onQuantityChanged,
-  isOnCartCard,
+  isOnCartCard
 }: QuantitySelectorProps) => {
   const maxAllowedQuantity = Math.min(
     inStock,
@@ -43,9 +43,9 @@ const QuantitySelector = ({
           sx={{
             ...(isOnCartCard && {
               '& .MuiInputBase-input': {
-                padding: '5px 10px',
-              },
-            }),
+                padding: '5px 10px'
+              }
+            })
           }}
           onChange={(event: SelectChangeEvent) => onQuantityChanged(event)}
         >

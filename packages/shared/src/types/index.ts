@@ -7,3 +7,16 @@ export * from './razorpay';
 export * from './user';
 
 export type Modify<T, R> = Omit<T, keyof R> & R;
+
+export type Anything =
+  | string
+  | number
+  | boolean
+  | Date
+  | JsonObject
+  | Anything[]
+  | (() => Anything);
+
+export interface JsonObject {
+  [key: string]: Anything;
+}

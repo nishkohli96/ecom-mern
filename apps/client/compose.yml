@@ -1,8 +1,0 @@
-services:
-  frontend:
-    image: docker_username/fs-docker-fe
-    build:
-      context: ../../
-      dockerfile: ./apps/frontend/Dockerfile
-    ports:
-      - '3000:80'

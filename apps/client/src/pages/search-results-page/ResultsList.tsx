@@ -18,7 +18,7 @@ const ResultsList = (props: UseHitsProps<GroceryItemHit>) => {
     //   AlgoliaConfig.USER_EVENTS.product_click
     // );
     navigate(`${RouteList.grocery}/${hit.handle}`, {
-      state: hit._id,
+      state: hit._id
     });
   };
 
@@ -36,7 +36,7 @@ const ResultsList = (props: UseHitsProps<GroceryItemHit>) => {
               sx={{
                 padding: '1rem',
                 cursor: 'pointer',
-                border: (theme) => `1px solid ${theme.palette.divider}`,
+                border: (theme) => `1px solid ${theme.palette.divider}`
               }}
               onClick={() => handleClickOnHit(hit)}
             >
@@ -46,7 +46,7 @@ const ResultsList = (props: UseHitsProps<GroceryItemHit>) => {
                   alt={hit.product_name}
                   style={{
                     width: '50%',
-                    marginBottom: '1rem',
+                    marginBottom: '1rem'
                   }}
                 />
               </div>

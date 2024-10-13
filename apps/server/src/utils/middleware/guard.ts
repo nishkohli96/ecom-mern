@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserRole } from 'models/User';
-import { AuthConfig, ENV_VARS } from 'app-constants';
-import { DecodedTokenInfo } from 'routes/auth/types';
-import winstonLogger from 'winston-logger';
+import { UserRole } from '@/models/User';
+import { AuthConfig, ENV_VARS } from '@/app-constants';
+import { DecodedTokenInfo } from '@/routes/auth/types';
+import winstonLogger from '@/winston-logger';
 import { generateJWT } from '../auth';
 
 export function validateAuthHeader(
@@ -55,10 +55,10 @@ export function validateAuthHeader(
 
   res
     .cookie(AuthConfig.cookies_name.jwt, token, {
-      maxAge: AuthConfig.cookies_expiry.jwt,
+      maxAge: AuthConfig.cookies_expiry.jwt
     })
     .cookie(AuthConfig.cookies_name.refresh, refreshToken, {
-      maxAge: AuthConfig.cookies_expiry.refresh,
+      maxAge: AuthConfig.cookies_expiry.refresh
     });
   res.locals.user = userInfo;
   next();

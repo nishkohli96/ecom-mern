@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import chalk from 'chalk';
-import winstonLogger from 'winston-logger';
+import winstonLogger from '@/winston-logger';
 
 export function console_log(task: string, status: string): void {
   console.log(

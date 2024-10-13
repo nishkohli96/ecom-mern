@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import {
   useAppSelector,
   useGetOrdersListQuery,
-  UserSelector,
+  UserSelector
 } from 'redux-store';
 import { Header4Text, Loading, StatusMessage } from 'shared';
 import { OrderCard } from './components';

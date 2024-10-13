@@ -5,7 +5,7 @@ import {
   UserSelector,
   UserCartSelector,
   GuestCartSelector,
-  useGetCartProductsQuery,
+  useGetCartProductsQuery
 } from 'redux-store';
 import { Header3Text, Loading, StatusMessage } from 'shared';
 import { CartGroceryCard, CartTotal } from './components';
@@ -20,7 +20,7 @@ const CartPage = () => {
   const {
     data: cartGroceries,
     isLoading,
-    isFetching,
+    isFetching
   } = useGetCartProductsQuery(cartProductIds);
 
   if (isLoading || isFetching) {

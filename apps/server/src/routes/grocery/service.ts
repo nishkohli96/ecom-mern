@@ -1,10 +1,10 @@
 import { Response } from 'express';
 import fs from 'fs';
 import { parse } from 'csv-parse';
-import { GroceryInventory, GroceryItem, CartProduct } from '@ecom/mern-shared';
-import { GroceryModel } from 'models';
-import { algoliaIndex } from 'algolia/client';
-import { slugifyGroceryName, printSuccessMsg, errorLogger } from 'utils';
+import { GroceryInventory, GroceryItem, CartProduct } from '@ecom-mern/shared';
+import { GroceryModel } from '@/models';
+import { algoliaIndex } from '@/algolia/client';
+import { slugifyGroceryName, printSuccessMsg, errorLogger } from '@/utils';
 import * as GroceryTypes from './types';
 import { Types } from 'mongoose';
 
@@ -21,7 +21,7 @@ class GroceryService {
     'quantity',
     'inStock',
     'category',
-    'sub_category',
+    'sub_category'
   ];
 
   async getGroceryRecords(res: Response, pageNum: number, num_entries: number) {
@@ -40,7 +40,7 @@ class GroceryService {
   async getAvailability(res: Response, groceryChosen: GroceryInventory) {
     try {
       const groceryInfo = await GroceryModel.findOne({
-        _id: new Types.ObjectId(groceryChosen.product_id),
+        _id: new Types.ObjectId(groceryChosen.product_id)
       });
       if (groceryChosen.quantity_selected > (groceryInfo?.inStock ?? 0)) {
         return res.status(400).send('Insufficient stock').end();
@@ -60,7 +60,7 @@ class GroceryService {
     const num_entries = 5;
     try {
       const result: GroceryItem[] = await GroceryModel.aggregate([
-        { $sample: { size: num_entries } },
+        { $sample: { size: num_entries } }
       ]).project({
         _id: 1,
         product_name: 1,
@@ -72,7 +72,7 @@ class GroceryService {
         quantity: 1,
         category: 1,
         sub_category: 1,
-        inStock: 1,
+        inStock: 1
       });
       res.status(200).send(result);
     } catch (err: any) {
@@ -85,7 +85,7 @@ class GroceryService {
     groceryItem: GroceryTypes.AddGroceryItem
   ) {
     const existingProduct = await GroceryModel.findOne({
-      product_name: groceryItem.product_name,
+      product_name: groceryItem.product_name
     });
     if (existingProduct)
       return res
@@ -109,12 +109,12 @@ class GroceryService {
       );
 
       const { objectID } = await algoliaIndex.saveObject(groceryFields, {
-        autoGenerateObjectIDIfNotExist: true,
+        autoGenerateObjectIDIfNotExist: true
       });
 
       res.status(200).send({
         _id: result._id,
-        objectID,
+        objectID
       });
     } catch (err: any) {
       errorLogger(res, err);
@@ -126,7 +126,7 @@ class GroceryService {
       const grocery = await GroceryModel.findOne({ _id: id }).select([
         '-createdAt',
         '-updatedAt',
-        '-__v',
+        '-__v'
       ]);
       if (!grocery) {
         res.status(404).send('No product found with this id').end();
@@ -142,7 +142,7 @@ class GroceryService {
       const grocery = await GroceryModel.findOne({ sku }).select([
         '-createdAt',
         '-updatedAt',
-        '-__v',
+        '-__v'
       ]);
       if (!grocery) {
         res.status(404).send('No product found with this id').end();
@@ -163,7 +163,7 @@ class GroceryService {
       if (updatedDetails.product_name) {
         updatedDetails = {
           ...updatedDetails,
-          handle: slugifyGroceryName(updatedDetails.product_name),
+          handle: slugifyGroceryName(updatedDetails.product_name)
         };
       }
 
@@ -172,24 +172,24 @@ class GroceryService {
         upsert: true,
         new: true,
         /** Run validator when updating, its off by default */
-        runValidators: true,
+        runValidators: true
       });
 
       /* Sync the update on algolia */
       const groceryRecord_Algolia = await algoliaIndex.search(id, {
         disableTypoToleranceOnAttributes: ['_id'],
         /* doesn't show _highlightResult field in result */
-        attributesToHighlight: [],
+        attributesToHighlight: []
       });
 
       const { objectID } = await algoliaIndex.partialUpdateObject({
         ...updatedGroceryItem,
-        objectID: groceryRecord_Algolia.hits[0].objectID,
+        objectID: groceryRecord_Algolia.hits[0].objectID
       });
 
       res.status(200).send({
         objectID,
-        ...result.toObject(),
+        ...result.toObject()
       });
     } catch (err: any) {
       errorLogger(res, err);
@@ -205,7 +205,7 @@ class GroceryService {
       const groceryRecord_Algolia = await algoliaIndex.search(id, {
         disableTypoToleranceOnAttributes: ['_id'],
         /* doesn't show _highlightResult field in result */
-        attributesToHighlight: [],
+        attributesToHighlight: []
       });
       const objectID = groceryRecord_Algolia.hits[0].objectID;
 
@@ -214,7 +214,7 @@ class GroceryService {
 
       res.status(200).send({
         objectID,
-        ...result,
+        ...result
       });
     } catch (err: any) {
       errorLogger(res, err);
@@ -231,7 +231,7 @@ class GroceryService {
         const updatedProduct = await GroceryModel.findByIdAndUpdate(
           purchasedProducts[i].product_id,
           {
-            $inc: { inStock: deductedQuantity },
+            $inc: { inStock: deductedQuantity }
           }
         );
         /* Sync the update on algolia */
@@ -240,13 +240,13 @@ class GroceryService {
           {
             disableTypoToleranceOnAttributes: ['_id'],
             /* doesn't show _highlightResult field in result */
-            attributesToHighlight: [],
+            attributesToHighlight: []
           }
         );
 
         await algoliaIndex.partialUpdateObject({
           inStock: groceryRecord_Algolia.hits[0].inStock + deductedQuantity,
-          objectID: groceryRecord_Algolia.hits[0].objectID,
+          objectID: groceryRecord_Algolia.hits[0].objectID
         });
       }
       // res.status(200).send('Updated inStock Quantity');
@@ -262,27 +262,27 @@ class GroceryService {
         $group: {
           _id: {
             category: '$category',
-            sub_category: '$sub_category',
+            sub_category: '$sub_category'
           },
-          num_products: { $sum: 1 },
-        },
+          num_products: { $sum: 1 }
+        }
       },
       {
         $group: {
           _id: {
-            category: '$_id.category',
+            category: '$_id.category'
           },
           sub_categories: {
             $addToSet: {
               name: '$_id.sub_category',
-              num_products: '$num_products',
-            },
+              num_products: '$num_products'
+            }
           },
-          total_products: { $sum: '$num_products' },
-        },
+          total_products: { $sum: '$num_products' }
+        }
       },
       {
-        $sort: { total_products: -1 },
+        $sort: { total_products: -1 }
       },
       {
         $project: {
@@ -292,11 +292,11 @@ class GroceryService {
           sub_categories: {
             $sortArray: {
               input: '$sub_categories',
-              sortBy: { num_products: -1 },
-            },
-          },
-        },
-      },
+              sortBy: { num_products: -1 }
+            }
+          }
+        }
+      }
     ]);
 
     const brands = await GroceryModel.aggregate([
@@ -306,16 +306,16 @@ class GroceryService {
         $project: {
           _id: 0,
           name: '$_id',
-          num_products: '$num_products',
-        },
-      },
+          num_products: '$num_products'
+        }
+      }
     ]);
 
     return res
       .status(200)
       .send({
         brands,
-        categories,
+        categories
       })
       .end();
   }
@@ -331,7 +331,7 @@ class GroceryService {
             ...row,
             sku: productSku,
             handle: `${slugifyGroceryName(row?.product_name)}-${productSku}`,
-            inStock: Math.floor(Math.random() * 100),
+            inStock: Math.floor(Math.random() * 100)
           });
         })
         .on('error', function (error) {
@@ -384,11 +384,11 @@ class GroceryService {
           $set: {
             inStock: {
               $floor: {
-                $multiply: [{ $rand: {} }, 100],
-              },
-            },
-          },
-        },
+                $multiply: [{ $rand: {} }, 100]
+              }
+            }
+          }
+        }
       ]);
       res
         .status(200)

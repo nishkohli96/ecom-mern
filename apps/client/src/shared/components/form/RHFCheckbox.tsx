@@ -9,7 +9,7 @@ interface RHFCheckboxProps<TFieldValues extends FieldValues> {
 
 export function RHFCheckbox<T extends FieldValues>({
   name,
-  control,
+  control
 }: RHFCheckboxProps<T>) {
   return (
     <Controller

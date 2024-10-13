@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch';
-import { ENV_VARS } from 'app-constants';
+import { ENV_VARS } from '@/app-constants';
 import ALGOLIA_CONFIG from './constants';
 
 const algoliaClient = algoliasearch(

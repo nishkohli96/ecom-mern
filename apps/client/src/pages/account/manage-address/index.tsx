@@ -8,7 +8,7 @@ import {
   UserSelector,
   setToastMessage,
   setToastStatus,
-  openToast,
+  openToast
 } from 'redux-store';
 import { Header4Text, Loading, StatusMessage, AddAddressButton } from 'shared';
 import { AddressCard } from './components';
@@ -21,7 +21,7 @@ const AddressList = () => {
     isLoading,
     isFetching,
     isError,
-    error,
+    error
   } = useGetUserAddressesQuery(user?._id ?? '');
 
   if (isError) {
@@ -39,7 +39,7 @@ const AddressList = () => {
         xs={9}
         sx={{
           display: 'flex',
-          justifyContent: { xs: 'flex-start', md: 'center' },
+          justifyContent: { xs: 'flex-start', md: 'center' }
         }}
       >
         <Header4Text>Your Saved Addresses</Header4Text>

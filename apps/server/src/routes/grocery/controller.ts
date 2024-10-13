@@ -1,11 +1,11 @@
 import { Router, Request, Response } from 'express';
-import ALGOLIA_CONFIG from 'algolia/constants';
-import { validateAuthHeader, authenticateAdmin } from 'utils';
+import ALGOLIA_CONFIG from '@/algolia/constants';
+import { validateAuthHeader, authenticateAdmin } from '@/utils';
 import {
   ApiRoutesConfig,
   GroceryInventory,
-  CartProduct,
-} from '@ecom/mern-shared';
+  CartProduct
+} from '@ecom-mern/shared';
 import groceryService from './service';
 import * as GroceryTypes from './types';
 

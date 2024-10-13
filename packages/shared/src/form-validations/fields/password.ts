@@ -13,14 +13,14 @@ const pswdMatchText = 'Passwords do not match';
 export const passwordValidation = {
   password: string()
     .required(pswdReqdMsg)
-    .matches(pswdRegex, pswdRegexErrMsg('Password')),
+    .matches(pswdRegex, pswdRegexErrMsg('Password'))
 };
 
 export const passwordOptionalValidation = {
   password: string()
     .optional()
     .min(8)
-    .matches(pswdRegex, pswdRegexErrMsg('Password')),
+    .matches(pswdRegex, pswdRegexErrMsg('Password'))
 };
 
 export const PasswordResetSchema: ObjectSchema<ConfirmPasswordType> =
@@ -34,7 +34,7 @@ export const PasswordResetSchema: ObjectSchema<ConfirmPasswordType> =
       .test('isEqual', pswdMatchText, (value, context) => {
         if (context.parent.new_password === value) return true;
         return false;
-      }),
+      })
   });
 
 export const PasswordChangeSchema: ObjectSchema<UserPasswordChange> =
@@ -49,5 +49,5 @@ export const PasswordChangeSchema: ObjectSchema<UserPasswordChange> =
       .test('isEqual', pswdMatchText, (value, context) => {
         if (context.parent.new_password === value) return true;
         return false;
-      }),
+      })
   });

@@ -11,7 +11,7 @@ interface ToastIntitialState {
 const initialState: ToastIntitialState = {
   open: false,
   status: 'success',
-  message: '',
+  message: ''
 };
 
 export const toastSlice = createSlice({
@@ -29,8 +29,8 @@ export const toastSlice = createSlice({
     },
     setToastMessage: (state, action: PayloadAction<string>) => {
       state.message = action.payload;
-    },
-  },
+    }
+  }
 });
 
 /* Actions */

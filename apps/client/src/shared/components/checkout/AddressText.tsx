@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid';
-import { UserAddress } from '@ecom/mern-shared';
+import { UserAddress } from '@ecom-mern/shared';
 
 export type DeliveryAddress = Pick<
   UserAddress,

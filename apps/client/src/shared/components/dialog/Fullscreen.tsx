@@ -33,7 +33,7 @@ export const FullscreenDialog = ({
   title,
   showActionButton,
   actionBtnText,
-  children,
+  children
 }: FullscreenDialogProps) => {
   const handleDialogClose = () => {
     handleClose(false);

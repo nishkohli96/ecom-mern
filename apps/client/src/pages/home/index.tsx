@@ -6,7 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 import {
   useGetGroceriesQuery,
-  useGetGroceryCategorizationQuery,
+  useGetGroceryCategorizationQuery
 } from 'redux-store';
 import { Header3Text, PrimaryText, Loading, StatusMessage } from 'shared';
 import { BrandsList, CategoryAccordions, TabContent } from './components';
@@ -15,7 +15,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 function a11yProps(index: number) {
   return {
     id: `filter-tab-${index}`,
-    'aria-controls': `filter-tabpanel-${index}`,
+    'aria-controls': `filter-tabpanel-${index}`
   };
 }
 
@@ -38,7 +38,7 @@ const HomePage = () => {
     original: item.image_url,
     originalAlt: item.product_name,
     originalTitle: item.handle,
-    description: item._id,
+    description: item._id
   }));
 
   const RenderImageItem = memo((imageItem: ReactImageGalleryItem) => {

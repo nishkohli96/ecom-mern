@@ -3,7 +3,7 @@ const one_hour = 24 * 60 * 60 * 1000;
 export const AuthConfig = Object.freeze({
   cookies_name: {
     refresh: 'refresh-token',
-    jwt: 'jwt',
+    jwt: 'jwt'
   },
   cookies_expiry: {
     /* 1 hour or 3600000 ms */
@@ -14,6 +14,6 @@ export const AuthConfig = Object.freeze({
      *  attempt to generate new jwt or refresh-token
      *  5 mins before expiry of current token
      */
-    renew_threshold: 5 * 60 * 1000,
-  },
+    renew_threshold: 5 * 60 * 1000
+  }
 });

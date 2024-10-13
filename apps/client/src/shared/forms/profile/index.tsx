@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Grid from '@mui/material/Grid';
-import { UserProfileDetails } from '@ecom/mern-shared';
+import { UserProfileDetails } from '@ecom-mern/shared';
 import { RHFTextField, MuiButton, PhoneInput } from 'shared';
 import ProfileFormSchema from './schema';
 
@@ -15,24 +15,24 @@ interface ProfileFormProps {
 export const ProfileForm = ({
   initialValues,
   onFormSubmit,
-  actionBtnText,
+  actionBtnText
 }: ProfileFormProps) => {
   const {
     register,
     setValue,
     getValues,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty }
   } = useForm({
     defaultValues: initialValues,
-    resolver: yupResolver(ProfileFormSchema),
+    resolver: yupResolver(ProfileFormSchema)
   });
 
   const setPhoneValue = (value: string) =>
     setValue('phone', value, {
       shouldDirty: true,
       shouldValidate: true,
-      shouldTouch: true,
+      shouldTouch: true
     });
 
   /* https://www.npmjs.com/package/react-beforeunload */

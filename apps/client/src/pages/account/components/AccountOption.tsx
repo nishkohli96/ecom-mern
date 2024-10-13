@@ -19,7 +19,7 @@ export const AccountOption = (props: AccountOptionObject) => {
           sx={{
             borderRadius: '8px',
             border: (theme) => `1px solid ${theme.palette.divider}`,
-            padding: '0.5rem 0.25rem',
+            padding: '0.5rem 0.25rem'
           }}
         >
           <Grid
@@ -28,7 +28,7 @@ export const AccountOption = (props: AccountOptionObject) => {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             {props.icon}

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
-import { CountryStateInfo, defaultCountryState } from '@ecom/mern-shared';
+import { CountryStateInfo, defaultCountryState } from '@ecom-mern/shared';
 
 type CountryStateAutocompleteProps = {
   name: string;
@@ -19,7 +19,7 @@ export function CountryStateAutocomplete({
   options,
   isLoading,
   errorMsg,
-  handleOptionSelection,
+  handleOptionSelection
 }: CountryStateAutocompleteProps) {
   return (
     <Autocomplete
@@ -44,7 +44,7 @@ export function CountryStateAutocomplete({
                 {isLoading && <CircularProgress color="inherit" size={20} />}
                 {params.InputProps.endAdornment}
               </Fragment>
-            ),
+            )
           }}
           error={Boolean(errorMsg)}
           helperText={errorMsg}

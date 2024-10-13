@@ -12,7 +12,7 @@ const SearchResultsPage = () => (
       md={4}
       lg={3}
       sx={{
-        display: { xs: 'none', md: 'block' },
+        display: { xs: 'none', md: 'block' }
       }}
     >
       <CurrentRefinementsWidget />
@@ -23,7 +23,7 @@ const SearchResultsPage = () => (
         <Typography
           sx={{
             marginBottom: '1rem',
-            color: (theme) => theme.palette.warning.main,
+            color: (theme) => theme.palette.warning.main
           }}
         >
           <sup>*</sup> This page uses algolia widgets that are controlled by

@@ -1,15 +1,15 @@
 import { Schema, model } from 'mongoose';
 import { GroceryPurchase } from './Cart';
-import { OrderStatus, PaymentStatus } from '@ecom/mern-shared';
-import { PurchaseDetails } from 'routes/checkout/types';
+import { OrderStatus, PaymentStatus } from '@ecom-mern/shared';
+import { PurchaseDetails } from '@/routes/checkout/types';
 
 const PaymentSchema = new Schema(
   {
     amount: Number,
     currency: {
       type: String,
-      default: 'INR',
-    },
+      default: 'INR'
+    }
   },
   { _id: false }
 );
@@ -20,37 +20,37 @@ const OrderSchema = new Schema<PurchaseDetails>(
     customerId: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: 'user',
+      ref: 'user'
     },
     payment: PaymentSchema,
     products: [GroceryPurchase],
     deliveryAddressId: {
       type: Schema.Types.ObjectId,
-      required: true,
+      required: true
     },
     order_status: {
       type: String,
       enum: Object.values(OrderStatus),
-      default: OrderStatus.Created,
+      default: OrderStatus.Created
     },
     payment_status: {
       type: String,
       enum: Object.values(PaymentStatus),
-      default: PaymentStatus.Pending,
+      default: PaymentStatus.Pending
     },
     razorpay_order_id: {
-      type: String,
+      type: String
     },
     payment_id: {
-      type: String,
+      type: String
     },
     fromCart: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 

@@ -5,13 +5,14 @@ WORKDIR /app
 
 # Run yarn only if package.json changes
 # copied tsconfig as shared's tsconfig extends rootDir's tsconfig
-COPY turbo.json .
-COPY tsconfig.json .
 COPY package.json .
+COPY tsconfig.json .
+COPY turbo.json .
+COPY yarn.lock .
 
 # first create these directories, else the copying won't work.
-RUN mkdir -p packages/shared
-RUN mkdir -p apps/client
+# -p flag ensures that parent dirs are also created if they dont exist.
+RUN mkdir -p packages/shared && mkdir -p apps/client
 
 # copying the contents of the shared package
 COPY ./packages/shared/package.json packages/shared
@@ -20,9 +21,8 @@ COPY ./packages/shared packages/shared
 COPY ./apps/client/package.json apps/client
 COPY ./apps/client apps/client
 
-# install node_modules
-RUN yarn
-RUN yarn build:lib
+# install node_modules & build @ecom-mern/shared
+RUN yarn install --frozen-lockfile && yarn shared
 
 # run client in dev env
-CMD ["yarn", "ecom-client"]
+CMD ["yarn", "client"]

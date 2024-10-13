@@ -5,14 +5,14 @@ import {
   ErrorBoundary,
   Navbar,
   StatusMessage,
-  Toast,
+  Toast
 } from 'shared';
 import {
   useAppSelector,
   useAppDispatch,
   ToastSelector,
   UserSelector,
-  closeToast,
+  closeToast
 } from 'redux-store';
 import RouteGuard from './RouteGuard';
 import RouteList from './route-list';

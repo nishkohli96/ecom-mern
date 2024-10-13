@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from 'redux-store';
 import { UserLoginInfo } from 'shared/types';
-import { CartProduct, GuestUserCart } from '@ecom/mern-shared';
+import { CartProduct, GuestUserCart } from '@ecom-mern/shared';
 import { addProductToCart, removeProductFromCart } from 'utils';
 
 interface UserIntialState {
@@ -17,7 +17,7 @@ interface ModifyCartProduct {
 
 export const defaultUserCartValue: GuestUserCart = {
   cart_id: null,
-  products: [],
+  products: []
 };
 
 export const GuestUserData: UserLoginInfo = {
@@ -25,15 +25,15 @@ export const GuestUserData: UserLoginInfo = {
   email: '',
   phone: '',
   name: { first: '', last: '' },
-  avatar: '',
+  avatar: ''
 };
 
 const initialState: UserIntialState = {
   userInfo: null,
   guest_cart: {
-    products: [],
+    products: []
   },
-  user_cart: defaultUserCartValue,
+  user_cart: defaultUserCartValue
 };
 
 export const userSlice = createSlice({
@@ -49,7 +49,7 @@ export const userSlice = createSlice({
     setUserCartProducts: (state, action: PayloadAction<CartProduct[] | []>) => {
       state.user_cart = {
         ...state.user_cart,
-        products: action.payload,
+        products: action.payload
       };
     },
     addProductToGuestCart: (
@@ -62,7 +62,7 @@ export const userSlice = createSlice({
           state.guest_cart.products,
           action.payload.product,
           action.payload.update
-        ),
+        )
       };
     },
     removeProductFromGuestCart: (state, action: PayloadAction<string>) => {
@@ -71,13 +71,13 @@ export const userSlice = createSlice({
         products: removeProductFromCart(
           state.guest_cart.products,
           action.payload
-        ),
+        )
       };
     },
     addProductToUserCart: (state, action: PayloadAction<CartProduct>) => {
       state.guest_cart = {
         ...state.guest_cart,
-        products: addProductToCart(state.guest_cart.products, action.payload),
+        products: addProductToCart(state.guest_cart.products, action.payload)
       };
     },
     removeProductFromUserCart: (state, action: PayloadAction<string>) => {
@@ -86,10 +86,10 @@ export const userSlice = createSlice({
         products: removeProductFromCart(
           state.user_cart.products,
           action.payload
-        ),
+        )
       };
-    },
-  },
+    }
+  }
 });
 
 /* Actions */
@@ -100,7 +100,7 @@ export const {
   addProductToGuestCart,
   removeProductFromGuestCart,
   addProductToUserCart,
-  removeProductFromUserCart,
+  removeProductFromUserCart
 } = userSlice.actions;
 
 /* Selectors */

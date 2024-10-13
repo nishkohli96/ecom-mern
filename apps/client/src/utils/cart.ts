@@ -1,4 +1,4 @@
-import { CartProduct, GroceryItem } from '@ecom/mern-shared';
+import { CartProduct, GroceryItem } from '@ecom-mern/shared';
 
 /* Sum of quantities of all products in cart */
 export function getTotalCartProducts(exisitingCart: CartProduct[]): number {
@@ -38,9 +38,7 @@ export function addProductToCart(
     if (prod.product_id === newProduct.product_id) {
       prod = {
         ...prod,
-        quantity: isUpdate
-          ? prod.quantity
-          : prod.quantity + newProduct.quantity,
+        quantity: isUpdate ? prod.quantity : prod.quantity + newProduct.quantity
       };
     }
     return prod;

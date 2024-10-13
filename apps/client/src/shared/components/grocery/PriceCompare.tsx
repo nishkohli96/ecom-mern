@@ -26,7 +26,7 @@ const PriceCompare = ({ price, discount_price }: PriceCompareProps) => {
       <Grid item>
         <span
           style={{
-            textDecoration: isDiscounted ? 'line-through' : 'none',
+            textDecoration: isDiscounted ? 'line-through' : 'none'
           }}
         >
           ₹{price?.toFixed(2)}

@@ -25,7 +25,7 @@ export const fetchAlgoliaData = async (
       page: page ?? 0,
       facetFilters: ['brand:BB Royal'],
       clickAnalytics: true,
-      getRankingInfo: true,
+      getRankingInfo: true
     });
     return searchResult;
   } catch (err) {

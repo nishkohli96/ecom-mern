@@ -5,12 +5,12 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { GroceryCategorization } from '@ecom/mern-shared';
+import { GroceryCategorization } from '@ecom-mern/shared';
 import AlgoliaConfig from 'constants/algolia-config';
 import RouteList from 'routes/route-list';
 
 export const CategoryAccordions = ({
-  categories,
+  categories
 }: Pick<GroceryCategorization, 'categories'>) => {
   const navigate = useNavigate();
   return (
@@ -21,11 +21,11 @@ export const CategoryAccordions = ({
             <Typography
               sx={{
                 fontSize: '1.25rem',
-                '&:hover': { textDecoration: 'underline' },
+                '&:hover': { textDecoration: 'underline' }
               }}
               onClick={() =>
                 navigate(`${RouteList.advancedSearch}`, {
-                  state: `${AlgoliaConfig.FACET_ATTRIBUTES.category}:${category.name}`,
+                  state: `${AlgoliaConfig.FACET_ATTRIBUTES.category}:${category.name}`
                 })
               }
             >
@@ -38,13 +38,13 @@ export const CategoryAccordions = ({
                 key={idx2}
                 onClick={() =>
                   navigate(`${RouteList.advancedSearch}`, {
-                    state: `${AlgoliaConfig.FACET_ATTRIBUTES.sub_category}:${subCategory.name}`,
+                    state: `${AlgoliaConfig.FACET_ATTRIBUTES.sub_category}:${subCategory.name}`
                   })
                 }
                 sx={{
                   marginLeft: '1rem',
                   marginBottom: '0.75rem',
-                  '&:hover': { cursor: 'pointer', textDecoration: 'underline' },
+                  '&:hover': { cursor: 'pointer', textDecoration: 'underline' }
                 }}
               >
                 {subCategory.name} <b>({subCategory.num_products})</b>

@@ -1,4 +1,4 @@
-import { UserRole } from 'models/User';
+import { UserRole } from '@/models/User';
 
 export interface UserLoginBody {
   email: string;

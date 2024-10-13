@@ -1,0 +1,47 @@
+UserId:
+  type: string
+  example: 6533ac7e027fa855f6dc28e3
+
+UserName:
+  type: object
+  properties:
+    first:
+      type: string
+    last:
+      type: string
+  example:
+    first: Nish
+    last: Kohli
+
+UserEmail:
+  type: string
+  example: nish@gmail.com
+
+UserAvatar:
+  type: string
+  example: https://randomuser.me/api/portraits/thumb/men/1.jpg
+
+UserPhone:
+  type: string
+  example: '+91 98888-1111'
+
+UserRole:
+  type: string
+  enum:
+    - ADMIN
+    - CUSTOMER
+  default: CUSTOMER
+
+User:
+  type: object
+  properties:
+    _id:
+      $ref: '#/components/schemas/UserId'
+    avatar:
+      $ref: '#/components/schemas/UserAvatar'
+    email:
+      $ref: '#/components/schemas/UserEmail'
+    name:
+      $ref: '#/components/schemas/UserName'
+    phone:
+      $ref: '#/components/schemas/UserPhone'

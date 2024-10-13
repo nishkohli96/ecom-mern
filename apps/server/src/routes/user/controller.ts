@@ -2,16 +2,16 @@ import { Request, Response, Router } from 'express';
 import {
   authenticateAdmin,
   validateAuthHeader,
-  checkTokenMismatchInReqParams,
-} from 'utils';
+  checkTokenMismatchInReqParams
+} from '@/utils';
 import {
   ApiRoutesConfig,
   ConfirmPasswordType,
   PasswordResetQueryParams,
   SetDefaultAddress,
   UserPasswordChange,
-  UserAddress,
-} from '@ecom/mern-shared';
+  UserAddress
+} from '@ecom-mern/shared';
 import UserService from './service';
 import * as UserTypes from './types';
 

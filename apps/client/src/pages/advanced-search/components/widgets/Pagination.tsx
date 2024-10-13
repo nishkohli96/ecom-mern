@@ -10,7 +10,7 @@ interface PaginationWidgetProps {
 export const PaginationWidget = ({
   currentPage,
   nbPages,
-  onPageChange,
+  onPageChange
 }: PaginationWidgetProps) => {
   /**
    *  Pagination numbering for MUI starts from 1 whereas

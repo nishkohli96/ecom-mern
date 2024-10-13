@@ -26,7 +26,7 @@ function App() {
             // insights
           >
             <Configure
-              hitsPerPage={AlgoliaConfig.CONFIG.hitsPerPage.products}
+            // hitsPerPage={AlgoliaConfig.CONFIG.hitsPerPage.products}
             />
             <Routing />
           </InstantSearch>

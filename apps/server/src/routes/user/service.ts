@@ -1,8 +1,8 @@
 import { Response } from 'express';
 import bcrypt from 'bcrypt';
 import { ValidationError } from 'yup';
-import { ENV_VARS } from 'app-constants';
-import { UserModel, TokenModel } from 'models';
+import { ENV_VARS } from '@/app-constants';
+import { UserModel, TokenModel } from '@/models';
 import {
   printFormValidationErrors,
   UserPasswordChange,
@@ -10,9 +10,9 @@ import {
   PasswordChangeSchema,
   PasswordResetQueryParams,
   PasswordResetSchema,
-  UserAddress,
-} from '@ecom/mern-shared';
-import { hashPassword, errorLogger } from 'utils';
+  UserAddress
+} from '@ecom-mern/shared';
+import { hashPassword, errorLogger } from '@/utils';
 import { AddUserSchema, UpdateUserSchema } from './validation';
 import * as UserTypes from './types';
 import razorpayService from '../razorpay/service';
@@ -42,7 +42,7 @@ class UserService {
         'email',
         'avatar',
         'phone',
-        '-_id',
+        '-_id'
       ]);
       res.status(200).send(userInfo);
     } catch (err: any) {
@@ -53,7 +53,7 @@ class UserService {
   async addUser(res: Response, userData: UserTypes.AddUser) {
     try {
       await AddUserSchema.validate(userData, {
-        abortEarly: false,
+        abortEarly: false
       });
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -74,11 +74,11 @@ class UserService {
         name: userData.name,
         email: userData.email,
         phone: userData.phone,
-        avatar: userData.avatar,
+        avatar: userData.avatar
       });
       const newUser = new UserModel({
         ...userData,
-        razorpay_customer_id: razorpay_customer.id,
+        razorpay_customer_id: razorpay_customer.id
       });
       const savedUser = await newUser.save();
       res.status(200).send({ _id: savedUser._id });
@@ -91,7 +91,7 @@ class UserService {
     /* form validation */
     try {
       await PasswordChangeSchema.validate(userData, {
-        abortEarly: false,
+        abortEarly: false
       });
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -136,7 +136,7 @@ class UserService {
     /* form validation */
     try {
       await PasswordResetSchema.validate(userData, {
-        abortEarly: false,
+        abortEarly: false
       });
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -148,7 +148,7 @@ class UserService {
     }
     const { id } = userMetaData;
     let passwordResetToken = await TokenModel.findOne({
-      userId: id,
+      userId: id
     });
 
     if (!passwordResetToken) {
@@ -183,7 +183,7 @@ class UserService {
   ) {
     try {
       await UpdateUserSchema.validate(updateData, {
-        abortEarly: false,
+        abortEarly: false
       });
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -196,14 +196,14 @@ class UserService {
     try {
       const updatedUser = await UserModel.findByIdAndUpdate(id, updateData, {
         upsert: true,
-        new: true,
+        new: true
       }).select([
         'name',
         'email',
         'avatar',
         'phone',
         'razorpay_customer_id',
-        '-_id',
+        '-_id'
       ]);
 
       /* Update razorpay customer details */
@@ -212,7 +212,7 @@ class UserService {
         {
           name: updatedUser.name,
           email: updatedUser.email,
-          phone: updatedUser.phone,
+          phone: updatedUser.phone
         }
       );
 
@@ -257,9 +257,9 @@ class UserService {
           $push: {
             addresses: {
               ...addressDetails,
-              isDefault: addressList?.addresses.length === 0 ? true : false,
-            },
-          },
+              isDefault: addressList?.addresses.length === 0 ? true : false
+            }
+          }
         }
       );
       return res.status(200).send('Address Added');
@@ -278,7 +278,7 @@ class UserService {
       await UserModel.updateOne(
         {
           _id: user_id,
-          'addresses._id': _id,
+          'addresses._id': _id
         },
         {
           // { <update operator>: { "<array>.$[]" : value } }
@@ -292,8 +292,8 @@ class UserService {
             'addresses.$.street': addressInfo.street,
             'addresses.$.landmark': addressInfo.landmark,
             'addresses.$.zipCode': addressInfo.zipCode,
-            'addresses.$.isDefault': addressInfo.isDefault,
-          },
+            'addresses.$.isDefault': addressInfo.isDefault
+          }
         }
       );
       res.status(200).send('Address Updated');
@@ -310,8 +310,8 @@ class UserService {
           { _id: user_id, 'addresses.isDefault': true },
           {
             $set: {
-              'addresses.$.isDefault': false,
-            },
+              'addresses.$.isDefault': false
+            }
           }
         );
         /**
@@ -328,8 +328,8 @@ class UserService {
           { _id: user_id, 'addresses._id': defaultAddressId },
           {
             $set: {
-              'addresses.$.isDefault': true,
-            },
+              'addresses.$.isDefault': true
+            }
           }
         );
         resolve('Default Address Changed');
@@ -361,7 +361,7 @@ class UserService {
     try {
       const userAddresses = await UserModel.findOne({
         _id: user_id,
-        'addresses._id': delete_addressId,
+        'addresses._id': delete_addressId
       }).select('addresses');
 
       const defaultAddr = userAddresses?.addresses?.find(

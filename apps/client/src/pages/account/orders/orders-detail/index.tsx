@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { OrderStatus } from '@ecom/mern-shared';
+import { OrderStatus } from '@ecom-mern/shared';
 import { useGetOrderDetailsQuery } from 'redux-store';
 import { Loading } from 'shared';
 import RouteList from 'routes/route-list';
@@ -128,8 +128,8 @@ const OrdersDetailPage = () => {
                     isProcessing
                       ? theme.palette.warning.main
                       : isDelivered
-                      ? theme.palette.success.main
-                      : theme.palette.text.primary,
+                        ? theme.palette.success.main
+                        : theme.palette.text.primary
                 }}
               >
                 Your order is {orderData?.order_status?.toUpperCase()}

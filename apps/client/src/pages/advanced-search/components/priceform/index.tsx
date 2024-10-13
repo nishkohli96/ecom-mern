@@ -13,15 +13,15 @@ interface PriceFormProps {
 export const PriceForm = ({ setNumericFilters }: PriceFormProps) => {
   const initialValues: PriceFormSchema = {
     min: '',
-    max: '',
+    max: ''
   };
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     defaultValues: initialValues,
-    resolver: yupResolver(LoginFormSchema),
+    resolver: yupResolver(LoginFormSchema)
   });
 
   const onFormSubmit = (formValues: PriceFormSchema) => {
@@ -31,7 +31,7 @@ export const PriceForm = ({ setNumericFilters }: PriceFormProps) => {
         ...numericFilters,
         `${AlgoliaConfig.FACET_ATTRIBUTES.defaultPrice}>=${Number(
           formValues.min
-        )}`,
+        )}`
       ];
     }
     if (Boolean(formValues.max)) {
@@ -39,7 +39,7 @@ export const PriceForm = ({ setNumericFilters }: PriceFormProps) => {
         ...numericFilters,
         `${AlgoliaConfig.FACET_ATTRIBUTES.defaultPrice}<${Number(
           formValues.max
-        )}`,
+        )}`
       ];
     }
     setNumericFilters(numericFilters);

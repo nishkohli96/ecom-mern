@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import { Modify } from '@ecom/mern-shared';
+import { Modify } from '@ecom-mern/shared';
 
 export interface GetGroceryParams {
   page?: number;

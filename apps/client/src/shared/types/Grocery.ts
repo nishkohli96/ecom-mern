@@ -1,5 +1,5 @@
 import type { BaseHit } from 'instantsearch.js';
-import { GroceryItem } from '@ecom/mern-shared';
+import { GroceryItem } from '@ecom-mern/shared';
 import AlgoliaConfig from 'constants/algolia-config';
 
 export interface GroceryItemHit extends BaseHit, GroceryItem {}

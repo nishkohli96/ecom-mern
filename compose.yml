@@ -27,8 +27,8 @@ services:
       context: .
       dockerfile: ./apps/server/Dockerfile
     ports:
-      - '5000:5000'
-  
+      - '8000:8000'
+
   # server in dev-mode
   server-dev:
     image: nish1896/ecom-mern-server-dev
@@ -36,7 +36,7 @@ services:
       context: .
       dockerfile: ./apps/server/Dockerfile.dev
     ports:
-      - '8080:5000'
+      - '8080:8000'
     volumes:
       - '/app/node_modules'
       - './apps/server:/app/apps/server'

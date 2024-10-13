@@ -1,5 +1,5 @@
 import sgMail from '@sendgrid/mail';
-import { ENV_VARS } from 'app-constants/env_vars';
+import { ENV_VARS } from '@/app-constants/env_vars';
 
 sgMail.setApiKey(ENV_VARS.sendgrid.apikey);
 
@@ -15,11 +15,11 @@ export async function sendVerificationEmail(
         to: [{ email: emailTo }],
         dynamic_template_data: {
           customer_name: customerName,
-          btnLink: 'https://www.google.co.in',
-        },
-      },
+          btnLink: 'https://www.google.co.in'
+        }
+      }
     ],
-    template_id: ENV_VARS.sendgrid.signup_template_id,
+    template_id: ENV_VARS.sendgrid.signup_template_id
   };
 
   try {
