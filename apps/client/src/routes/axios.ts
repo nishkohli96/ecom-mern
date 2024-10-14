@@ -11,14 +11,14 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  function (config) {
+  function appendToken(config) {
     const userToken = readCookie('userToken');
     if (userToken) {
       config.headers.Authorization = `Bearer ${userToken}`;
     }
     return config;
   },
-  function (error) {
+  function handleError(error) {
     // Do something with request error
     return Promise.reject(error);
   }

@@ -16,5 +16,3 @@ export const FormPage = ({ children, formTitle }: FormPageProps) => {
     </CenterContent>
   );
 };
-
-FormPage;

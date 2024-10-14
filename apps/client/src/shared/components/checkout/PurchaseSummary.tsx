@@ -41,9 +41,11 @@ export const PurchaseSummary = ({
 
   const handleNextBtnClick = () => {
     if (user) {
-      nextBtnOnClick
-        ? nextBtnOnClick()
-        : navigate(nextBtnNavigateTo ?? '/', { state: navigateData });
+      if (nextBtnOnClick) {
+        nextBtnOnClick();
+      } else {
+        navigate(nextBtnNavigateTo ?? '/', { state: navigateData });
+      }
     } else {
       navigate(`${RouteList.auth.rootPath}/${RouteList.auth.subPaths.login}`, {
         state: navigateData

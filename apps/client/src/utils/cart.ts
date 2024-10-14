@@ -14,7 +14,7 @@ export function getCartTotal(
   inventory: CartProduct[]
 ): string {
   let cartTotal = 0;
-  products.map((prod, idx) => {
+  products.forEach((prod, idx) => {
     cartTotal += prod.discount_price * inventory[idx].quantity;
   });
   return cartTotal.toFixed(2);

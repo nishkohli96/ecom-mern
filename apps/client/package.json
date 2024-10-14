@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "start": "yarn build && env-cmd -f .env.prod react-scripts start",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix .",
+    "lint": "eslint --fix",
     "lint:check": "eslint ."
   },
   "proxy": "http://localhost:8000",

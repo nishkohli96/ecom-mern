@@ -40,9 +40,7 @@ export const ConfirmationDialog = ({
       <DialogContent>{dialogContent}</DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{cancelBtnText}</Button>
-        <Button onClick={handleConfirm} autoFocus>
-          {confirmBtnText}
-        </Button>
+        <Button onClick={handleConfirm}>{confirmBtnText}</Button>
       </DialogActions>
     </Dialog>
   );

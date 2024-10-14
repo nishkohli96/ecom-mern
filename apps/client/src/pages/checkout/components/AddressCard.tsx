@@ -17,7 +17,7 @@ export const AddressCard = ({
 }: AddressCardProps) => {
   const { _id, recipientName, recipientPhone, isDefault, ...addressDetails } =
     address;
-  const isSelected = selectedAddress ? _id == selectedAddress : isDefault;
+  const isSelected = selectedAddress ? _id === selectedAddress : isDefault;
 
   /**
    *  Set opacity for hex colors -

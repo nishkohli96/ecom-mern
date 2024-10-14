@@ -5,11 +5,6 @@ export default [
   ...jsEslintConfig,
   ...jsxEslintConfig,
   {
-    files: ['src/**/*{.js,.jsx,.ts,.tsx}'],
-    rules: {},
-    ignores: [
-      'node_modules',
-      'build/**/*{.js,.d.ts}'
-    ]
+    ignores: ['node_modules/**', 'build/**/*{.js,.d.ts}']
   }
 ];

@@ -48,7 +48,11 @@ const LoginForm = () => {
       .unwrap()
       .then((payload) => {
         dispatch(setUser(payload));
-        redirectUrl ? navigate(redirectUrl) : navigate(-1);
+        if (redirectUrl) {
+          navigate(redirectUrl);
+        } else {
+          navigate(-1);
+        }
       })
       .catch((err) =>
         batch(() => {

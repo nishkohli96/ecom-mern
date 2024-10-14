@@ -60,7 +60,7 @@ export const FullscreenDialog = ({
             {title}
           </Typography>
           {showActionButton && (
-            <Button autoFocus color="inherit" onClick={handleDialogClose}>
+            <Button color="inherit" onClick={handleDialogClose}>
               {actionBtnText}
             </Button>
           )}
