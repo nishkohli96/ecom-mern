@@ -10,7 +10,7 @@ export function rearrangeCartProducts(
   objectIds: string[]
 ): Grocery[] {
   const orderedCartProducts: Grocery[] = [];
-  cartProducts.map(prod => {
+  cartProducts.forEach((prod) => {
     const index = objectIds.indexOf(prod._id.toString());
     orderedCartProducts[index] = prod;
   });
@@ -24,13 +24,13 @@ export function addProductToCart(
   let newCart = exisitingCart;
 
   const isAlreadyAdded = newCart.find(
-    prod => prod.product_id === newProduct.product_id
+    (prod) => prod.product_id === newProduct.product_id
   );
   if (!isAlreadyAdded) {
     newCart = [newProduct, ...newCart];
     return newCart;
   }
-  newCart = newCart.map(prod => {
+  newCart = newCart.map((prod) => {
     if (prod.product_id === newProduct.product_id) {
       prod = {
         ...prod,
@@ -49,7 +49,7 @@ export function removeProductFromCart(
   productToRemoveOrUpdate: CartProduct
 ): CartProduct[] {
   let newCart = exisitingCart;
-  newCart = newCart.map(prod => {
+  newCart = newCart.map((prod) => {
     if (prod.product_id === productToRemoveOrUpdate.product_id) {
       const shouldRemove = prod.quantity === productToRemoveOrUpdate.quantity;
       prod = {
@@ -59,5 +59,5 @@ export function removeProductFromCart(
     }
     return prod;
   });
-  return newCart.filter(cartItem => cartItem.quantity !== 0);
+  return newCart.filter((cartItem) => cartItem.quantity !== 0);
 }

@@ -19,7 +19,10 @@ cartRouter.get(
   '',
   validateAuthHeader,
   // checkTokenMismatchInReqParams,
-  (req: Request<{}, {}, {}, CartTypes.GetCartByUserId>, res: Response) => {
+  (
+    req: Request<object, object, object, CartTypes.GetCartByUserId>,
+    res: Response
+  ) => {
     const user_id = req.query.user_id;
     return cartService.getUserCartInfo(res, user_id);
   }
@@ -33,7 +36,7 @@ cartRouter.get(
 cartRouter.put(
   `/${ApiRoutesConfig.cart.subRoutes.add}`,
   validateAuthHeader,
-  (req: Request<{}, {}, CartProduct, AddToUserCart>, res: Response) => {
+  (req: Request<object, object, CartProduct, AddToUserCart>, res: Response) => {
     const products = req.body;
     const cartQueryParams = req.query;
     return cartService.addToCart(res, products, cartQueryParams);
@@ -48,7 +51,7 @@ cartRouter.put(
 cartRouter.put(
   `/${ApiRoutesConfig.cart.subRoutes.update}`,
   validateAuthHeader,
-  (req: Request<{}, {}, CartProduct, AddToUserCart>, res: Response) => {
+  (req: Request<object, object, CartProduct, AddToUserCart>, res: Response) => {
     const products = req.body;
     const cartQueryParams = req.query;
     return cartService.removeFromCart(res, products, cartQueryParams);
@@ -60,7 +63,10 @@ cartRouter.put(
  */
 cartRouter.get(
   `/${ApiRoutesConfig.cart.subRoutes.products}`,
-  (req: Request<{}, {}, {}, CartTypes.GetProductsInfoQuery>, res: Response) => {
+  (
+    req: Request<object, object, object, CartTypes.GetProductsInfoQuery>,
+    res: Response
+  ) => {
     const productIds = req.query.productids;
     return cartService.fetchProductsInfo(res, productIds);
   }

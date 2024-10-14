@@ -25,7 +25,7 @@ razorpayRouter.get(
 /* Create a customer */
 razorpayRouter.post(
   `/${ApiRoutesConfig.razorpay.subRoutes.customers}`,
-  (req: Request<{}, {}, UserProfileDetails>, res: Response) => {
+  (req: Request<object, object, UserProfileDetails>, res: Response) => {
     const customerDetails = req.body;
     return razorpayService.createRzpCustomerHandler(res, customerDetails);
   }
@@ -37,7 +37,7 @@ razorpayRouter.put(
   (
     req: Request<
       RazorpayTypes.CustomerIdParams,
-      {},
+      object,
       Omit<UserProfileDetails, 'avatar'>
     >,
     res: Response
@@ -89,7 +89,7 @@ razorpayRouter.get(
 razorpayRouter.post(
   `/${ApiRoutesConfig.razorpay.subRoutes.orders}`,
   (
-    req: Request<{}, {}, Pick<CreateRazorpayOrder, 'amount'>>,
+    req: Request<object, object, Pick<CreateRazorpayOrder, 'amount'>>,
     res: Response
   ) => {
     const orderAmount = req.body.amount;
@@ -116,7 +116,7 @@ razorpayRouter.put(
   (
     req: Request<
       RazorpayTypes.OrderIdParams,
-      {},
+      object,
       RazorpayTypes.UpdateRzpEntityNotes
     >,
     res: Response
@@ -156,7 +156,7 @@ razorpayRouter.post(
   (
     req: Request<
       RazorpayTypes.PaymentIdParams,
-      {},
+      object,
       RazorpayTypes.PaymentDetails
     >,
     res: Response
@@ -175,7 +175,7 @@ razorpayRouter.put(
   (
     req: Request<
       RazorpayTypes.PaymentIdParams,
-      {},
+      object,
       RazorpayTypes.UpdateRzpEntityNotes
     >,
     res: Response
@@ -193,7 +193,7 @@ razorpayRouter.post(
   (
     req: Request<
       RazorpayTypes.PaymentIdParams,
-      {},
+      object,
       RazorpayTypes.PaymentRefund
     >,
     res: Response
@@ -247,7 +247,7 @@ razorpayRouter.put(
   (
     req: Request<
       RazorpayTypes.RefundIdParams,
-      {},
+      object,
       RazorpayTypes.UpdateRzpEntityNotes
     >,
     res: Response

@@ -5,6 +5,6 @@ export default [
   ...jsEslintConfig,
   ...jsxEslintConfig,
   {
-    ignores: ['node_modules/**', 'dist/**']
+    ignores: ['node_modules', 'build', 'dist']
   }
 ];

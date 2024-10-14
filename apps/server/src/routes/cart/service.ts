@@ -28,7 +28,7 @@ class CartService {
           products: cartInfo?.products
         })
         .end();
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -86,7 +86,7 @@ class CartService {
         }
       ]);
       return res.status(200).send(userCartDetails);
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -126,9 +126,9 @@ class CartService {
         user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
-      const existingProducts
-        = exisitingCart?.products.map(prod => prod.toObject()) ?? [];
-      const exisitingCartProducts = existingProducts.map(prod => ({
+      const existingProducts =
+        exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
+      const exisitingCartProducts = existingProducts.map((prod) => ({
         ...prod,
         product_id: prod.product_id.toString()
       }));
@@ -151,7 +151,7 @@ class CartService {
           products: updatedCart?.products ?? []
         })
         .end();
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -171,9 +171,9 @@ class CartService {
         user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
-      const existingProducts
-        = exisitingCart?.products.map(prod => prod.toObject()) ?? [];
-      const exisitingCartProducts = existingProducts.map(prod => ({
+      const existingProducts =
+        exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
+      const exisitingCartProducts = existingProducts.map((prod) => ({
         ...prod,
         product_id: prod.product_id.toString()
       }));
@@ -199,7 +199,7 @@ class CartService {
           products: updatedCart?.products ?? []
         })
         .end();
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -212,7 +212,7 @@ class CartService {
 
     const objIds = productIds
       .split(',')
-      .map(prodId => new Types.ObjectId(prodId));
+      .map((prodId) => new Types.ObjectId(prodId));
 
     const productsData = await GroceryModel.find({
       _id: { $in: objIds }

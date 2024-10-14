@@ -6,8 +6,12 @@ import { DecodedTokenInfo } from '@/routes/auth/types';
 import winstonLogger from '@/winston-logger';
 import { generateJWT } from '../auth';
 
+/**
+ * Prev was with any instead of using object
+ */
+
 export function validateAuthHeader(
-  req: Request<any, any, any, any>,
+  req: Request<object, object, object, object>,
   res: Response,
   next: NextFunction
 ) {
@@ -47,8 +51,8 @@ export function validateAuthHeader(
     refreshTokenKey
   ) as DecodedTokenInfo;
   if (
-    refreshTokenExpiry - Date.now()
-    <= AuthConfig.cookies_expiry.renew_threshold
+    refreshTokenExpiry - Date.now() <=
+    AuthConfig.cookies_expiry.renew_threshold
   ) {
     refreshToken = generateJWT(userInfo, true);
   }
@@ -65,7 +69,7 @@ export function validateAuthHeader(
 }
 
 export function authenticateAdmin(
-  req: Request<any, any, any, any>,
+  req: Request<object, object, object, object>,
   res: Response,
   next: NextFunction
 ) {
@@ -79,7 +83,7 @@ export function authenticateAdmin(
 }
 
 export function checkTokenMismatchInReqParams(
-  req: Request<any, any, any, any>,
+  req: Request<object, object, object, object>,
   res: Response,
   next: NextFunction
 ) {
@@ -90,7 +94,7 @@ export function checkTokenMismatchInReqParams(
 }
 
 export function checkTokenMismatchInReqQuery(
-  req: Request<any, any, any, any>,
+  req: Request<object, object, object, object>,
   res: Response,
   next: NextFunction
 ) {

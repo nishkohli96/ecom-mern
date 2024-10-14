@@ -160,7 +160,7 @@ class AuthService {
       console.log('link: ', link);
 
       return res.status(200).send('Password reset link shared on email').end();
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }

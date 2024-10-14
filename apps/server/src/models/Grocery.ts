@@ -31,7 +31,7 @@ const GrocerySchema = new Schema(
 /* index -1 -> descending, 1 -> ascending order for that field */
 GrocerySchema.index({ brand: -1, sku: 1 });
 
-GrocerySchema.pre('save', function (next) {
+GrocerySchema.pre('save', function onPreSave(next) {
   this.discount_price = this.get('discount_price') ?? this.get('price');
   if (this.discount_price > this.price) {
     throw new Error('Discount_price should not be greater than price');
@@ -48,8 +48,10 @@ GrocerySchema.pre('save', function (next) {
 
 const GroceryModel = model('grocery', GrocerySchema);
 
-GroceryModel.schema.path('discount_price').validate(function (value) {
-  return value <= this.get('price');
-}, 'Discount_price should not be greater than price');
+GroceryModel.schema
+  .path('discount_price')
+  .validate(function validateDiscountPrice(value) {
+    return value <= this.get('price');
+  }, 'Discount_price should not be greater than price');
 
 export default GroceryModel;

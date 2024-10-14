@@ -11,7 +11,7 @@ const authService = new AuthService();
 /* Check if user is logged in */
 authRouter.get(
   `/${ApiRoutesConfig.auth.subRoutes.checkLogin}`,
-  async function (req: Request, res: Response) {
+  (req: Request, res: Response) => {
     return authService.checkLogin(req, res);
   }
 );
@@ -19,19 +19,19 @@ authRouter.get(
 /* Login user */
 authRouter.post(
   `/${ApiRoutesConfig.auth.subRoutes.login}`,
-  async function (
-    req: Request<{}, {}, AuthTypes.UserLoginBody>,
+  async (
+    req: Request<object, object, AuthTypes.UserLoginBody>,
     res: Response
-  ) {
+  ) => {
     const { email, password } = req.body;
-    return authService.loginUser(res, email, password);
+    return await authService.loginUser(res, email, password);
   }
 );
 
 /* Issue new JWT */
 authRouter.post(
   `/${ApiRoutesConfig.auth.subRoutes.refreshToken}`,
-  async function (req: Request, res: Response) {
+  (req: Request, res: Response) => {
     const token = req.cookies?.[AuthConfig.cookies_name.refresh];
     return authService.issueNewJWT(res, token);
   }
@@ -41,7 +41,7 @@ authRouter.post(
 authRouter.delete(
   `/${ApiRoutesConfig.auth.subRoutes.logout}`,
   validateAuthHeader,
-  async function (req: Request, res: Response) {
+  (req: Request, res: Response) => {
     return authService.logoutUser(res);
   }
 );
@@ -49,7 +49,7 @@ authRouter.delete(
 /* Verify user email on signup */
 authRouter.post(
   `/${ApiRoutesConfig.auth.subRoutes.verifyEmail}`,
-  async function (req: Request, res: Response) {
+  (req: Request, res: Response) => {
     const token = req.cookies?.[AuthConfig.cookies_name.refresh];
     return authService.issueNewJWT(res, token);
   }
@@ -58,9 +58,9 @@ authRouter.post(
 /* Share password reset link on user email if it exists */
 authRouter.post(
   `/${ApiRoutesConfig.auth.subRoutes.findAccount}`,
-  async function (req: Request<{}, {}, VerifyUserEmail>, res: Response) {
+  async (req: Request<object, object, VerifyUserEmail>, res: Response) => {
     const userEmail = req.body.email;
-    return authService.initiateUserPasswordReset(res, userEmail);
+    return await authService.initiateUserPasswordReset(res, userEmail);
   }
 );
 

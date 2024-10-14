@@ -11,7 +11,7 @@ const checkoutService = new CheckoutService();
 
 checkoutRouter.post(
   `/${ApiRoutesConfig.checkout.subRoutes.order}`,
-  (req: Request<{}, {}, CreateRazorpayOrder>, res: Response) => {
+  (req: Request<object, object, CreateRazorpayOrder>, res: Response) => {
     const createOrderData = req.body;
     return checkoutService.createNewOrder(res, createOrderData);
   }
@@ -19,7 +19,7 @@ checkoutRouter.post(
 
 checkoutRouter.put(
   `/${ApiRoutesConfig.checkout.subRoutes.order}`,
-  (req: Request<{}, {}, RazorPayOrderSuccess>, res: Response) => {
+  (req: Request<object, object, RazorPayOrderSuccess>, res: Response) => {
     const updatedOrderData = req.body;
     return checkoutService.updateOrder(res, updatedOrderData);
   }

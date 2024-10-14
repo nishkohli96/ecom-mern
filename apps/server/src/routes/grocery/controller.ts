@@ -13,10 +13,13 @@ const groceryRouter = Router();
 
 groceryRouter.get(
   '/records',
-  (req: Request<{}, {}, {}, GroceryTypes.GetGroceryParams>, res: Response) => {
+  (
+    req: Request<object, object, object, GroceryTypes.GetGroceryParams>,
+    res: Response
+  ) => {
     const pageNum = req.query.page ?? 1;
-    const num_entries
-      = req.query.num_entries ?? ALGOLIA_CONFIG.default_records_fetch;
+    const num_entries =
+      req.query.num_entries ?? ALGOLIA_CONFIG.default_records_fetch;
     return groceryService.getGroceryRecords(res, pageNum, num_entries);
   }
 );
@@ -46,7 +49,7 @@ groceryRouter.get(
 
 groceryRouter.get(
   `/${ApiRoutesConfig.grocery.subRoutes.availability}`,
-  (req: Request<{}, {}, {}, GroceryInventory>, res: Response) => {
+  (req: Request<object, object, object, GroceryInventory>, res: Response) => {
     const groceryChosen = req.query;
     return groceryService.getAvailability(res, groceryChosen);
   }
@@ -56,7 +59,10 @@ groceryRouter.post(
   '/add',
   validateAuthHeader,
   authenticateAdmin,
-  (req: Request<{}, {}, GroceryTypes.AddGroceryItem>, res: Response) => {
+  (
+    req: Request<object, object, GroceryTypes.AddGroceryItem>,
+    res: Response
+  ) => {
     const groceryItem = req.body;
     return groceryService.addGroceryItem(res, groceryItem);
   }
@@ -67,7 +73,7 @@ groceryRouter.put(
   validateAuthHeader,
   authenticateAdmin,
   (
-    req: Request<GroceryTypes.GroceryById, {}, GroceryTypes.AddGroceryItem>,
+    req: Request<GroceryTypes.GroceryById, object, GroceryTypes.AddGroceryItem>,
     res: Response
   ) => {
     const groceryId = req.params.id;
@@ -84,7 +90,7 @@ groceryRouter.put(
 // groceryRouter.put(
 //   '/update-quantity',
 //   (
-//     req: Request<{}, {}, UpdateProducts >,
+//     req: Request<object, object, UpdateProducts >,
 //     res: Response
 //   ) => {
 //     const groceryItems = req.body.products;

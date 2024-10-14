@@ -11,7 +11,7 @@ orderRouter.get(
   '/',
   validateAuthHeader,
   checkTokenMismatchInReqQuery,
-  (req: Request<{}, {}, {}, GetCustomerQuery>, res: Response) => {
+  (req: Request<object, object, object, GetCustomerQuery>, res: Response) => {
     const customerId = req.query.customer_id;
     return orderService.getCustomerOrdersList(res, customerId);
   }

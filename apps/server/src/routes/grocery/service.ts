@@ -32,7 +32,7 @@ class GroceryService {
         .select('-__v');
 
       res.status(200).send(result);
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -46,7 +46,7 @@ class GroceryService {
         return res.status(400).send('Insufficient stock').end();
       }
       return res.status(200).send('In stock').end();
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -75,7 +75,7 @@ class GroceryService {
         inStock: 1
       });
       res.status(200).send(result);
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -106,7 +106,7 @@ class GroceryService {
        */
       const exclude = new Set(['createdAt', 'updatedAt', '__v']);
       const groceryFields = Object.fromEntries(
-        Object.entries(result.toObject()).filter(e => !exclude.has(e[0]))
+        Object.entries(result.toObject()).filter((e) => !exclude.has(e[0]))
       );
 
       const { objectID } = await algoliaIndex.saveObject(groceryFields, {
@@ -117,7 +117,7 @@ class GroceryService {
         _id: result._id,
         objectID
       });
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -133,7 +133,7 @@ class GroceryService {
         res.status(404).send('No product found with this id').end();
       }
       res.status(200).send(grocery);
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -149,7 +149,7 @@ class GroceryService {
         res.status(404).send('No product found with this id').end();
       }
       res.status(200).send(grocery);
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -192,7 +192,7 @@ class GroceryService {
         objectID,
         ...result.toObject()
       });
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -217,7 +217,7 @@ class GroceryService {
         objectID,
         ...result
       });
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }
@@ -227,7 +227,7 @@ class GroceryService {
     purchasedProducts: CartProduct[]
   ) {
     try {
-      for (let i = 0; i < purchasedProducts.length; i++) {
+      for (let i = 0; i < purchasedProducts.length; i += 1) {
         const deductedQuantity = -1 * purchasedProducts[i].quantity;
         const updatedProduct = await GroceryModel.findByIdAndUpdate(
           purchasedProducts[i].product_id,
@@ -251,7 +251,7 @@ class GroceryService {
         });
       }
       // res.status(200).send('Updated inStock Quantity');
-    } catch (err: any) {
+    } catch (err) {
       console.log('err', err);
       // errorLogger(res, err);
     }
@@ -326,7 +326,7 @@ class GroceryService {
     try {
       fs.createReadStream(`${__dirname}/BigBasket.csv`)
         .pipe(parse({ delimiter: ',', columns: true, relax_quotes: true }))
-        .on('data', function (row) {
+        .on('data', (row) => {
           const productSku = Math.floor(Math.random() * 1000000);
           groceryRecords.push({
             ...row,
@@ -335,17 +335,17 @@ class GroceryService {
             inStock: Math.floor(Math.random() * 100)
           });
         })
-        .on('error', function (error) {
+        .on('error', (error) => {
           console.log('err ', error.message);
           errorLogger(res, error);
         })
-        .on('end', async function () {
+        .on('end', async () => {
           const successMsg = 'grocery data uploaded to db';
           printSuccessMsg(successMsg);
           try {
             await GroceryModel.insertMany(groceryRecords);
             res.status(200).send(successMsg);
-          } catch (err: any) {
+          } catch (err) {
             errorLogger(res, err);
           }
           /**
@@ -373,7 +373,7 @@ class GroceryService {
         printSuccessMsg(successMsg);
         res.status(200).send(objectIDs);
       })
-      .catch(err => {
+      .catch((err) => {
         errorLogger(res, err);
       });
   }
@@ -396,7 +396,7 @@ class GroceryService {
         .send(
           'Grocery handle generated and random quantity assigned to each item'
         );
-    } catch (err: any) {
+    } catch (err) {
       errorLogger(res, err);
     }
   }

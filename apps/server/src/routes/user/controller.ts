@@ -33,7 +33,10 @@ userRouter.get(
   '/:id',
   validateAuthHeader,
   checkTokenMismatchInReqParams,
-  async function (req: Request<UserTypes.UserById, {}, {}, {}>, res: Response) {
+  async function (
+    req: Request<UserTypes.UserById, object, object, object>,
+    res: Response
+  ) {
     const userId = req.params.id;
     return userService.getUserById(res, userId);
   }
@@ -42,7 +45,10 @@ userRouter.get(
 /* Register a new user */
 userRouter.post(
   '/add',
-  async function (req: Request<{}, {}, UserTypes.AddUser>, res: Response) {
+  async function (
+    req: Request<object, object, UserTypes.AddUser>,
+    res: Response
+  ) {
     const userData = req.body;
     return userService.addUser(res, userData);
   }
@@ -52,7 +58,10 @@ userRouter.post(
 userRouter.put(
   `/${ApiRoutesConfig.user.subRoutes.changePswd}`,
   validateAuthHeader,
-  async function (req: Request<{}, {}, UserPasswordChange>, res: Response) {
+  async function (
+    req: Request<object, object, UserPasswordChange>,
+    res: Response
+  ) {
     const userData = req.body;
     return userService.changePassword(res, userData);
   }
@@ -62,7 +71,7 @@ userRouter.put(
 userRouter.put(
   `/${ApiRoutesConfig.user.subRoutes.resetPswd}`,
   async function (
-    req: Request<{}, {}, ConfirmPasswordType, PasswordResetQueryParams>,
+    req: Request<object, object, ConfirmPasswordType, PasswordResetQueryParams>,
     res: Response
   ) {
     const newUserPassword = req.body;
@@ -77,7 +86,7 @@ userRouter.put(
   validateAuthHeader,
   checkTokenMismatchInReqParams,
   async function (
-    req: Request<UserTypes.UserById, {}, UserTypes.UpdateUser>,
+    req: Request<UserTypes.UserById, object, UserTypes.UpdateUser>,
     res: Response
   ) {
     const userId = req.params.id;
@@ -114,7 +123,7 @@ userRouter.post(
   validateAuthHeader,
   checkTokenMismatchInReqParams,
   async function (
-    req: Request<UserTypes.UserById, {}, UserAddress>,
+    req: Request<UserTypes.UserById, object, UserAddress>,
     res: Response
   ) {
     const userId = req.params.id;
@@ -129,7 +138,7 @@ userRouter.put(
   validateAuthHeader,
   checkTokenMismatchInReqParams,
   async function (
-    req: Request<UserTypes.UserById, {}, UserTypes.UserAddressDocument>,
+    req: Request<UserTypes.UserById, object, UserTypes.UserAddressDocument>,
     res: Response
   ) {
     const userId = req.params.id;
@@ -144,7 +153,7 @@ userRouter.put(
   validateAuthHeader,
   checkTokenMismatchInReqParams,
   async function (
-    req: Request<UserTypes.UserById, {}, SetDefaultAddress>,
+    req: Request<UserTypes.UserById, object, SetDefaultAddress>,
     res: Response
   ) {
     const userId = req.params.id;
@@ -159,7 +168,7 @@ userRouter.delete(
   validateAuthHeader,
   checkTokenMismatchInReqParams,
   async function (
-    req: Request<UserTypes.UserById, {}, SetDefaultAddress>,
+    req: Request<UserTypes.UserById, object, SetDefaultAddress>,
     res: Response
   ) {
     const userId = req.params.id;
