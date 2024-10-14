@@ -20,7 +20,7 @@ export const fetchAlgoliaData = async (
       attributesToRetrieve: ['*'],
       facets: ['*'],
       filters: '',
-      numericFilters: numericFilters,
+      numericFilters,
       hitsPerPage: hitsPerPage ?? AlgoliaConfig.CONFIG.hitsPerPage.searchbar,
       page: page ?? 0,
       facetFilters: ['brand:BB Royal'],

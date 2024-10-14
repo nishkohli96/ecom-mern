@@ -23,7 +23,7 @@ const AdvancedSearchPage = () => {
   const [inputValue, setInputValue] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [facetFilters, setFacetFilters] = useState<string[]>(
-    Boolean(location.state) ? [location.state] : []
+    location.state ? [location.state] : []
   );
   const [numericFilters, setNumericFilters] = useState<string[]>([]);
 

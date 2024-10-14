@@ -6,7 +6,7 @@
 - [lint-staged](https://github.com/lint-staged/lint-staged#readme)@15.2.10
 - [prettier](https://prettier.io/)@2.7.1
 - [turbo](https://turbo.build/)@2.1.3
-- [typescript](https://www.typescriptlang.org/)@5.6.2
+- [typescript](https://www.typescriptlang.org/)@5.5.4
 
 ### Client Packages
 

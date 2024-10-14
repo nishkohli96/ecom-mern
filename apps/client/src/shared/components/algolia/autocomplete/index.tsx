@@ -61,9 +61,7 @@ export const GroceryAutocomplete = () => {
       value={value}
       filterOptions={(x) => x}
       noOptionsText={
-        Boolean(inputValue)
-          ? 'No Results Found'
-          : 'Type something to fetch results...'
+        inputValue ? 'No Results Found' : 'Type something to fetch results...'
       }
       onChange={(event: any, newValue: GroceryItemHit | null) => {
         setOptions(newValue ? [newValue, ...options] : options);

@@ -101,7 +101,7 @@ export const RazorpayCheckout = ({
     displayRazorpay();
   }, []);
 
-  return <Fragment></Fragment>;
+  return <Fragment />;
 };
 
 /**

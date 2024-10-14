@@ -6,7 +6,7 @@ export interface PriceFormSchema {
 }
 
 function checkNumberValidation(numVal?: string): boolean {
-  if (!Boolean(numVal)) {
+  if (!numVal) {
     return true;
   }
   if (isNaN(Number(numVal))) {

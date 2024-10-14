@@ -25,9 +25,7 @@ function App() {
             indexName={AlgoliaConfig.DEFAULT_INDEX}
             // insights
           >
-            <Configure
-            // hitsPerPage={AlgoliaConfig.CONFIG.hitsPerPage.products}
-            />
+            <Configure />
             <Routing />
           </InstantSearch>
         </Suspense>

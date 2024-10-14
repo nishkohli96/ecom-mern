@@ -177,7 +177,7 @@ export const UpdateAddressForm = ({
   };
 
   const setCity = (citySelected: string) => {
-    if (Boolean(citySelected)) {
+    if (citySelected) {
       setValue('city', citySelected);
     }
   };

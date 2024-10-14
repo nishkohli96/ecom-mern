@@ -48,7 +48,7 @@ const LoginForm = () => {
       .unwrap()
       .then((payload) => {
         dispatch(setUser(payload));
-        Boolean(redirectUrl) ? navigate(redirectUrl) : navigate(-1);
+        redirectUrl ? navigate(redirectUrl) : navigate(-1);
       })
       .catch((err) =>
         batch(() => {

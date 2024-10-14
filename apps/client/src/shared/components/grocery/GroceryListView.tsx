@@ -53,7 +53,7 @@ const GroceryListView = ({ hits }: GroceryListViewProps) => {
               </div>
               <Header5Text>{hit.product_name}</Header5Text>
               <Header6Text>{hit.brand}</Header6Text>
-              <Typography>₹ {hit.discount_price.toFixed(2)}</Typography>
+              <Typography>₹{hit.discount_price.toFixed(2)}</Typography>
             </Grid>
           ))}
         </Grid>

@@ -7,6 +7,9 @@ export default [
   {
     files: ['src/**/*{.js,.jsx,.ts,.tsx}'],
     rules: {},
-    ignores: ['dist/**/*{.js,.d.ts}']
+    ignores: [
+			'node_modules',
+			'dist/**/*{.js,.d.ts}'
+		]
   }
 ];

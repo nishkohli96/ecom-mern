@@ -83,7 +83,10 @@ export const RefinementList = ({
             ))}
           </FormGroup>
         ) : (
-          <PrimaryText>No {attribute} found for current search... </PrimaryText>
+          <PrimaryText>
+            No
+            {attribute} found for current search...{' '}
+          </PrimaryText>
         )}
       </Box>
     </div>

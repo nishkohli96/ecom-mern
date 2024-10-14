@@ -22,10 +22,8 @@ const AddAddressDialog = ({ open, handleClose }: AddAddressDialogProps) => {
   const [addUserAddress] = useAddUserAddressMutation();
 
   const initialValues: UserAddress = {
-    recipientName: Boolean(user)
-      ? `${user?.name.first} ${user?.name.last}`
-      : '',
-    recipientPhone: Boolean(user) ? `${user?.phone}` : '',
+    recipientName: user ? `${user?.name.first} ${user?.name.last}` : '',
+    recipientPhone: user ? `${user?.phone}` : '',
     houseNo: '',
     street: '',
     landmark: '',

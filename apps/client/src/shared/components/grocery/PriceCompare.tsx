@@ -20,7 +20,9 @@ const PriceCompare = ({ price, discount_price }: PriceCompareProps) => {
           <Typography
             variant="h6"
             sx={{ color: (theme) => theme.palette.success.main }}
-          >{`₹${discount_price?.toFixed(2)}`}</Typography>
+          >
+            {`₹${discount_price?.toFixed(2)}`}
+          </Typography>
         </Grid>
       )}
       <Grid item>

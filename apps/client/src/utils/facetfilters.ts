@@ -5,7 +5,7 @@ export function categorizeFacets(
   filters: string[],
   concatFacet?: boolean
 ): FilterCategories {
-  let result: FilterCategories = {
+  const result: FilterCategories = {
     brand: [],
     category: [],
     sub_category: []
@@ -25,5 +25,5 @@ export function categorizeFacets(
 
 export function generateFacetFilters(obj: FilterCategories): Array<string[]> {
   const filtersArray = Object.values(obj);
-  return filtersArray; //.filter(arr => arr.length > 0);
+  return filtersArray; // .filter(arr => arr.length > 0);
 }

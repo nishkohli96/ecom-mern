@@ -50,6 +50,6 @@ export function removeProductFromCart(
   exisitingCart: CartProduct[],
   productId: string
 ): CartProduct[] {
-  let newCart = exisitingCart;
+  const newCart = exisitingCart;
   return newCart.filter((prod) => prod.product_id !== productId);
 }

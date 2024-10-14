@@ -159,7 +159,9 @@ const GroceryItemPage = () => {
                   fontSize: '1.5rem',
                   color: (theme) => theme.palette.success.main
                 }}
-              >{`₹${data?.discount_price?.toFixed(2)}   `}</Typography>
+              >
+                {`₹${data?.discount_price?.toFixed(2)}   `}
+              </Typography>
             )}
             <span
               style={{ textDecoration: isDiscounted ? 'line-through' : 'none' }}
