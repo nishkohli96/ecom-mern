@@ -126,9 +126,9 @@ class CartService {
         user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
-      const existingProducts =
-        exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
-      const exisitingCartProducts = existingProducts.map((prod) => ({
+      const existingProducts
+        = exisitingCart?.products.map(prod => prod.toObject()) ?? [];
+      const exisitingCartProducts = existingProducts.map(prod => ({
         ...prod,
         product_id: prod.product_id.toString()
       }));
@@ -171,9 +171,9 @@ class CartService {
         user_id: new Types.ObjectId(user_id)
       });
       /* Convert products from mongoose to JS object */
-      const existingProducts =
-        exisitingCart?.products.map((prod) => prod.toObject()) ?? [];
-      const exisitingCartProducts = existingProducts.map((prod) => ({
+      const existingProducts
+        = exisitingCart?.products.map(prod => prod.toObject()) ?? [];
+      const exisitingCartProducts = existingProducts.map(prod => ({
         ...prod,
         product_id: prod.product_id.toString()
       }));
@@ -212,7 +212,7 @@ class CartService {
 
     const objIds = productIds
       .split(',')
-      .map((prodId) => new Types.ObjectId(prodId));
+      .map(prodId => new Types.ObjectId(prodId));
 
     const productsData = await GroceryModel.find({
       _id: { $in: objIds }

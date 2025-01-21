@@ -1514,7 +1514,7 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.1.tgz#de633db3ec2ef6a3c89e2f19038063e8a122e2c2"
   integrity sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==
 
-"@eslint/js@9.18.0", "@eslint/js@^9.12.0":
+"@eslint/js@9.18.0", "@eslint/js@^9.18.0":
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.18.0.tgz#3356f85d18ed3627ab107790b53caf7e1e3d1e84"
   integrity sha512-fK6L7rxcq6/z+AaQMtiFTkvbHkBLNlwyRxHpKawP0x3u9+NC6MQTnFW+AdpwC6gfHTW0051cokQgtTN2FqlxQA==
@@ -2005,7 +2005,7 @@
   dependencies:
     eslint-scope "5.1.1"
 
-"@nish1896/eslint-flat-config@^1.0.2":
+"@nish1896/eslint-flat-config@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nish1896/eslint-flat-config/-/eslint-flat-config-1.1.2.tgz#350a71b4c2ce975b6fb2d3bddd4b6542e7bb7258"
   integrity sha512-/Zh34EP7MdOR8AU3KZqWLHIxlKugiG7XBh2QuAVF18RlXFHEREg0nAtd9KbXKM2vglxivs6dhzdvOUOavhdRjA==
@@ -5549,7 +5549,7 @@ eslint@^8.3.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-eslint@^9.12.0:
+eslint@^9.18.0:
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-9.18.0.tgz#c95b24de1183e865de19f607fda6518b54827850"
   integrity sha512-+waTfRWQlSbpt3KWE+CjrPPYnbq9kfZIYUqapc0uBXyjTp8aYXZDsUH16m39Ryq3NjAVP4tjuF7KaukeqoCoaA==

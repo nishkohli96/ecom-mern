@@ -106,7 +106,7 @@ class GroceryService {
        */
       const exclude = new Set(['createdAt', 'updatedAt', '__v']);
       const groceryFields = Object.fromEntries(
-        Object.entries(result.toObject()).filter((e) => !exclude.has(e[0]))
+        Object.entries(result.toObject()).filter(e => !exclude.has(e[0]))
       );
 
       const { objectID } = await algoliaIndex.saveObject(groceryFields, {
@@ -326,7 +326,7 @@ class GroceryService {
     try {
       fs.createReadStream(`${__dirname}/BigBasket.csv`)
         .pipe(parse({ delimiter: ',', columns: true, relax_quotes: true }))
-        .on('data', (row) => {
+        .on('data', row => {
           const productSku = Math.floor(Math.random() * 1000000);
           groceryRecords.push({
             ...row,
@@ -335,7 +335,7 @@ class GroceryService {
             inStock: Math.floor(Math.random() * 100)
           });
         })
-        .on('error', (error) => {
+        .on('error', error => {
           console.log('err ', error.message);
           errorLogger(res, error);
         })
@@ -373,7 +373,7 @@ class GroceryService {
         printSuccessMsg(successMsg);
         res.status(200).send(objectIDs);
       })
-      .catch((err) => {
+      .catch(err => {
         errorLogger(res, err);
       });
   }
