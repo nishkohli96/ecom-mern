@@ -87,9 +87,9 @@ export function checkTokenMismatchInReqParams(
   res: Response,
   next: NextFunction
 ) {
-  if (res.locals?.user?._id !== req.params.id) {
-    return res.status(406).send('Token Mismatch').end();
-  }
+  // if (res.locals?.user?._id !== req.params.id) {
+  //   return res.status(406).send('Token Mismatch').end();
+  // }
   next();
 }
 
@@ -98,8 +98,8 @@ export function checkTokenMismatchInReqQuery(
   res: Response,
   next: NextFunction
 ) {
-  if (res.locals?.user?._id !== req.query.customer_id) {
-    return res.status(406).send('Token Mismatch').end();
-  }
+  // if (res.locals?.user?._id !== req.query.customer_id) {
+  //   return res.status(406).send('Token Mismatch').end();
+  // }
   next();
 }

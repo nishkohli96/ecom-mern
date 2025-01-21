@@ -3,8 +3,8 @@ import { UserPasswordChange, ConfirmPasswordType } from 'types';
 import { fieldReqdMsg } from '../utils';
 
 const pswdReqdMsg = fieldReqdMsg('your password');
-export const pswdRegex
-  = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm;
+export const pswdRegex =
+  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/gm;
 
 const pswdRegexErrMsg = (fieldName: string) =>
   `${fieldName} must be of 8 chars, include uppercase, lowercase, number and a spl char`;
@@ -23,8 +23,8 @@ export const passwordOptionalValidation = {
     .matches(pswdRegex, pswdRegexErrMsg('Password'))
 };
 
-export const PasswordResetSchema: ObjectSchema<ConfirmPasswordType>
-  = object().shape({
+export const PasswordResetSchema: ObjectSchema<ConfirmPasswordType> =
+  object().shape({
     new_password: string()
       .required(pswdReqdMsg)
       .matches(pswdRegex, pswdRegexErrMsg('New Password')),
@@ -39,8 +39,8 @@ export const PasswordResetSchema: ObjectSchema<ConfirmPasswordType>
       })
   });
 
-export const PasswordChangeSchema: ObjectSchema<UserPasswordChange>
-  = object().shape({
+export const PasswordChangeSchema: ObjectSchema<UserPasswordChange> =
+  object().shape({
     ...passwordValidation,
     new_password: string()
       .required(pswdReqdMsg)
